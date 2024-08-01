@@ -4,10 +4,6 @@ using System.Linq;
 using Line = System.Collections.Generic.List<PuzzleNode>;
 using NodePair = System.Tuple<PuzzleNode, PuzzleNode>;
 
-/*
-    Class for holding current puzzle information
-    Used for testing inputted lines from LinePuzzle.cs
-*/
 
 [System.Serializable]
 public class PuzzleData
@@ -30,6 +26,7 @@ public class PuzzleData
             PuzzleNode n2 = NodeData.Nodes[p.b];
             ret.Add(new NodePair(n1, n2));
         }
+
         return ret;
     }
 
@@ -47,26 +44,21 @@ public class PuzzleData
     {
         return m_bounds;
     }
-    #endregion //Public Helpers End
+
+    #endregion 
 
     #region Public Functions
 
-    //Call before doing anything else. Required to check for valid data and generate puzzle bounds
     public bool Init()
     {
-        //Pre validate Data
         if (NodeData == null || !NodeData.IsValid())
         {
             return false;
         }
 
-
-        //Temp copy of node data
-        
         PuzzleNodeData tempData = ScriptableObject.CreateInstance<PuzzleNodeData>();
         NodeData.CopyBoundedNodes(out tempData.Nodes, out tempData.Paths);
 
-        //Determine puzzle max bounds
         m_boundsLow = new Vector2(Mathf.Infinity, Mathf.Infinity);
         m_boundsHigh = new Vector2(Mathf.NegativeInfinity, Mathf.NegativeInfinity);
         foreach (PuzzleNode n in tempData.Nodes)
@@ -77,19 +69,19 @@ public class PuzzleData
             if (n.pos.y > m_boundsHigh.y) m_boundsHigh.y = n.pos.y;
         }
 
-        //Determine what corner nodes need generated
-        Vector2[] boundCorners = new Vector2[4] { 
+        Vector2[] boundCorners = new Vector2[4]
+        {
             m_boundsLow,
             new Vector2(m_boundsLow.x, m_boundsHigh.y),
             m_boundsHigh,
             new Vector2(m_boundsHigh.x, m_boundsLow.y)
-        }; //BL TL TR BR
+        };
 
         //Used to start off bounds, this should be set to a corner
         PuzzleNode startCorner = null;
 
         //Find or create new corners to generate 'square' bounds
-        for (int i = 0; i<4; ++i)
+        for (int i = 0; i < 4; ++i)
         {
             bool foundCorner = false;
             foreach (PuzzleNode n in tempData.Nodes)
@@ -101,11 +93,14 @@ public class PuzzleData
                     break;
                 }
             }
+
             if (!foundCorner)
             {
                 //Missing a corner at this point so make a new temp one for the sake of generating our puzzle bounds
-                System.Predicate<PuzzleNode> GrabEdge1 = n => n.pos.x == boundCorners[i].x && n.pos.y != boundCorners[i].y;
-                System.Predicate<PuzzleNode> GrabEdge2 = n => n.pos.x != boundCorners[i].x && n.pos.y == boundCorners[i].y;
+                System.Predicate<PuzzleNode> GrabEdge1 = n =>
+                    n.pos.x == boundCorners[i].x && n.pos.y != boundCorners[i].y;
+                System.Predicate<PuzzleNode> GrabEdge2 = n =>
+                    n.pos.x != boundCorners[i].x && n.pos.y == boundCorners[i].y;
                 System.Func<PuzzleNode, float> OrderDist = n => Vector2.Distance(boundCorners[i], n.pos);
                 PuzzleNode nb = tempData.Nodes.FindAll(GrabEdge1).OrderBy(OrderDist).First();
                 PuzzleNode nc = tempData.Nodes.FindAll(GrabEdge2).OrderBy(OrderDist).First();
@@ -136,15 +131,17 @@ public class PuzzleData
             float maxDist = 0;
             foreach (PuzzleNode n in tempData.GetConnectedNodes(currentNode))
             {
-                if(n == startCorner && m_bounds.Count > 3)
+                if (n == startCorner && m_bounds.Count > 3)
                 {
                     currentNode = n;
                     break; //Close loop
                 }
+
                 if (m_bounds.Contains(n))
                 {
                     continue; //This is a double back
                 }
+
                 float d = Vector2.Distance(boundCenter, n.pos);
                 if (d > maxDist)
                 {
@@ -152,10 +149,12 @@ public class PuzzleData
                     currentNode = n;
                 }
             }
+
             if (currentNode == m_bounds.Last())
             {
                 break; //Error
             }
+
             m_bounds.Add(currentNode);
         } while (currentNode != startCorner || m_bounds.Count < tempData.Nodes.Count);
 
@@ -179,11 +178,13 @@ public class PuzzleData
                 }
             }
         }
+
         return true;
     }
 
     //Test a lines validity against puzzle elements
-    public bool Test(Line playerLine, out List<Line> borders) //Returns borders for silly debug reasons. Feel free to remove
+    public bool
+        Test(Line playerLine, out List<Line> borders) //Returns borders for silly debug reasons. Feel free to remove
     {
         borders = null;
         if (m_bounds.Count == 0) return false; //Invalid data or uninitialized
@@ -207,6 +208,7 @@ public class PuzzleData
                 return false; //Test failed
             }
         }
+
         return true;
     }
 
@@ -230,11 +232,13 @@ public class PuzzleData
             {
                 len = 1;
             }
+
             //hit edge
             if (!startBound && endBound)
             {
                 borders.Add(new Line(testLine.GetRange(i - len, len + 1)));
             }
+
             len++;
         }
 
@@ -270,6 +274,7 @@ public class PuzzleData
                 Debug.Log(string.Format("Border {0} created in {1} tries", i, t + 1));
             }
         }
+
         return borders;
     }
 
@@ -318,9 +323,11 @@ public class PuzzleData
         nextNode = null;
         return false;
     }
+
     #endregion //Private Functions End
 
     #region Private Utils
+
     private bool CheckBorderOverlap(int ID, List<Line> borders)
     {
         for (int j = ID - 1; j >= 0; --j)
@@ -330,18 +337,20 @@ public class PuzzleData
                 return true; //Double border overlap
             }
         }
+
         return false;
     }
 
     private void GetAdjacentNode(PuzzleNode n, Line b, out PuzzleNode out1, out PuzzleNode out2)
     {
         int i = b.IndexOf(n);
-        if(i<=0)
+        if (i <= 0)
         {
             out1 = null;
             out2 = null;
             return;
         }
+
         out1 = i - 1 < 0 ? b.Last() : b[i - 1];
         out2 = i + 1 >= b.Count ? b.First() : b[i + 1];
     }
@@ -352,13 +361,15 @@ public class PuzzleData
         int n = ret.Count;
         while (n > 1)
         {
-            int k = Random.Range(0,n);
+            int k = Random.Range(0, n);
             n--;
             T value = ret[k];
             ret[k] = ret[n];
             ret[n] = value;
         }
+
         return ret;
     }
+
     #endregion
 }

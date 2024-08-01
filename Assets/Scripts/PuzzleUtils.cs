@@ -9,12 +9,11 @@ using Line = System.Collections.Generic.List<PuzzleNode>;
 
 public static class PuzzleUtils
 {
-
     private static readonly Dictionary<int, ElementTest> s_testList = new Dictionary<int, ElementTest>
     {
-        {AsFlag(PuzzleElementType.HEXAGON), new HexElementTest()},
-        {AsFlag(PuzzleElementType.WHITE_SQUARE)|AsFlag(PuzzleElementType.BLACK_SQUARE), new SquareElementTest()},
-        {AsFlag(PuzzleElementType.STAR), new StarElementTest()},
+        { AsFlag(PuzzleElementType.HEXAGON), new HexElementTest() },
+        { AsFlag(PuzzleElementType.WHITE_SQUARE) | AsFlag(PuzzleElementType.BLACK_SQUARE), new SquareElementTest() },
+        { AsFlag(PuzzleElementType.STAR), new StarElementTest() },
     };
 
     public static bool GetRequiresBorders(List<PuzzleElement> list)
@@ -26,9 +25,10 @@ public static class PuzzleUtils
                 return true;
             }
         }
+
         return false;
     }
-    
+
     public static ElementTest GetTest(PuzzleElement e)
     {
         foreach (var t in s_testList)
@@ -38,14 +38,15 @@ public static class PuzzleUtils
                 return t.Value;
             }
         }
+
         Debug.LogError("No test found for element type: " + e.type.ToString());
         return null;
     }
 
     public static PuzzleElement[] FilterElementList(int filter, PuzzleElementData elementData)
     {
-        if (elementData == null) return new PuzzleElement[0];//Error
-        if (elementData.ElementList == null) return new PuzzleElement[0];//Error
+        if (elementData == null) return new PuzzleElement[0]; //Error
+        if (elementData.ElementList == null) return new PuzzleElement[0]; //Error
         return elementData.ElementList.FindAll(e => (filter | AsFlag(e.type)) == filter).ToArray();
     }
 
@@ -62,8 +63,10 @@ public static class PuzzleUtils
                     result = !result;
                 }
             }
+
             j = i;
         }
+
         return result;
     }
 
@@ -82,8 +85,10 @@ public static class PuzzleUtils
                 return b;
             }
         }
+
         return null; //this is inside no borders
     }
+
     public static int AsFlag(PuzzleElementType t)
     {
         return 1 << (int)t;
@@ -94,11 +99,13 @@ public abstract class ElementTest
 {
     protected PuzzleData data = null;
     protected List<Line> borders = null;
+
     public void Setup(PuzzleData dataRef, List<Line> borderRef)
     {
         data = dataRef;
         borders = borderRef;
     }
+
     public abstract bool RequiresBorders(); //True if borders need to be created
     public abstract bool Test(PuzzleElement e, Line testLine);
 }
@@ -114,16 +121,19 @@ public class HexElementTest : ElementTest
     {
         return false;
     }
+
     public override bool Test(PuzzleElement e, Line testLine)
     {
         for (int i = 1; i < testLine.Count; ++i)
         {
-            if (Vector2.Distance(testLine[i - 1].pos, e.pos) + Vector2.Distance(testLine[i].pos, e.pos) == Vector2.Distance(testLine[i - 1].pos, testLine[i].pos))
+            if (Vector2.Distance(testLine[i - 1].pos, e.pos) + Vector2.Distance(testLine[i].pos, e.pos) ==
+                Vector2.Distance(testLine[i - 1].pos, testLine[i].pos))
             {
                 //This hex is on one of the test lines
                 return true;
             }
         }
+
         return false;
     }
 }
@@ -139,14 +149,18 @@ public class SquareElementTest : ElementTest
     {
         return true;
     }
+
     public override bool Test(PuzzleElement e, Line testLine)
     {
         if (data == null) return false; //Error
         if (borders == null || borders.Count == 0) return false; //Error
         Line thisPoly = PuzzleUtils.GetSurrondingBorder(e.pos, borders);
 
-        PuzzleElementType targetFilter = e.type == PuzzleElementType.BLACK_SQUARE ? PuzzleElementType.WHITE_SQUARE : PuzzleElementType.BLACK_SQUARE;
-        PuzzleElement[] otherSquares = PuzzleUtils.FilterElementList(PuzzleUtils.AsFlag(targetFilter), data.ElementData);
+        PuzzleElementType targetFilter = e.type == PuzzleElementType.BLACK_SQUARE
+            ? PuzzleElementType.WHITE_SQUARE
+            : PuzzleElementType.BLACK_SQUARE;
+        PuzzleElement[] otherSquares =
+            PuzzleUtils.FilterElementList(PuzzleUtils.AsFlag(targetFilter), data.ElementData);
         foreach (PuzzleElement other in otherSquares)
         {
             if (PuzzleUtils.GetSurrondingBorder(other.pos, borders) == thisPoly)
@@ -154,6 +168,7 @@ public class SquareElementTest : ElementTest
                 return false;
             }
         }
+
         return true;
     }
 }
@@ -170,13 +185,15 @@ public class StarElementTest : ElementTest
     {
         return true;
     }
+
     public override bool Test(PuzzleElement e, Line testLine)
     {
         if (data == null) return false; //Error
         if (borders == null || borders.Count == 0) return false; //Error
         int connectedStars = 0;
         Line thisPoly = PuzzleUtils.GetSurrondingBorder(e.pos, borders);
-        PuzzleElement[] otherStars = PuzzleUtils.FilterElementList(PuzzleUtils.AsFlag(PuzzleElementType.STAR), data.ElementData);
+        PuzzleElement[] otherStars =
+            PuzzleUtils.FilterElementList(PuzzleUtils.AsFlag(PuzzleElementType.STAR), data.ElementData);
         foreach (PuzzleElement other in otherStars)
         {
             if (other == e) continue;
@@ -185,6 +202,7 @@ public class StarElementTest : ElementTest
                 connectedStars++;
             }
         }
+
         return connectedStars == 1;
     }
 }

@@ -1,11 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/*
-    Classes for Puzzle Element data (puzzle rules)
-    Split into seperate data so node data(line layouts) can be reused
-*/
-
 public enum PuzzleElementType
 {
     HEXAGON = 0,

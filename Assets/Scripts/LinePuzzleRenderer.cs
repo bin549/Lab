@@ -4,36 +4,20 @@ using UnityEngine;
 using UnityEngine.UI;
 using NodePair = System.Tuple<PuzzleNode, PuzzleNode>;
 
-/*
-    Component for rendering the line puzzles
-*/
-
 public class LinePuzzleRenderer : MonoBehaviour
 {
-    [SerializeField]
-    private Vector2 m_borderPadding = Vector2.zero;
-    [SerializeField]
-    private Sprite[] m_elementSprites = null;
-    [SerializeField]
-    private Color m_bgColor = Color.white;
-    [SerializeField]
-    private Color m_bgLineColor = Color.white;
-    [SerializeField]
-    private Color m_fgLineColor = Color.white;
-    [SerializeField]
-    private GameObject m_linePrefab = null;
-    [SerializeField]
-    private GameObject m_circlePrefab = null;
-    [SerializeField]
-    private GameObject m_elementPrefab = null;
-    [SerializeField]
-    private Image m_bgImage = null;
-    [SerializeField]
-    private Transform m_elementParent = null;
-    [SerializeField]
-    private Transform m_lineForeground = null;
-    [SerializeField]
-    private Transform m_lineBackground = null;
+    [SerializeField] private Vector2 m_borderPadding = Vector2.zero;
+    [SerializeField] private Sprite[] m_elementSprites = null;
+    [SerializeField] private Color m_bgColor = Color.white;
+    [SerializeField] private Color m_bgLineColor = Color.white;
+    [SerializeField] private Color m_fgLineColor = Color.white;
+    [SerializeField] private GameObject m_linePrefab = null;
+    [SerializeField] private GameObject m_circlePrefab = null;
+    [SerializeField] private GameObject m_elementPrefab = null;
+    [SerializeField] private Image m_bgImage = null;
+    [SerializeField] private Transform m_elementParent = null;
+    [SerializeField] private Transform m_lineForeground = null;
+    [SerializeField] private Transform m_lineBackground = null;
 
     private Vector2 m_boundsLow = Vector2.zero;
     private Vector2 m_boundsHigh = Vector2.one;
@@ -48,28 +32,23 @@ public class LinePuzzleRenderer : MonoBehaviour
         m_boundsLow = data.GetBoundsLow();
         m_boundsHigh = data.GetBoundsHigh();
 
-        //Draw background lines
         foreach (NodePair line in data.GetNodeConnections())
         {
             DrawLine(line.Item1.pos, line.Item2.pos, m_lineBackground, m_bgLineColor);
         }
 
-        //Draw start circle BG
         RectTransform circle = Instantiate(m_circlePrefab, m_lineBackground).GetComponent<RectTransform>();
         circle.anchoredPosition = RemapVec(data.NodeData.GetStartNode().pos);
         circle.GetComponent<Image>().color = m_bgLineColor;
 
-        //Init start circle FG
         m_startCircle = Instantiate(m_circlePrefab, m_lineForeground).GetComponent<RectTransform>();
         m_startCircle.anchoredPosition = RemapVec(data.NodeData.GetStartNode().pos);
         m_startCircle.GetComponent<Image>().color = m_fgLineColor;
 
-        //Init dynamic line
         m_dynamicLine = Instantiate(m_linePrefab, m_lineForeground).GetComponent<RectTransform>();
         m_dynamicLine.GetComponent<Image>().color = m_fgLineColor;
         ShowDynamicLine(false);
 
-        //Draw Elements
         if (data.ElementData == null) return;
         foreach (PuzzleElement e in data.ElementData.ElementList)
         {
@@ -85,6 +64,7 @@ public class LinePuzzleRenderer : MonoBehaviour
         {
             m_dynamicLine.gameObject.SetActive(v);
         }
+
         if (m_startCircle.gameObject.activeSelf != v)
         {
             m_startCircle.gameObject.SetActive(v);
@@ -98,14 +78,13 @@ public class LinePuzzleRenderer : MonoBehaviour
 
     public void UpdatePlayerLine(List<PuzzleNode> nodeList)
     {
-        //Clear line
         foreach (RectTransform t in m_fgLines)
         {
             Destroy(t.gameObject);
         }
+
         m_fgLines.Clear();
 
-        //Draw line
         for (int i = 0; i < nodeList.Count - 1; ++i)
         {
             m_fgLines.Add(DrawLine(nodeList[i].pos, nodeList[i + 1].pos, m_lineForeground, m_fgLineColor));
@@ -116,18 +95,12 @@ public class LinePuzzleRenderer : MonoBehaviour
     {
         pointA = RemapVec(pointA);
         pointB = RemapVec(pointB);
-        //Set position
         t.anchoredPosition = new Vector2((pointA.x + pointB.x) / 2.0f, (pointA.y + pointB.y) / 2.0f); //Midpoint on line
-
-        //Set rotation
         Vector2 dir = pointA - pointB;
         dir.Normalize();
-
         Vector3 eular = new Vector3(0, 0, 0);
         eular.z = Vector2.SignedAngle(Vector2.up, dir);
         t.eulerAngles = eular;
-
-        //Set scale
         Vector3 scale = Vector3.one;
         scale.y = Vector2.Distance(pointA, pointB);
         t.localScale = scale;
@@ -145,23 +118,24 @@ public class LinePuzzleRenderer : MonoBehaviour
     {
         Vector2 worldBoundsLow = -Vector2.one * 2.0f + m_borderPadding;
         Vector2 worldBoundsHigh = Vector2.one * 2.0f - m_borderPadding;
-        return worldBoundsLow + (value - m_boundsLow) * (worldBoundsHigh - worldBoundsLow) / (m_boundsHigh - m_boundsLow);
+        return worldBoundsLow +
+               (value - m_boundsLow) * (worldBoundsHigh - worldBoundsLow) / (m_boundsHigh - m_boundsLow);
     }
 
-    //Debug Functions
     public void ClearDebugBorders()
     {
         foreach (RectTransform t in m_debugLines)
         {
             Destroy(t.gameObject);
         }
+
         m_debugLines.Clear();
     }
 
     public void DrawDebugBorder(List<PuzzleNode> border, Color color)
     {
         color.a = 0.75f;
-        for (int i = 0; i < border.Count-1; ++i)
+        for (int i = 0; i < border.Count - 1; ++i)
         {
             m_debugLines.Add(DrawLine(border[i].pos, border[i + 1].pos, m_elementParent, color));
         }

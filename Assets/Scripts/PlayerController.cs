@@ -1,22 +1,13 @@
 using UnityEngine;
 
-/*
-    Simple Player Controller Class
-*/
-
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
-    private float m_moveSpeed = 7.5f;
-    [SerializeField]
-    private float m_lookSpeed = 2.0f;
-    [SerializeField]
-    private float m_lookXLimit = 45.0f;
-    [SerializeField]
-    private float m_mouseResetDeadzone = 0.1f;
-    [SerializeField]
-    private GameObject m_uiBorder = null;
+    [SerializeField] private float m_moveSpeed = 7.5f;
+    [SerializeField] private float m_lookSpeed = 2.0f;
+    [SerializeField] private float m_lookXLimit = 45.0f;
+    [SerializeField] private float m_mouseResetDeadzone = 0.1f;
+    [SerializeField] private GameObject m_uiBorder = null;
 
     private CharacterController m_characterController = null;
     private Camera m_playerCamera = null;
@@ -42,12 +33,12 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = (transform.forward * inputDir.x) + (transform.right * inputDir.y);
         m_characterController.Move(moveDir * Time.deltaTime);
 
-        //Rotation
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-        if(mouseInput.magnitude < m_mouseResetDeadzone)
+        if (mouseInput.magnitude < m_mouseResetDeadzone)
         {
-            m_reset = true; //Quick fix for annoying issues when transitions from puzzle type input to mouse look input
+            m_reset = true; 
         }
+
         if (m_reset)
         {
             m_rotationX += mouseInput.y * m_lookSpeed;
@@ -56,16 +47,20 @@ public class PlayerController : MonoBehaviour
             transform.rotation *= Quaternion.Euler(0, mouseInput.x * m_lookSpeed, 0);
         }
 
-        //Interaction
-        if(Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             Ray r = new Ray(m_playerCamera.transform.position, m_playerCamera.transform.forward);
             if (Physics.Raycast(r, out RaycastHit hit))
             {
                 LinePuzzle puzzle = hit.transform.GetComponent<LinePuzzle>();
-                if (puzzle != null)
+                if (puzzle)
                 {
                     puzzle.Focus(this);
+                }
+                LabItem labItem = hit.transform.GetComponent<LabItem>();
+                if (labItem)
+                {
+                    labItem.Focus(this);
                 }
             }
         }
