@@ -3,22 +3,24 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float m_moveSpeed = 7.5f;
-    [SerializeField] private float m_lookSpeed = 2.0f;
-    [SerializeField] private float m_lookXLimit = 45.0f;
-    [SerializeField] private float m_mouseResetDeadzone = 0.1f;
-    [SerializeField] private GameObject m_uiBorder = null;
+    [SerializeField] private float mMoveSpeed = 7.5f;
+    [SerializeField] private float mLookSpeed = 2.0f;
+    [SerializeField] private float mLookXLimit = 45.0f;
+    [SerializeField] private float mMouseResetDeadzone = 0.1f;
+    [SerializeField] private GameObject mUiBorder = null;
 
-    private CharacterController m_characterController = null;
-    private Camera m_playerCamera = null;
-    private float m_rotationX = 0;
-    private bool m_canMove = true;
-    private bool m_reset = false;
+    private CharacterController mCharacterController = null;
+    private Camera mPlayerCamera = null;
+    private float mRotationX = 0;
+    private bool mCanMove = true;
+    private bool mReset = false;
+    private Transform highlightItem;
+    private Transform selectionItem;
 
     private void Awake()
     {
-        m_characterController = GetComponent<CharacterController>();
-        m_playerCamera = GetComponentInChildren<Camera>();
+        mCharacterController = GetComponent<CharacterController>();
+        mPlayerCamera = GetComponentInChildren<Camera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SetInputEnabled(true);
@@ -26,32 +28,91 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!m_canMove) return;
+        this.PlayerMove();
+        this.DetectItem();
+        this.SelectItem();
+    }
 
-        //Movement
-        Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * m_moveSpeed;
+    private void PlayerMove()
+    {
+        if (!mCanMove) 
+        {
+            return;
+        }
+        Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * mMoveSpeed;
         Vector3 moveDir = (transform.forward * inputDir.x) + (transform.right * inputDir.y);
-        m_characterController.Move(moveDir * Time.deltaTime);
-
+        mCharacterController.Move(moveDir * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-        if (mouseInput.magnitude < m_mouseResetDeadzone)
+        if (mouseInput.magnitude < mMouseResetDeadzone)
         {
-            m_reset = true; 
+            mReset = true; 
         }
-
-        if (m_reset)
+        if (mReset)
         {
-            m_rotationX += mouseInput.y * m_lookSpeed;
-            m_rotationX = Mathf.Clamp(m_rotationX, -m_lookXLimit, m_lookXLimit);
-            m_playerCamera.transform.localRotation = Quaternion.Euler(m_rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, mouseInput.x * m_lookSpeed, 0);
+            mRotationX += mouseInput.y * mLookSpeed;
+            mRotationX = Mathf.Clamp(mRotationX, -mLookXLimit, mLookXLimit);
+            mPlayerCamera.transform.localRotation = Quaternion.Euler(mRotationX, 0, 0);
+            transform.rotation *= Quaternion.Euler(0, mouseInput.x * mLookSpeed, 0);
         }
+    }
 
-        if (Input.GetButtonDown("Fire1"))
+    private void DetectItem()
+    {
+        if (this.highlightItem != null)
         {
-            Ray r = new Ray(m_playerCamera.transform.position, m_playerCamera.transform.forward);
+            this.highlightItem.gameObject.GetComponent<Outline>().enabled = false;
+            this.highlightItem = null;
+        }
+        Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
+        if (Physics.Raycast(r, out RaycastHit hit))
+        {
+            this.highlightItem = hit.transform;
+            if (this.highlightItem.CompareTag("Selectable") && this.highlightItem != this.selectionItem)
+            {
+                if (this.highlightItem.gameObject.GetComponent<Outline>() != null)
+                {
+                    this.highlightItem.gameObject.GetComponent<Outline>().enabled = true;
+                }
+                else
+                {
+                    Outline outline = this.highlightItem.gameObject.AddComponent<Outline>();
+                    outline.enabled = true;
+                    this.highlightItem.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+                    this.highlightItem.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+                }
+            }
+            else
+            {
+                this.highlightItem = null;
+            }
+        }
+    }
+
+    private void SelectItem()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
             if (Physics.Raycast(r, out RaycastHit hit))
             {
+                if (this.highlightItem)
+                {
+                    if (this.selectionItem != null)
+                    {
+                        this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
+                    }
+                    this.selectionItem = hit.transform;
+                    this.selectionItem.gameObject.GetComponent<Outline>().enabled = true;
+                    this.highlightItem = null;
+                }
+                else
+                {
+                    if (this.selectionItem)
+                    {
+                        this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
+                        this.selectionItem = null;
+                    }
+                }
                 LinePuzzle puzzle = hit.transform.GetComponent<LinePuzzle>();
                 if (puzzle)
                 {
@@ -68,8 +129,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetInputEnabled(bool v)
     {
-        m_uiBorder.SetActive(!v);
-        m_canMove = v;
-        m_reset = false;
+        mUiBorder.SetActive(!v);
+        mCanMove = v;
+        mReset = false;
     }
 }

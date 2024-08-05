@@ -2,11 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Line = System.Collections.Generic.List<PuzzleNode>;
 
-/*
-    Contains tests for each element type
-    Element tests can be added below and registered in s_testList dictionary
-*/
-
 public static class PuzzleUtils
 {
     private static readonly Dictionary<int, ElementTest> s_testList = new Dictionary<int, ElementTest>
@@ -25,7 +20,6 @@ public static class PuzzleUtils
                 return true;
             }
         }
-
         return false;
     }
 
@@ -45,8 +39,8 @@ public static class PuzzleUtils
 
     public static PuzzleElement[] FilterElementList(int filter, PuzzleElementData elementData)
     {
-        if (elementData == null) return new PuzzleElement[0]; //Error
-        if (elementData.ElementList == null) return new PuzzleElement[0]; //Error
+        if (elementData == null) return new PuzzleElement[0]; 
+        if (elementData.ElementList == null) return new PuzzleElement[0]; 
         return elementData.ElementList.FindAll(e => (filter | AsFlag(e.type)) == filter).ToArray();
     }
 
@@ -77,7 +71,6 @@ public static class PuzzleUtils
 
     public static Line GetSurrondingBorder(Vector2 p, List<Line> borders)
     {
-        //Find the border this point lies within (borders must not overlap)
         foreach (Line b in borders)
         {
             if (InBorder(p, b))
@@ -86,7 +79,7 @@ public static class PuzzleUtils
             }
         }
 
-        return null; //this is inside no borders
+        return null;
     }
 
     public static int AsFlag(PuzzleElementType t)

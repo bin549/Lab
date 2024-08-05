@@ -9,12 +9,12 @@ public class LabItem : MonoBehaviour
 
     public void Focus(PlayerController controller)
     {
-        if (!this.mValid || this.mFocused)
+        if (!this.mValid || this.mFocused) 
         {
             return;
         }
         mControllerRef = controller;
-        mControllerRef.SetInputEnabled(false);
+        mControllerRef.SetInputEnabled(false); 
         labUI.SetActive(true);
         this.ResetPuzzle();
         mFocused = true;
