@@ -14,6 +14,10 @@ public class DoorHandler : MonoBehaviour
 		this.mCamera = GetComponentInChildren<Camera>();
 	}
 
+	private void Start () {
+		this.teleportCamera.gameObject.SetActive(false);
+	}
+
     private void Update()
     {
         this.DetectDoor();
