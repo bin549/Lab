@@ -967,6 +967,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 1672157701371403481, guid: 62883a9fbaa964feaa7edca1dcfcb443, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600243194245203443, guid: 62883a9fbaa964feaa7edca1dcfcb443, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7719883648975079608, guid: 62883a9fbaa964feaa7edca1dcfcb443, type: 3}
       propertyPath: m_Name
       value: UICanvas

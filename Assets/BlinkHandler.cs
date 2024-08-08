@@ -17,7 +17,14 @@ public class BlinkHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Backspace) && !this.isOpen)
         {
-            StartCoroutine(this.SceneBack(LabsTag.START_SCENE));
+            if (SceneManager.GetActiveScene().name != LabsTag.START_SCENE)
+            {
+                StartCoroutine(this.SceneBack(LabsTag.START_SCENE));
+            }
+            else
+            {
+                this.QuitApp();
+            }
         }
     }
 
@@ -28,4 +35,12 @@ public class BlinkHandler : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void QuitApp()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 }

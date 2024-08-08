@@ -9,6 +9,8 @@ public class DoorHandler : MonoBehaviour
 	[SerializeField] private TeleportCamera teleportCamera;
 	[SerializeField] private Camera mCamera;
 	private bool isTeleport = false;
+	[SerializeField] private AudioManager audioManager;
+	[SerializeField] private GameObject skyBoxObj;
 
 	private void Awake () {
 		this.mCamera = GetComponentInChildren<Camera>();
@@ -39,8 +41,10 @@ public class DoorHandler : MonoBehaviour
 					this.isTeleport = true;
 					this.text.SetActive(false);
 					this.mCamera.gameObject.SetActive(false);
+					this.skyBoxObj.gameObject.SetActive(false);
 					this.teleportCamera.gameObject.SetActive(true);
 					Door door = hit.transform.GetComponent<Door>();
+					this.audioManager.Stop();
 					door.Teleport(teleportDoor);
 					this.teleportCamera.SetupDoor(door);
 				}
