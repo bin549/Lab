@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject mUiBorder = null;
 
     private CharacterController mCharacterController = null;
-    private Camera mPlayerCamera = null;
+    private CinemachineVirtualCamera mPlayerCamera = null;
     private float mRotationX = 0;
     private bool mCanMove = true;
     private bool mReset = false;
@@ -20,7 +21,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         mCharacterController = GetComponent<CharacterController>();
-        mPlayerCamera = GetComponentInChildren<Camera>();
+        mPlayerCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SetInputEnabled(true);

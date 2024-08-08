@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     [SerializeField] private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
 
+
     private void Awake() 
     {
         this.audioSource = GetComponent<AudioSource>();

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Cinemachine;
 
 public class LabItem : MonoBehaviour
 {
@@ -6,6 +7,12 @@ public class LabItem : MonoBehaviour
     private bool mFocused = false;
     private PlayerController mControllerRef = null;
     [SerializeField] private GameObject labUI;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
+
+    private void Start()
+    {
+        this.virtualCamera.gameObject.SetActive(false);
+    }
 
     public void Focus(PlayerController controller)
     {
@@ -13,11 +20,12 @@ public class LabItem : MonoBehaviour
         {
             return;
         }
-        mControllerRef = controller;
-        mControllerRef.SetInputEnabled(false); 
-        labUI.SetActive(true);
+        this.mControllerRef = controller;
+        this.mControllerRef.SetInputEnabled(false); 
+        this.labUI.SetActive(true);
+        this.virtualCamera.gameObject.SetActive(true);
         this.ResetPuzzle();
-        mFocused = true;
+        this.mFocused = true;
     }
     
     public void ResetPuzzle()
