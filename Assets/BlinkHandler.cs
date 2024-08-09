@@ -6,15 +6,37 @@ using UnityEngine.SceneManagement;
 public class BlinkHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private bool isOpen = true;
+    public int doorNum = 400;
+
+    private void Awake()
+    {
+        this.gameManager = GameObject.FindObjectOfType<GameManager>();
+    }
 
     private void Update()
+    {
+        if (this.gameManager.IsBusy) 
+        {
+            return;
+        }
+        this.BlinkHandle();
+        this.SceneHandle();
+        
+    }
+
+    private void BlinkHandle()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             this.isOpen = !this.isOpen;
             this.animator.SetBool("isOpen", this.isOpen);
         }
+    }
+
+    private void SceneHandle()
+    {
         if (Input.GetKeyDown(KeyCode.Backspace) && !this.isOpen)
         {
             if (SceneManager.GetActiveScene().name != LabsTag.START_SCENE)
@@ -27,7 +49,6 @@ public class BlinkHandler : MonoBehaviour
             }
         }
     }
-
 
     private IEnumerator SceneBack(string sceneName)
     {

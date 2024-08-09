@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private bool isBusy = false;
 
     private void Awake()
     {
@@ -16,6 +17,16 @@ public class GameManager : MonoBehaviour
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+
+    public bool IsBusy {
+        get {
+            return this.isBusy;
+        }
+        set {
+            isBusy = value;
+        }
     }
 
     private void Start()

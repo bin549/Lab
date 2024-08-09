@@ -8098,7 +8098,7 @@ PrefabInstance:
       objectReference: {fileID: 1532240407}
     - target: {fileID: 5159989931707852432, guid: 91aa922a5cd8049929d73f0f88034514, type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5176743039416463523, guid: 91aa922a5cd8049929d73f0f88034514, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8204,7 +8204,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1087019415}
+  gameManager: {fileID: 0}
   isOpen: 1
+  doorNum: 400
 --- !u!4 &1631357502 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5400396795047287677, guid: 91aa922a5cd8049929d73f0f88034514, type: 3}
@@ -8242,7 +8244,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: ebee754ad270e484c938bef29959ab1e, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -10358,7 +10360,7 @@ GameObject:
   - component: {fileID: 2015108661}
   - component: {fileID: 2015108662}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: Virtual Camera 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10595,6 +10597,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   labUI: {fileID: 1937142806}
   virtualCamera: {fileID: 2015108662}
+  gameManager: {fileID: 0}
 --- !u!1001 &2095493404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10839,6 +10842,6 @@ SceneRoots:
   - {fileID: 1532240406}
   - {fileID: 1631357499}
   - {fileID: 2026356271}
+  - {fileID: 1859665958}
   - {fileID: 697395090}
   - {fileID: 1744630955}
-  - {fileID: 1859665958}

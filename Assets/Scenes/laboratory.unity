@@ -4419,7 +4419,7 @@ GameObject:
   - component: {fileID: 2080680677}
   - component: {fileID: 2080680678}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: Virtual Camera 01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37993,7 +37993,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 568971908}
+  gameManager: {fileID: 0}
   isOpen: 1
+  doorNum: 400
 --- !u!1 &3129361955156281196 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 114222709236656622, guid: 91aa922a5cd8049929d73f0f88034514, type: 3}
@@ -38026,7 +38028,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 11400000, guid: ebee754ad270e484c938bef29959ab1e, type: 2}
+  m_CustomBlends: {fileID: 11400000, guid: 1eb99eba040ed4bbc92550ece3a03fba, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
