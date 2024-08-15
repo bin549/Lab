@@ -2,8 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using System.Collections;
 
-public class LabItem : MonoBehaviour
-{
+public class LabItem : MonoBehaviour {
     private bool mValid = true;
     private bool mFocused = false;
     private PlayerController mControllerRef = null;
@@ -11,25 +10,20 @@ public class LabItem : MonoBehaviour
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private GameManager gameManager;
 
-    private void Awake()
-    {
+    private void Awake() {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
-    private void Start()
-    {
+    private void Start() {
         this.virtualCamera.gameObject.SetActive(false);
     }
 
-    private void Update()
-    {
+    private void Update() {
         this.UnFocusHandle();
     }
 
-    public void Focus(PlayerController controller)
-    {
-        if (!this.mValid || this.mFocused) 
-        {
+    public void Focus(PlayerController controller) {
+        if (!this.mValid || this.mFocused) {
             return;
         }
         this.gameManager.IsBusy = true;
@@ -41,15 +35,11 @@ public class LabItem : MonoBehaviour
         this.mFocused = true;
     }
 
-
-    public void UnFocusHandle()
-    {
-        if (!this.gameManager.IsBusy)
-        {
+    public void UnFocusHandle() {
+        if (!this.gameManager.IsBusy) {
             return;
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             this.labUI.SetActive(false);
             this.virtualCamera.gameObject.SetActive(false);
             this.mControllerRef.SetInputEnabled(true); 
@@ -58,14 +48,12 @@ public class LabItem : MonoBehaviour
         }
     }
     
-    private IEnumerator DisableBusy()
-    {
+    private IEnumerator DisableBusy() {
         yield return new WaitForSeconds(.4f);
         this.gameManager.IsBusy = false;
     }
 
-    public void ResetPuzzle()
-    {
+    public void ResetPuzzle() {
         Debug.Log("play me");
     }
 }

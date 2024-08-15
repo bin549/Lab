@@ -2081,6 +2081,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 990566406}
+  isBusy: 0
 --- !u!4 &1123826320
 Transform:
   m_ObjectHideFlags: 0
@@ -3177,7 +3178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7017206623087812404}
+  gameManager: {fileID: 0}
   isOpen: 1
+  doorNum: 400
 --- !u!4 &1977769717 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5400396795047287677, guid: 91aa922a5cd8049929d73f0f88034514, type: 3}
@@ -4670,7 +4673,7 @@ MonoBehaviour:
   closeDoorClip: {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
   doorMirror: {fileID: 1918718868}
   doorMirrorAnimator: {fileID: 0}
-  labScene: Laboratory
+  labScene: lab-02
 --- !u!114 &114410977185821879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4689,7 +4692,7 @@ MonoBehaviour:
   closeDoorClip: {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
   doorMirror: {fileID: 1949671933765802}
   doorMirrorAnimator: {fileID: 0}
-  labScene: chemistry
+  labScene: lab-01
 --- !u!82 &170200925755558357
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4804,7 +4807,7 @@ MonoBehaviour:
   closeDoorClip: {fileID: 8300000, guid: bc37ad25465405a428a26ff0facd9a7b, type: 3}
   doorMirror: {fileID: 1673584798}
   doorMirrorAnimator: {fileID: 1673584800}
-  labScene: BlackSpace
+  labScene: lab-03
 --- !u!33 &219738731684848421
 MeshFilter:
   m_ObjectHideFlags: 0

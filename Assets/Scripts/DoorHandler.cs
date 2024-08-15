@@ -1,8 +1,7 @@
 
 using UnityEngine;
 
-public class DoorHandler : MonoBehaviour
-{
+public class DoorHandler : MonoBehaviour {
 	public GameObject text;
 	public float DistanceOpen=5;
 	[SerializeField] private Transform teleportDoor;
@@ -20,24 +19,20 @@ public class DoorHandler : MonoBehaviour
 		this.teleportCamera.gameObject.SetActive(false);
 	}
 
-    private void Update()
-    {
+    private void Update() {
         this.DetectDoor();
     }
 
-    private void DetectDoor()
-    {
+    private void DetectDoor() {
     	if (this.isTeleport) {
     		return;
     	}
 		text.SetActive(false);
     	RaycastHit hit;
 		if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceOpen)) {
-			if (hit.transform.GetComponent<Door>()) 
-			{
+			if (hit.transform.GetComponent<Door>()) {
 				text.SetActive(true);
-				if (Input.GetKeyDown(KeyCode.E))
-				{
+				if (Input.GetKeyDown(KeyCode.E)) {
 					this.isTeleport = true;
 					this.text.SetActive(false);
 					this.mCamera.gameObject.SetActive(false);

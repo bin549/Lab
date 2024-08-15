@@ -76,5 +76,7 @@ crashlytics-build.properties
 /[Aa]ssets/chemistry/*
 /[Aa]ssets/Free Wood Door Pack/*
 /[Aa]ssets/PolygonSciFiCity/*
+/[Aa]ssets/Moon Studio/*
+/[Aa]ssets/FreeFurnitureSet/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity

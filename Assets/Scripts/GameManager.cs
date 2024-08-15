@@ -2,23 +2,19 @@ using UnityEngine;
 using System.Collections;
 
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour {
     private static GameManager _instance;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private bool isBusy = false;
 
-    private void Awake()
-    {
-        if (_instance != null)
-        {
+    private void Awake() {
+        if (_instance != null) {
             Destroy(gameObject);
             return;
         }
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
 
     public bool IsBusy {
         get {
@@ -29,8 +25,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
+    private void Start() {
         this.audioManager.Play();
     }
 }
