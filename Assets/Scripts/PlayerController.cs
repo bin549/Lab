@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private GameObject mUiBorder = null;
 
     private CharacterController mCharacterController = null;
-    private CinemachineVirtualCamera mPlayerCamera = null;
+    public CinemachineVirtualCamera mPlayerCamera = null;
     private float mRotationX = 0;
     private bool mCanMove = true;
     private bool mReset = false;
@@ -18,8 +18,8 @@ public class PlayerController : MonoBehaviour {
     private Transform selectionItem;
 
     private void Awake() {
-        mCharacterController = GetComponent<CharacterController>();
-        mPlayerCamera = GetComponentInChildren<CinemachineVirtualCamera>();
+        this.mCharacterController = GetComponent<CharacterController>();
+        this.mPlayerCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         SetInputEnabled(true);
@@ -27,17 +27,16 @@ public class PlayerController : MonoBehaviour {
 
     private void Update() {
         this.PlayerMove();
-        this.DetectItem();
-        this.SelectItem();
+        // this.SelectItem();
     }
 
     private void PlayerMove() {
-        if (!mCanMove) {
+        if (!this.mCanMove) {
             return;
         }
         Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * mMoveSpeed;
         Vector3 moveDir = (transform.forward * inputDir.x) + (transform.right * inputDir.y);
-        mCharacterController.Move(moveDir * Time.deltaTime);
+        this.mCharacterController.Move(moveDir * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
         if (mouseInput.magnitude < mMouseResetDeadzone) {
             mReset = true; 
@@ -50,57 +49,54 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    private void DetectItem() {
-        if (this.highlightItem != null) {
-            this.highlightItem.gameObject.GetComponent<Outline>().enabled = false;
-            this.highlightItem = null;
-        }
-        Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
-        if (Physics.Raycast(r, out RaycastHit hit)) {
-            this.highlightItem = hit.transform;
-            if (this.highlightItem.CompareTag("Selectable") && this.highlightItem != this.selectionItem) {
-                if (this.highlightItem.gameObject.GetComponent<Outline>() != null) {
-                    this.highlightItem.gameObject.GetComponent<Outline>().enabled = true;
-                } else {
-                    Outline outline = this.highlightItem.gameObject.AddComponent<Outline>();
-                    outline.enabled = true;
-                    this.highlightItem.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
-                    this.highlightItem.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
-                }
-            } else {
-                this.highlightItem = null;
-            }
-        }
-    }
 
-    private void SelectItem() {
-        if (Input.GetMouseButtonDown(0)) {
-            Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
-            if (Physics.Raycast(r, out RaycastHit hit)) {
-                if (this.highlightItem) {
-                    if (this.selectionItem != null) {
-                        this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
-                    }
-                    this.selectionItem = hit.transform;
-                    this.selectionItem.gameObject.GetComponent<Outline>().enabled = true;
-                    this.highlightItem = null;
-                } else {
-                    if (this.selectionItem) {
-                        this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
-                        this.selectionItem = null;
-                    }
-                }
-                LinePuzzle puzzle = hit.transform.GetComponent<LinePuzzle>();
-                if (puzzle) {
-                    puzzle.Focus(this);
-                }
-                LabItem labItem = hit.transform.GetComponent<LabItem>();
-                if (labItem) {
-                    labItem.Focus(this);
-                }
-            }
-        }
-    }
+    // private void DetectItem() {
+    //     if (this.highlightItem != null) {
+    //         this.highlightItem.gameObject.GetComponent<Outline>().enabled = false;
+    //         this.highlightItem = null;
+    //     }
+    //     Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
+    //     if (Physics.Raycast(r, out RaycastHit hit)) {
+    //         this.highlightItem = hit.transform;
+    //         if (this.highlightItem.CompareTag("Selectable") && this.highlightItem != this.selectionItem) {
+    //             if (this.highlightItem.gameObject.GetComponent<Outline>() != null) {
+    //                 this.highlightItem.gameObject.GetComponent<Outline>().enabled = true;
+    //             } else {
+    //                 Outline outline = this.highlightItem.gameObject.AddComponent<Outline>();
+    //                 outline.enabled = true;
+    //                 this.highlightItem.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
+    //                 this.highlightItem.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
+    //             }
+    //         } else {
+    //             this.highlightItem = null;
+    //         }
+    //     }
+    // }
+
+    // private void SelectItem() {
+    //     if (Input.GetMouseButtonDown(0)) {
+    //         Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
+    //         if (Physics.Raycast(r, out RaycastHit hit)) {
+    //             if (this.highlightItem) {
+    //                 if (this.selectionItem != null) {
+    //                     this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
+    //                 }
+    //                 this.selectionItem = hit.transform;
+    //                 this.selectionItem.gameObject.GetComponent<Outline>().enabled = true;
+    //                 this.highlightItem = null;
+    //             } else {
+    //                 if (this.selectionItem) {
+    //                     this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
+    //                     this.selectionItem = null;
+    //                 }
+    //             }
+    //             LabItem labItem = hit.transform.GetComponent<LabItem>();
+    //             if (labItem) {
+    //                 labItem.Focus(this);
+    //             }
+    //         }
+    //     }
+    // }
 
     public void SetInputEnabled(bool v) {
         mUiBorder.SetActive(!v);

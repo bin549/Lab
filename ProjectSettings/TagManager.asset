@@ -6,6 +6,25 @@ TagManager:
   tags:
   - Selectable
   - Door
+  - ball
+  - Lab
+  - Rope
+  - box
+  - oldRope
+  - Weight
+  - car
+  - ropes
+  - DetailData
+  - Cube
+  - recordText
+  - CubeWaite
+  - TransportArea
+  - menu
+  - hidehead
+  - DownSnap
+  - UpSnap
+  - calInput
+  - LabDetector
   layers:
   - Default
   - TransparentFX
