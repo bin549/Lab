@@ -19,7 +19,6 @@ public class PlayerLabChecker : MonoBehaviour {
         this.ActiveExpUI();
     }
 
-
     private void DetectLab() {
         if (this.gameManager.IsBusy) {
             return;

@@ -34,7 +34,6 @@ public class LabItem : MonoBehaviour {
     	GetComponent<MeshRenderer>().enabled = false;
     }
 
-
     private void OnMouseUp(){
     	if (!this.labOne.IsWork) {
 	    	this.IsFocus = false;

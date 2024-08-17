@@ -34,11 +34,11 @@ public class xiaoche : MonoBehaviour {
     
     private void FixedUpdate() {
         DateTime NowTime = DateTime.Now.ToLocalTime();
-        speed = GameObject.Find("hezi").GetComponent<hezi>().hezispeed;
-        if (xiaochespeedbool) {
+        speed = GameObject.Find("endBox").GetComponent<hezi>().hezispeed;
+        if (this.xiaochespeedbool) {
             rigid.velocity = Vector3.forward * speed;
         }
-        xiaochespeed = rigid.velocity.magnitude;
+            xiaochespeed = rigid.velocity.magnitude;
         // if (speed != 0) {
         //     string message = NowTime.ToString(" HH: mm:ss")+"=>" + (xiaochespeed / kg) * kh;
         //     text.text += message + "\n";

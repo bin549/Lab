@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class Door01UI : MonoBehaviour {
     [SerializeField] private GameManager gameManager;
@@ -17,12 +17,30 @@ public class Door01UI : MonoBehaviour {
     	this.UpdateUI();
     }
 
-    public void UpdateUI() {
-        this.room01Text.text = this.gameManager.GetCurrentCount(1).ToString()+ "/"+ this.gameManager.GetTotalCount(1).ToString();
+    public void UpdateUI() {  
+        int num = this.GetSceneNum();
+        this.room01Text.text = this.gameManager.GetCurrentCount(num).ToString()+ "/"+ this.gameManager.GetTotalCount(num).ToString();
     }
     
     public void PassLab() {
-        this.gameManager.IncreaseCount(1);
+        int num = this.GetSceneNum();
+        this.gameManager.IncreaseCount(num);
         this.UpdateUI();
+    } 
+
+    private int GetSceneNum() {
+        int num = 1;
+        switch (SceneManager.GetActiveScene().name) {
+            case LabsTag.CHEMISTRY_SCENE:
+                num = 1;
+                return num;
+            case LabsTag.Laboratory_SCENE:
+                num = 2;
+                return num;
+            case LabsTag.BlackSpace_SCENE:
+                num = 3 ;
+                return num;
+        }
+        return num;
     }
 } 

@@ -20,7 +20,6 @@ public class BlinkHandler : MonoBehaviour {
         }
         this.BlinkHandle();
         this.SceneHandle();
-        
     }
 
     private void BlinkHandle() {
@@ -32,27 +31,21 @@ public class BlinkHandler : MonoBehaviour {
     }
 
     private void SceneHandle() {
-        if (Input.GetKeyDown(KeyCode.Backspace) && !this.isOpen)
-        {
-            if (SceneManager.GetActiveScene().name != LabsTag.START_SCENE)
-            {
+        if (Input.GetKeyDown(KeyCode.Backspace) && !this.isOpen) {
+            if (SceneManager.GetActiveScene().name != LabsTag.START_SCENE) {
                 StartCoroutine(this.SceneBack(LabsTag.START_SCENE));
-            }
-            else
-            {
+            } else {
                 this.QuitApp();
             }
         }
     }
 
-    private IEnumerator SceneBack(string sceneName)
-    {
+    private IEnumerator SceneBack(string sceneName) {
         yield return new WaitForSeconds(0.0f);
         SceneManager.LoadScene(sceneName);
     }
 
-    public void QuitApp()
-    {
+    public void QuitApp() {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CinemachineBlenderSettings 1
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: CM vcam1
+  - m_From: Virtual Camera
     m_To: Virtual Camera 01
     m_Blend:
       m_Style: 1
-      m_Time: 0.8
+      m_Time: 0.6
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -25,7 +25,7 @@ MonoBehaviour:
         m_PostInfinity: 0
         m_RotationOrder: 0
   - m_From: '**ANY CAMERA**'
-    m_To: CM vcam1
+    m_To: Virtual Camera
     m_Blend:
       m_Style: 5
       m_Time: 0.6

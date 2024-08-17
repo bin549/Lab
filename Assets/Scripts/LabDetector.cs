@@ -14,7 +14,7 @@ public class LabDetector : MonoBehaviour {
     private bool isFinishied = false;
     private PlayerController mControllerRef = null;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private LabOne labOne;
+    [SerializeField] public LabOne labOne;
     [SerializeField] private GameObject passObj;
     [SerializeField] private GameObject unpassObj;
 

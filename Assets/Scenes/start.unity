@@ -2433,7 +2433,7 @@ MonoBehaviour:
   currentDoor02: 0
   totalDoor02: 1
   currentDoor03: 0
-  totalDoor03: 2
+  totalDoor03: 1
 --- !u!4 &1123826320
 Transform:
   m_ObjectHideFlags: 0
@@ -4453,7 +4453,7 @@ Transform:
   m_GameObject: {fileID: 1949670608026711}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -1.078276, z: 0.010498047}
+  m_LocalPosition: {x: -0.321, y: -1.078276, z: 0.010498047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6424,7 +6424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u6309\u4E0B \"\u64A4\u9500\u952E\" \u9000\u51FA."
+  m_text: "\u6309\u4E0B \"\u64A4\u9500\u952E\" \u9000\u51FA"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32db904f1b9d94c59902a831b45e62d9, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

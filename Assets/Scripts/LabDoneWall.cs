@@ -8,7 +8,7 @@ public class LabDoneWall : MonoBehaviour {
     [SerializeField] private Transform resetPoint;
     [SerializeField] private LabDetector labDetector;
 
-    private void Awake() {
+    private void Awake() { 
         this.labOne = FindObjectOfType<LabOne>();
     }
 

@@ -88,9 +88,7 @@ public class Outline : MonoBehaviour {
 
   void OnEnable() {
     foreach (var renderer in renderers) {
-
       var materials = renderer.sharedMaterials.ToList();
-
       materials.Add(outlineMaskMaterial);
       materials.Add(outlineFillMaterial);
 
@@ -99,9 +97,7 @@ public class Outline : MonoBehaviour {
   }
 
   void OnValidate() {
-
     needsUpdate = true;
-
     if (!precomputeOutline && bakeKeys.Count != 0 || bakeKeys.Count != bakeValues.Count) {
       bakeKeys.Clear();
       bakeValues.Clear();
