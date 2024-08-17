@@ -10,6 +10,7 @@ public class DoorHandler : MonoBehaviour {
 	private bool isTeleport = false;
 	[SerializeField] private AudioManager audioManager;
 	[SerializeField] private GameObject skyBoxObj;
+	[SerializeField] private GameObject mUiBorder;
 
 	private void Awake () {
 		this.mCamera = GetComponentInChildren<Camera>();
@@ -27,14 +28,17 @@ public class DoorHandler : MonoBehaviour {
     	if (this.isTeleport) {
     		return;
     	}
-		text.SetActive(false);
+		this.text.SetActive(false);
+		this.mUiBorder.SetActive(false);
     	RaycastHit hit;
 		if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceOpen)) {
 			if (hit.transform.GetComponent<Door>()) {
-				text.SetActive(true);
+				this.text.SetActive(true);
+				this.mUiBorder.SetActive(true);
 				if (Input.GetKeyDown(KeyCode.E)) {
 					this.isTeleport = true;
 					this.text.SetActive(false);
+					this.mUiBorder.SetActive(false);
 					this.mCamera.gameObject.SetActive(false);
 					this.skyBoxObj.gameObject.SetActive(false);
 					this.teleportCamera.gameObject.SetActive(true);

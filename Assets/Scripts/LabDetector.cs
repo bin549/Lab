@@ -34,6 +34,10 @@ public class LabDetector : MonoBehaviour {
 
     private void Start() {
         this.virtualCamera.gameObject.SetActive(false);
+        this.SetIsPasssIndicate();
+    }
+
+    private void SetIsPasssIndicate() {
         if (this.labOne.IsDone) {
             this.passObj.SetActive(true);
         } else {
@@ -68,15 +72,24 @@ public class LabDetector : MonoBehaviour {
             return;
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
-            // GetComponent<BoxCollider>().enabled = true;
-            this.labActiveUI.SetActive(false);
-            this.mControllerRef.SetInputEnabled(true); 
-            StartCoroutine(this.DisableBusy());
-            this.virtualCamera.gameObject.SetActive(false);
-            this.IsActive = false;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;   
+            this.ExitLab(false);
         }
+    }
+
+    public void ExitLab(bool isPassed) {
+        if (isPassed) {
+            this.labOne.IsDone = true;
+        }
+        this.labActiveUI.SetActive(false);
+        this.mControllerRef.SetInputEnabled(true); 
+        this.mControllerRef.mUiBorder.SetActive(false);
+        this.SetIsPasssIndicate();
+        StartCoroutine(this.DisableBusy());
+        this.virtualCamera.gameObject.SetActive(false);
+        this.IsActive = false;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;   
+        this.mControllerRef.transform.Rotate(1, 0, 0);
     }
 
     private IEnumerator DisableBusy() {

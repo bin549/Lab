@@ -4,7 +4,7 @@ using Cinemachine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerLabChecker : MonoBehaviour {
     [SerializeField] private Transform hoverItem;
-    private Transform activeItem;
+    private Transform activeItem; 
     private PlayerController playerController;
     [SerializeField] private GameManager gameManager;
 
@@ -30,13 +30,14 @@ public class PlayerLabChecker : MonoBehaviour {
                 this.hoverItem = null;
             }
         }
+        GetComponent<PlayerController>().mUiBorder.SetActive(false);
         Ray r = new Ray(playerController.mPlayerCamera.transform.position, playerController.mPlayerCamera.transform.forward);
         if (Physics.Raycast(r, out RaycastHit hit)) {
             this.hoverItem = hit.transform;
             if (this.hoverItem.CompareTag("LabDetector")) {
+                GetComponent<PlayerController>().mUiBorder.SetActive(true);
                 this.hoverItem = hit.transform;
                 this.hoverItem.transform.gameObject.GetComponent<LabDetector>().HoverUI(true);
-
             }
         }
     }

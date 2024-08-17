@@ -44,7 +44,7 @@ public class LabOne : MonoBehaviour {
     private void Start() {
         this.titleText.text = this.title;
         this.introductionText.text = this.introduction;
-        this.tutorialText.text = this.tutorial;
+        // this.tutorialText.text = this.tutorial;
     }
 
     public void PassLab() {
