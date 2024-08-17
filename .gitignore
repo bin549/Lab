@@ -47,6 +47,8 @@ ExportedObj/
 *.svd
 *.pdb
 *.mdb
+*.fbx
+*.meta
 *.opendb
 *.VC.db
 
@@ -78,5 +80,11 @@ crashlytics-build.properties
 /[Aa]ssets/PolygonSciFiCity/*
 /[Aa]ssets/Moon Studio/*
 /[Aa]ssets/FreeFurnitureSet/*
+/[Aa]ssets/Adaptive Performance/*
+/[Aa]ssets/Clipboard/*
+/[Aa]ssets/Lightbulb/*
+/[Aa]ssets/Obi/*
+/[Aa]ssets/Ultimate Game Tools/*
+/[Aa]ssets/TirGames/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
