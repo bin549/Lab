@@ -42,6 +42,7 @@ public class LabDetector : MonoBehaviour {
 
     public void Focus(PlayerController controller) {
         this.IsActive = true;
+        GetComponent<BoxCollider>().enabled = false;
         this.gameManager.IsBusy = true;
         this.mControllerRef = controller;
         this.mControllerRef.SetInputEnabled(false); 
@@ -56,6 +57,7 @@ public class LabDetector : MonoBehaviour {
             return;
         }
         if (Input.GetKeyDown(KeyCode.Escape)) {
+            GetComponent<BoxCollider>().enabled = true;
             this.labActiveUI.SetActive(false);
             this.mControllerRef.SetInputEnabled(true); 
             StartCoroutine(this.DisableBusy());

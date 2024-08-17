@@ -10,13 +10,11 @@ public class BlinkHandler : MonoBehaviour
     [SerializeField] private bool isOpen = true;
     public int doorNum = 400;
 
-    private void Awake()
-    {
+    private void Awake() {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
-    private void Update()
-    {
+    private void Update() {
         if (this.gameManager.IsBusy) 
         {
             return;
@@ -26,8 +24,7 @@ public class BlinkHandler : MonoBehaviour
         
     }
 
-    private void BlinkHandle()
-    {
+    private void BlinkHandle() {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             this.isOpen = !this.isOpen;
@@ -35,8 +32,7 @@ public class BlinkHandler : MonoBehaviour
         }
     }
 
-    private void SceneHandle()
-    {
+    private void SceneHandle() {
         if (Input.GetKeyDown(KeyCode.Backspace) && !this.isOpen)
         {
             if (SceneManager.GetActiveScene().name != LabsTag.START_SCENE)

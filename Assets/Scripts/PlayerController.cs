@@ -14,8 +14,6 @@ public class PlayerController : MonoBehaviour {
     private float mRotationX = 0;
     private bool mCanMove = true;
     private bool mReset = false;
-    private Transform highlightItem;
-    private Transform selectionItem;
 
     private void Awake() {
         this.mCharacterController = GetComponent<CharacterController>();
@@ -49,54 +47,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-
-    // private void DetectItem() {
-    //     if (this.highlightItem != null) {
-    //         this.highlightItem.gameObject.GetComponent<Outline>().enabled = false;
-    //         this.highlightItem = null;
-    //     }
-    //     Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
-    //     if (Physics.Raycast(r, out RaycastHit hit)) {
-    //         this.highlightItem = hit.transform;
-    //         if (this.highlightItem.CompareTag("Selectable") && this.highlightItem != this.selectionItem) {
-    //             if (this.highlightItem.gameObject.GetComponent<Outline>() != null) {
-    //                 this.highlightItem.gameObject.GetComponent<Outline>().enabled = true;
-    //             } else {
-    //                 Outline outline = this.highlightItem.gameObject.AddComponent<Outline>();
-    //                 outline.enabled = true;
-    //                 this.highlightItem.gameObject.GetComponent<Outline>().OutlineColor = Color.magenta;
-    //                 this.highlightItem.gameObject.GetComponent<Outline>().OutlineWidth = 7.0f;
-    //             }
-    //         } else {
-    //             this.highlightItem = null;
-    //         }
-    //     }
-    // }
-
-    // private void SelectItem() {
-    //     if (Input.GetMouseButtonDown(0)) {
-    //         Ray r = new Ray(mPlayerCamera.transform.position, mPlayerCamera.transform.forward);
-    //         if (Physics.Raycast(r, out RaycastHit hit)) {
-    //             if (this.highlightItem) {
-    //                 if (this.selectionItem != null) {
-    //                     this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
-    //                 }
-    //                 this.selectionItem = hit.transform;
-    //                 this.selectionItem.gameObject.GetComponent<Outline>().enabled = true;
-    //                 this.highlightItem = null;
-    //             } else {
-    //                 if (this.selectionItem) {
-    //                     this.selectionItem.gameObject.GetComponent<Outline>().enabled = false;
-    //                     this.selectionItem = null;
-    //                 }
-    //             }
-    //             LabItem labItem = hit.transform.GetComponent<LabItem>();
-    //             if (labItem) {
-    //                 labItem.Focus(this);
-    //             }
-    //         }
-    //     }
-    // }
 
     public void SetInputEnabled(bool v) {
         mUiBorder.SetActive(!v);
