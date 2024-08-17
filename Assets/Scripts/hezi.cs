@@ -2,29 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class hezi : MonoBehaviour
-{
-    Rigidbody rigidbody;
+
+public class hezi : MonoBehaviour {
+    private Rigidbody rigidbody;
     public float hezispeed;
     
-    void Start()
-    {
+    private void Start() {
         rigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
+    private void FixedUpdate() {
         hezispeed = rigidbody.velocity.magnitude;
-        
     }
-    public void rigidbodyadd()
-    {
+
+    public void rigidbodyadd() {
         rigidbody.mass = rigidbody.mass + 1;
 
     }
-    public void rigidbodyuse()
-    {
+    
+    public void rigidbodyuse() {
         rigidbody.useGravity = true;
     }
-    }
+}

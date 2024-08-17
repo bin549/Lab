@@ -9,17 +9,16 @@ public class mocali : MonoBehaviour
     public GameObject mocalipanel;
     public Transform conent;
     public GameObject mocaliprefab;
-    public mocali()
-    {
+
+    public mocali() {
         instance = this;
     }
 
-    public void add()
-    {
+    public void add() {
         TxtWriteAndRead.ins.AddTxtTextByFileInfo(names+"\n"+ "加速度(m/s^2):" + text[0].text+ "\n " + "质量(kg):" + text[1].text+ "\n " + "重力加速度m/s^2):" + text[2].text+ "\n " + "角度(°):" + text[3].text+ "\n " + "摩擦力(N):" + text[4].text+"\n "+ "摩擦系数:" + text[5].text+"&");
     }
-    public void readtxt()
-    {
+    
+    public void readtxt() {
         mocalipanel.SetActive(!mocalipanel.activeSelf);
         if (mocalipanel.activeSelf)
         {

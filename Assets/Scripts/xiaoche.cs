@@ -28,36 +28,24 @@ public class xiaoche : MonoBehaviour {
         Singleton = this;
     }
 
-    void Start() {
+    private void Start() {
         rigid = GetComponent<Rigidbody>();
-        
     }
     
-    void FixedUpdate()
-    {
-        DateTime NowTime = DateTime.Now.ToLocalTime();//获取时间
+    private void FixedUpdate() {
+        DateTime NowTime = DateTime.Now.ToLocalTime();
         speed = GameObject.Find("hezi").GetComponent<hezi>().hezispeed;
-        if (xiaochespeedbool == true)
-        {
+        if (xiaochespeedbool) {
             rigid.velocity = Vector3.forward * speed;
         }
         xiaochespeed = rigid.velocity.magnitude;
-        if (speed != 0)
-        {
-            //if(suduxianshibool == true)
-            //{
-            //    string message1 = NowTime.ToString("HH: mm:ss") + " : speed :" + xiaochespeed/2;
-            //    text.text += message1 + "\n";
-            //}
-
-            string message = NowTime.ToString(" HH: mm:ss")+"=>" + (xiaochespeed / kg) * kh;
-            text.text += message + "\n";
-        }
-
+        // if (speed != 0) {
+        //     string message = NowTime.ToString(" HH: mm:ss")+"=>" + (xiaochespeed / kg) * kh;
+        //     text.text += message + "\n";
+        // }
     }
 
-    public void addtxt()
-    {
+    public void addtxt() {
         TxtWriteAndRead.ins.AddTxtTextByFileInfo("小车重量" + MouseView.ins.carKG.ToString() + "g" +"\n"+ "盒子重量" + MouseView.ins.heziKG.ToString() + "g" + "\n" + text.text+"&");
     }
 

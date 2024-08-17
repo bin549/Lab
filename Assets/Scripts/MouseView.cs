@@ -5,8 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
-public class MouseView : MonoBehaviour
-{
+public class MouseView : MonoBehaviour {
     public static MouseView ins;
     public enum RotationAxes
     {
@@ -39,12 +38,13 @@ public class MouseView : MonoBehaviour
     RaycastHit hit;
     GameObject obj;
     public GameObject[] mukuaitiekuai;
-    // Use this for initialization
+
     private void Awake()
     {
         ins = this;
     }
-    void Start()
+
+    private void Start()
     {
         for (int i = 5; i < fama.Length; i++)
         {
@@ -56,9 +56,8 @@ public class MouseView : MonoBehaviour
             GetComponent<Rigidbody>().freezeRotation = true;
         }
     }
-    void OnMouseEnter()
-    {
-        
+
+    private void OnMouseEnter() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {

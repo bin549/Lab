@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BlinkHandler : MonoBehaviour
-{
+public class BlinkHandler : MonoBehaviour {
     [SerializeField] private Animator animator;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private bool isOpen = true;
