@@ -11,12 +11,9 @@ public class lab3DownMove : MonoBehaviour {
 	
 	void Start () {
 		car = GameObject.FindWithTag("car");
-		
 		isBegin = car.GetComponent<carMove>().getIsBegin();
-		
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		//获取小车的移动速度
 		moveSpeed = car.GetComponent<carMove>().getDownSpeed();

@@ -1,11 +1,3 @@
-/****************************************************
-    文件：TxtWriteAndRead.cs
-	作者：夜
-    邮箱: 97665366@qq.com
-    日期：#CreateTime#
-	功能：Nothing
-*****************************************************/
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,22 +10,12 @@ public class TxtWriteAndRead : MonoBehaviour
     TextAsset m_Txt;
     public string str;
     public string jiasuduTXT;
+   
     private void Awake()
     {
         ins = this;
     }
-    void Start()
-    {
-       //AddTxtTextByFileInfo("第一种方法添加text文本");//写入
-
-      //ReadTxtFifth();//读取
-    }
-
    
-    /// <summary>
-    /// 创建txt 写入
-    /// </summary>
-    /// <param name="txtText"></param>
     public void AddTxtTextByFileInfo(string txtText)
     {
         string path = Application.dataPath + jiasuduTXT;
@@ -54,11 +36,6 @@ public class TxtWriteAndRead : MonoBehaviour
     }
 
    
-
-    /// <summary>
-    /// 读取
-    /// 文件流方式
-    /// </summary>
    public  void ReadTxtFifth()
     {
         string path = Application.dataPath + jiasuduTXT;
@@ -69,8 +46,8 @@ public class TxtWriteAndRead : MonoBehaviour
         str = UTF8Encoding.UTF8.GetString(bytes);
         
     }
-    //清空数据
-   public  void ReWriteMyTxtByFileStreamTxt()
+
+   public void ReWriteMyTxtByFileStreamTxt()
     {
         string path = Application.dataPath + jiasuduTXT;
 

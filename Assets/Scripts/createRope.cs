@@ -10,10 +10,8 @@ public class createRope : MonoBehaviour {
 	public Transform nextJoint;
 	private Vector3 initNext;
 	
-	
 	private void Start() {
 		isCreate = true;
-		
 		initTransform = transform.position;
 		initNext = nextJoint.position;
 	}

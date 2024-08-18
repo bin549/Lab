@@ -11,13 +11,11 @@ public class EditMass : MonoBehaviour {
 	public GameObject wrongOjb;
 	public Text updateText;
 	
-	private void Start()
-	{
+	private void Start() {
 		this.GetComponent<Button>().onClick.AddListener(ChangeMass);
 	}
 	
-	public void ChangeMass()
-	{
+	public void ChangeMass() {
 		float mass=target.GetComponent<Rigidbody>().mass;
 		bool isWrong = false;
 		

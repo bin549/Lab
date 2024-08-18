@@ -5,8 +5,7 @@ using UnityEngine;
 public class showDetailData : MonoBehaviour {
 	public GameObject target;
 	
-	public void OnClick(bool isOn)
-	{
+	public void OnClick(bool isOn) {
 		if (isOn)
 		{
 			print("run1");

@@ -10,13 +10,11 @@ public class showBollSpeed : MonoBehaviour {
 
 	private Text text;
 	
-	// Use this for initialization
 	void Start () {
 		text = GetComponent<Text>();
 		
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		if (GameObject.FindWithTag("Ideal") == null && GameObject.FindWithTag("ball")!=null)
 		{
@@ -24,7 +22,5 @@ public class showBollSpeed : MonoBehaviour {
 			speed = GameObject.FindWithTag("ball").GetComponent<getBollSpeed>().getSpeed();
 			text.text += Math.Round(speed, 2);
 		}
-		
-		
 	}
 }

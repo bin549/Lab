@@ -9,8 +9,6 @@ public class ts : MonoBehaviour {
 	
 	private void OnTriggerEnter(Collider other)
 	{
-//		print(flag);
-
 		if (flag)
 		{
 			flag = false;

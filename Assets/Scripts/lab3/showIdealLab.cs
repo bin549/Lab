@@ -9,15 +9,12 @@ public class showIdealLab : MonoBehaviour {
 	public GameObject mainlab;
 	Toggle toggle;
 
-	private void Start()
-	{
+	private void Start() {
 		toggle = GetComponent<Toggle>();
 		toggle.onValueChanged.AddListener(click);
 	}
 
-
-	public void click(bool isOn)
-	{
+	public void click(bool isOn) {
 		print(isOn);
 		if (isOn)
 		{

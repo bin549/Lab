@@ -8,13 +8,11 @@ public class DestoryRopeByPosition : MonoBehaviour {
 	Vector3 position;
 	//保存了最后一个节点初始位置的物体
 	public GameObject target;
-	// Use this for initialization
+	
 	void Start () {
 		position = target.GetComponent<RecordRopeInitDestoryPosition>().getPosition();
-		
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
 		if (this.transform.position.x < position.x)
 		{

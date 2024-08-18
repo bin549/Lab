@@ -11,13 +11,10 @@ public class resetLab : MonoBehaviour {
 	public GameObject getNewRopeFormBeginButton;
 	public GameObject tip1;
 	public GameObject tip2;
-	//public GameObject rope;
 
 	private Vector3 carP;
 	private Vector3 weightP;
 	private List<GameObject> usingWeight;
-
-	
 
 	private void Start()
 	{
@@ -27,7 +24,6 @@ public class resetLab : MonoBehaviour {
 
 	}
 
-	// Use this for initialization
 	public void resetThisLab()
 	{
 		car.GetComponent<carMove>().restart();

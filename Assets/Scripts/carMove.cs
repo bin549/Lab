@@ -58,10 +58,7 @@ public class carMove : MonoBehaviour {
 		return isBegin;
 	}
 	
-	// Use this for initialization
 	void Start () {
-		//startPostion = this.gameObject.transform.position;
-		//this.GetComponent<Rigidbody>().AddForce(FPull());
 		isBegin = false;
 		
 	}
@@ -71,15 +68,11 @@ public class carMove : MonoBehaviour {
 		return MoveSpeed;
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate () {
- 		
-// 		//位移
 // 		//this.transform.SetPositionAndRotation(MoveByTime(second),this.transform.rotation);
 // 		MOVE = MoveByTime(second);
 // 		//
 // 		this.transform.position = startPostion +MOVE ;
-// //		print(startPostion + MoveByTime(second));
 		if (isBegin)
 		{
 			second += 1;
@@ -87,11 +80,9 @@ public class carMove : MonoBehaviour {
 			
 			this.transform.Translate(MoveSpeed * 0.02f);
 		}
-		
 	}
 	
-	private Vector3 speed(int s)
-	{
+	private Vector3 speed(int s) {
 		double carspeed ;
 		double massOfWeight = 0;
         		
@@ -135,21 +126,17 @@ public class carMove : MonoBehaviour {
 		return new Vector3(-(float) carspeed, 0, 0);
 	}
 	
-	public List<double> getSlist()
-	{
+	public List<double> getSlist() {
 		return Slist;
 	}
 
-
 	
-	public void cleanSlist()
-	{
+	public void cleanSlist() {
 		Slist.Clear();
 		
 	}
 	
-	public double getAce()
-	{
+	public double getAce() {
 		return Ace;
 	}
 	

@@ -3,17 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StartLab1 : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
 	public void Begin()
 	{
 		GameObject Dsnap1 = GameObject.FindWithTag("DownSnap");

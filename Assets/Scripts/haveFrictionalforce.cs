@@ -2,17 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class haveFrictionalforce : MonoBehaviour
-{
-
+public class haveFrictionalforce : MonoBehaviour {
 	public Rigidbody targetRigidbody;
 	public TextMesh tip;
 	private Vector3 position;
-	void Start ()
-	{
+
+	void Start() {
 		position = targetRigidbody.position;
 		tip.text = "无摩擦力";
 	}
+
 	public void haveFriction()
 	{
 
@@ -29,12 +28,5 @@ public class haveFrictionalforce : MonoBehaviour
 
 		targetRigidbody.position = position;
 
-	}
-	
-	
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }

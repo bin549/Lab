@@ -11,7 +11,6 @@ public class changeFriction : MonoBehaviour {
 	public GameObject target;
 	public GameObject target2;
 
-	// Use this for initialization
 	void Start () {
 		slider=gameObject.GetComponent<Slider>();
 		slider.onValueChanged.AddListener(SliderChange);
@@ -26,5 +25,4 @@ public class changeFriction : MonoBehaviour {
 		GameObject.FindWithTag("ball").GetComponent<Rigidbody>().angularDrag=(float)Math.Round(t,1);
 
 	}
-
 }

@@ -4,16 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 //using Vuforia;
 
-public class cubeCollision : MonoBehaviour
-{
+public class cubeCollision : MonoBehaviour {
 	private bool isStop = false;
 	private Transform stopTransform;
 	private Collision otherCollision;
 	public AudioSource axe;
 	public AudioSource wood;
 
-	private void OnCollisionEnter(Collision other)
-	{
+	private void OnCollisionEnter(Collision other) {
 	//	Debug.Log(other.gameObject.tag);
 		//木块到达底部
 		if (other.gameObject.tag.Equals("Cube") )
@@ -28,12 +26,8 @@ public class cubeCollision : MonoBehaviour
 			//碰撞后,记录完成之后修改Tag
 			other.gameObject.tag = "CubeUnusing";
 		}
-		//碰撞时播放对应音效
-		
-		if (other.gameObject.name.Equals("metalCube"))
-		{
+		if (other.gameObject.name.Equals("metalCube")) {
 			//Debug.Log("222");
-			
 			axe.Play();
 		}
 		if (other.gameObject.name.Equals("wood"))

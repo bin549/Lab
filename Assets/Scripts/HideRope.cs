@@ -10,7 +10,6 @@ public class HideRope : MonoBehaviour {
 			other.GetComponent<MeshRenderer>().enabled = false;
 			
 		}
-		
 	}
 
 	private void OnTriggerExit(Collider other)

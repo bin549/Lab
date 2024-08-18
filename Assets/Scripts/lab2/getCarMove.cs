@@ -11,13 +11,10 @@ public class CarRecord
 	private double massesOfcar;
 	private double massesOfWeight;
 
-	public CarRecord(List<double> r,double mOc,double mOw)
-	{
+	public CarRecord(List<double> r,double mOc,double mOw) {
 		recordlist = new List<double>(r);
 		massesOfcar = mOc;
 		massesOfWeight = mOw;
-		
-		
 	}
 	public double MassesOfcar
 	{
@@ -33,7 +30,6 @@ public class CarRecord
 	{
 		get { return recordlist; }
 	}
-	
 
 }
 
@@ -111,23 +107,16 @@ public class getCarMove : MonoBehaviour {
 		//放到类中，方便保存
 		CarRecord newRecord=new CarRecord(Slist,massOfcar,massOfWeight);
 		carRecords.Add(newRecord);
-		if (isAddInter)
-		{
+		if (isAddInter) {
 			text.text += "\r\n" ;
 			text.text += "\r\n" + "由于存在随机的误差，加速度的计算没有意义";
 			text.text += "\r\n" + "请保存数据，实验结束后根据数据画坐标图";
 			text.text += "\r\n" + "并根据课本中的要求使用图像法测试查看数据";
-
-		}
-		else
-		{
+		} else {
 			text.text += "\r\n" + "加速度为(m/s):" + Math.Round(car.GetComponent<carMove>().getAce(),1);
 			text.text += "\r\n" + "小车质量为(KG):" + massOfcar;
 			text.text += "\r\n" + "拉力为(N):" + Math.Round(massOfWeight*Math.Abs(Physics.gravity.y),1);
 		}
-		
-
-
 		
 		car.GetComponent<carMove>().cleanSlist();
 	}
@@ -137,7 +126,4 @@ public class getCarMove : MonoBehaviour {
 	{
 		return carRecords;
 	}
-	
-		
-	
 }

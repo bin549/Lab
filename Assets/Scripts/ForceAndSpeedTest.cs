@@ -17,8 +17,7 @@ public class ForceAndSpeedTest : MonoBehaviour {
 		//InvokeRepeating("recordStatu", 0f,1f);
 	}
 
-	private void FixedUpdate()
-	{
+	private void FixedUpdate() {
 		speed = rigidbody.velocity.magnitude;
 		a = (speed - lastspeed) / 0.02;
 		lastspeed = speed;
@@ -28,8 +27,7 @@ public class ForceAndSpeedTest : MonoBehaviour {
 		 Debug.Log("加速度" + a.ToString());
 	}
 
-	private void recordStatu()
-	{
+	private void recordStatu() {
 		Debug.Log(this.GetComponent<Transform>().position);
 		Debug.Log("速度"+speed.ToString());
 		Debug.Log("质量"+rigidbody.mass);

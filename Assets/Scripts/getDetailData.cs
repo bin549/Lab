@@ -4,17 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class getDetailData : MonoBehaviour
-{
+public class getDetailData : MonoBehaviour {
 	public Text DetailData ;
 	private List<Record> records;
 
-	private void Awake()
-	{
-	}
-
-	public void updateRecord()
-	{
+	public void updateRecord() {
 		records = GameObject.FindWithTag("recordText").GetComponent<getRecord>().getRecords();
 		DetailData.text = "";
 		foreach (var record in records)

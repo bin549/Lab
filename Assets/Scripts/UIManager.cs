@@ -14,7 +14,6 @@ public class UIManager : MonoBehaviour {
         this.gameManager = FindObjectOfType<GameManager>();
     }
 
-
     private void Start() {
         this.UpdateUI();
     }

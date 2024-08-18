@@ -4,15 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class followCube : MonoBehaviour {
-
 	private Transform target;
 	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
 	void Update () {
 		if (GameObject.FindWithTag("Cube") != null)
 		{

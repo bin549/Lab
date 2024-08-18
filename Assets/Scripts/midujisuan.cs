@@ -25,6 +25,4 @@ public class midujisuan : MonoBehaviour
     {
         shuiwei.transform.localScale = new Vector3(shuiwei.transform.localScale.x, shuiwei.transform.localScale.y, shuiwei.transform.localScale.z + 0.1348f);
     }
-    // Update is called once per frame
-   
 }

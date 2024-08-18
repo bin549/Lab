@@ -8,7 +8,6 @@ public class ropeMove : MonoBehaviour
 
 	private Vector3 startPostion;
 	
-	// Use this for initialization
 	void Start ()
 	{
 		target =GameObject.FindWithTag("car").transform;
@@ -16,7 +15,6 @@ public class ropeMove : MonoBehaviour
 		
 	}
 	
-	// Update is called once per frame
 	void FixedUpdate ()
 	{
 		this.transform.position = startPostion +GameObject.FindWithTag("car").GetComponent<carMove>().Move ;

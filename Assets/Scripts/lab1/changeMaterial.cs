@@ -10,6 +10,7 @@ public class changeMaterial : MonoBehaviour
 	public MeshRenderer meshRender;  //声明MeshRenderer组件
 	public PhysicMaterial otherP;
 	public MeshCollider meshCollider;
+	
 	void Start()
 	{
 		this.GetComponent<Button>().onClick.AddListener(OnClick);

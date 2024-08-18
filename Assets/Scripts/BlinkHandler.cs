@@ -14,8 +14,7 @@ public class BlinkHandler : MonoBehaviour {
     }
 
     private void Update() {
-        if (this.gameManager.IsBusy) 
-        {
+        if (this.gameManager.IsBusy) {
             return;
         }
         this.BlinkHandle();

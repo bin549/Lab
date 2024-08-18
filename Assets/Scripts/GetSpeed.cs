@@ -59,10 +59,6 @@ public class GetSpeed : MonoBehaviour {
 
 	void showSpeed()
 	{
-		// print(speed);
-		// Debug.Log("速度"+speed.ToString());
-		// Debug.Log("质量"+rigidbody.mass);
-		// Debug.Log("加速度" + a.ToString());
 	}
 	
 	//每秒获取参数

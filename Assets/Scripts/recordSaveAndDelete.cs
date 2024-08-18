@@ -7,8 +7,6 @@ public class recordSaveAndDelete : MonoBehaviour
 {
 	private List<Record> records;
 
-
-	// Use this for initialization
 	public void saveRecord()
 	{
 		records = GameObject.FindWithTag("recordText").GetComponent<getRecord>().getRecords();

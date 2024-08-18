@@ -14,12 +14,10 @@ public class WeightsPutTrigger : MonoBehaviour {
 			tip.SetActive(true);
 
 		}
-	
 	}
 
 	private void OnTriggerExit(Collider other)
 	{
-//		print(other.tag);
 		if (other.tag.Equals("Weight") || other.tag.Equals("carWeight"))
 		{
 			tip.SetActive(false);

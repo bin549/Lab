@@ -10,33 +10,23 @@ public class getBollSpeed : MonoBehaviour
 	private double lastspeed;
 
 
-	// Use this for initialization
-	void Start()
-	{
-
-	}
-
 	public double getSpeed()
 	{
 		return speed;
 	}
 
-	// Update is called once per frame
+
 	void Update()
 	{
-
 		{
 
 			speed = GetComponent<Rigidbody>().velocity.magnitude;
 			a = (speed - lastspeed) / 0.02;
 			lastspeed = speed;
-
-			//showSpeed();
 		}
 
-		
-
 	}
+	
 	void showSpeed()
 	{
 		// print(speed);

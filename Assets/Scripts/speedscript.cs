@@ -19,10 +19,6 @@ public class speedscript : MonoBehaviour {
     private double a = 0;
 
     private bool flag = true;
-    // Use this for initialization
-	void Start () {
-
-    }
 
 	private void FixedUpdate()
 	{
@@ -50,17 +46,12 @@ public class speedscript : MonoBehaviour {
 		
 	}
 
-	// Update is called once per frame
 	void Update () {
-
     	double speed = targetObj.velocity.magnitude;
         speed=Math.Round(speed,2);
         inTimeSpeed.text = speed.ToString();
         if (speed >= max)
 	        max = speed;
         maxSpeed.text = max.ToString();
-        
-        
-        
 	}
 }

@@ -8,8 +8,7 @@ public class begincarlab : MonoBehaviour {
 	public GameObject target;
 	private GameObject newRope;
 	
-	public void letCarMove()
-	{
+	public void letCarMove() {
 		if (GameObject.FindGameObjectsWithTag("dragWeight").Length>0)
 		{
 			print(GameObject.FindGameObjectsWithTag("dragWeight").Length);

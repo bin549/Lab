@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class DestoryRope : MonoBehaviour {
 
-	private void OnTriggerExit(Collider other)
-	{
+	private void OnTriggerExit(Collider other) {
 		//print(other.name);
 		if (other.tag.Equals("Rope"))
 		{

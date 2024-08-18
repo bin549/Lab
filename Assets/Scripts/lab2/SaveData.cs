@@ -9,12 +9,6 @@ public class SaveData : MonoBehaviour {
 	public GameObject RecordInTHisOBj;
 	List<CarRecord> carRecord;
 	
-	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
 	public void saveRecord()
 	{
 		carRecord = RecordInTHisOBj.GetComponent<getCarMove>().getcarrecord();

@@ -1,11 +1,3 @@
-/****************************************************
-    文件：shiyanjindu.cs
-	作者：夜
-    邮箱: 97665366@qq.com
-    日期：#CreateTime#
-	功能：Nothing
-*****************************************************/
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -17,8 +9,9 @@ public class shiyanjindu : MonoBehaviour
     public GameObject[] shiyantrue;//13个器材
     public GameObject panel;//开始界面
     public Text[] info;//10个数据显示
-   public  int index;//数据测量计数
+    public  int index;//数据测量计数
     float[] shujujilu=new float[6];//6个数据缓存
+    
     private void Awake()
     {
         for (int i = 0; i < jinducolor.Length; i++)//遍历进度提示颜色为默认
@@ -31,6 +24,7 @@ public class shiyanjindu : MonoBehaviour
         }
         
     }
+
     private void Update()
     {//判断第一步是否完成
         if (shiyantrue[0].activeSelf&& shiyantrue[1].activeSelf&& shiyantrue[2].activeSelf&& shiyantrue[3].activeSelf&& shiyantrue[4].activeSelf&& shiyantrue[5].activeSelf&& shiyantrue[6].activeSelf&& shiyantrue[7].activeSelf&& shiyantrue[8].activeSelf&& shiyantrue[9].activeSelf&& shiyantrue[10].activeSelf&& shiyantrue[11].activeSelf&& shiyantrue[12].activeSelf)
@@ -42,6 +36,7 @@ public class shiyanjindu : MonoBehaviour
         }
 
     }
+    
     public void dierbu()//判断第二步是否完成
     {
         float alpha = jinducolor[1].GetComponent<Image>().color.a;
@@ -49,6 +44,7 @@ public class shiyanjindu : MonoBehaviour
         fadeColor.a = alpha;
         jinducolor[1].GetComponent<Image>().color = fadeColor;
     }
+    
     public void disanbu()//判断第三步是否完成
     {
         float alpha = jinducolor[2].GetComponent<Image>().color.a;
@@ -56,6 +52,7 @@ public class shiyanjindu : MonoBehaviour
         fadeColor.a = alpha;
         jinducolor[2].GetComponent<Image>().color = fadeColor;
     }
+    
     public void disibu()//判断第四步是否完成
     {
         float alpha = jinducolor[3].GetComponent<Image>().color.a;
@@ -63,6 +60,7 @@ public class shiyanjindu : MonoBehaviour
         fadeColor.a = alpha;
         jinducolor[3].GetComponent<Image>().color = fadeColor;
     }
+    
     public void jilu()//记录数据
     {
         if (index >= 3) { index = 0; }
@@ -91,6 +89,7 @@ public class shiyanjindu : MonoBehaviour
         }
         index++;
     }
+    
     public void chakan()//查看数据页面，并计算最终结果
     {
         panel.SetActive(!panel.activeSelf);
@@ -106,6 +105,7 @@ public class shiyanjindu : MonoBehaviour
             jinducolor[4].GetComponent<Image>().color = fadeColor;
         }
     }
+    
     public void chongzhi()//重新开始实验
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

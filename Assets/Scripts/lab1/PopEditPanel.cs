@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PopEditPanel : MonoBehaviour {
-
 	public GameObject input;
 	public Text text;
 	
@@ -19,6 +18,4 @@ public class PopEditPanel : MonoBehaviour {
 		
 		input.SetActive(true);
 	}
-	
-	
 }
