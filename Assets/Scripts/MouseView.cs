@@ -4,24 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
-public class MouseView : MonoBehaviour {
+public class MouseView : MonoBehaviour
+{
     public static MouseView ins;
+
     public enum RotationAxes
     {
         MouseXAndY = 0,
         MouseX = 1,
-        MouseY = 2
+        MouseY = 2,
     }
 
     public RotationAxes m_axes = RotationAxes.MouseXAndY;
     public float m_sensitivityX = 10f;
     public float m_sensitivityY = 10f;
-
-    // Ë®Æ½·½ÏòµÄ ¾µÍ·×ªÏò
     public float m_minimumX = -360f;
     public float m_maximumX = 360f;
-    // ´¹Ö±·½ÏòµÄ ¾µÍ·×ªÏò (ÕâÀï¸ø¸öÏÞ¶È ×î´óÑö½ÇÎª25¡ã)
+
     public float m_minimumY = -25f;
     public float m_maximumY = 25f;
 
@@ -50,107 +49,103 @@ public class MouseView : MonoBehaviour {
         {
             fama[i].SetActive(false);
         }
-        // ·ÀÖ¹ ¸ÕÌåÓ°Ïì ¾µÍ·Ðý×ª
+
         if (GetComponent<Rigidbody>())
         {
             GetComponent<Rigidbody>().freezeRotation = true;
         }
     }
 
-    private void OnMouseEnter() {
+    private void OnMouseEnter()
+    {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
         {
-
-            //Debug.Log(hit.collider.gameObject.name);
             obj = hit.collider.gameObject;
-            if (obj.name.Equals("íÀÂë0"))
+            if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½0"))
             {
-                text.text = "µã»÷½«íÀÂë¼ÓÈëÐ¡³µ";
+                text.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½";
             }
-            if (obj.name.Equals("íÀÂë1"))
+            if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½1"))
             {
-                text.text = "µã»÷½«íÀÂë¼ÓÈëÐ¡³µ";
+                text.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½";
             }
-            if (obj.name.Equals("íÀÂë2"))
+            if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½2"))
             {
-                text.text = "µã»÷½«íÀÂë¼ÓÈëÐ¡³µ";
+                text.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½";
             }
-            if (obj.name.Equals("íÀÂë3"))
+            if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½3"))
             {
-                text.text = "µã»÷½«íÀÂë¼ÓÈëºÐ×Ó";
+                text.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
             }
-            if (obj.name.Equals("íÀÂë4"))
+            if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½4"))
             {
-                text.text = "µã»÷½«íÀÂë¼ÓÈëºÐ×Ó";
+                text.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
             }
-            if (obj.name.Equals("Á¿Í²"))
+            if (obj.name.Equals("ï¿½ï¿½Í²"))
             {
-                text1.text = "¹Û²ìµã»÷¿ªÊ¼ºó£¬¹Û²ìÌìÆ½ºÍÁ¿Í²µÄ±ä»¯";
+                text1.text = "ï¿½Û²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ó£¬¹Û²ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½Í²ï¿½Ä±ä»¯";
             }
             if (obj.name.Equals("mukuai"))
             {
-                text1.text = "µã»÷Ê¹ÓÃÄ¾¿é¿ªÊ¼ÊµÑé";
+                text1.text = "ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ä¾ï¿½é¿ªÊ¼Êµï¿½ï¿½";
             }
             if (obj.name.Equals("tiekuai"))
             {
-                text1.text = "µã»÷Ê¹ÓÃÌú¿é¿ªÊ¼ÊµÑé";
+                text1.text = "ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½é¿ªÊ¼Êµï¿½ï¿½";
             }
             if (obj.name.Equals("mukuai1"))
             {
-                text1.text = "µã»÷Ê¹ÓÃÄ¾¿é¿ªÊ¼ÊµÑé";
+                text1.text = "ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Ä¾ï¿½é¿ªÊ¼Êµï¿½ï¿½";
             }
             if (obj.name.Equals("tiekuai1"))
             {
-                text1.text = "µã»÷Ê¹ÓÃÌú¿é¿ªÊ¼ÊµÑé";
+                text1.text = "ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½é¿ªÊ¼Êµï¿½ï¿½";
             }
-           
         }
     }
-            // Update is called once per frame
-            void Update()
+
+    void Update()
     {
-        carkg.text = "Ð¡³µÖØÁ¿" + carKG.ToString() + "g";
-        hezikg.text = "ºÐ×ÓÖØÁ¿" + heziKG.ToString();
+        carkg.text = "Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + carKG.ToString() + "g";
+        hezikg.text = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + heziKG.ToString();
         OnMouseEnter();
         if (Input.GetMouseButtonDown(0))
         {
-            //Debug.Log("µã»÷Êó±ê×ó¼ü");
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                //Debug.Log(hit.collider.gameObject.name);
                 obj = hit.collider.gameObject;
-                //Í¨¹ýÃû×Ö
-                if (obj.name.Equals("íÀÂë0"))
+
+                if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½0"))
                 {
                     carKG += 1000;
                     fama[0].SetActive(false);
                     fama[5].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("íÀÂë1"))
+                if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½1"))
                 {
                     carKG += 1000;
                     fama[1].SetActive(false);
                     fama[6].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("íÀÂë2"))
+                if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½2"))
                 {
                     carKG += 1000;
                     fama[2].SetActive(false);
                     fama[7].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("íÀÂë3"))
+                if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½3"))
                 {
                     heziKG += 1000;
                     fama[3].SetActive(false);
                     fama[8].SetActive(true);
                     xiaoche.Singleton.kh += 1;
                 }
-                if (obj.name.Equals("íÀÂë4"))
+                if (obj.name.Equals("ï¿½ï¿½ï¿½ï¿½4"))
                 {
                     heziKG += 1000;
                     fama[4].SetActive(false);
@@ -167,7 +162,7 @@ public class MouseView : MonoBehaviour {
                     mocali.instance.text[3].text = "30";
                     mocali.instance.text[4].text = "2.5";
                     mocali.instance.text[5].text = "0.295";
-                    mocali.instance.names = "Ä¾¿é´ó";
+                    mocali.instance.names = "Ä¾ï¿½ï¿½ï¿½";
                 }
                 if (obj.name.Equals("tiekuai"))
                 {
@@ -179,7 +174,7 @@ public class MouseView : MonoBehaviour {
                     mocali.instance.text[3].text = "30";
                     mocali.instance.text[4].text = "2.5";
                     mocali.instance.text[5].text = "0.295";
-                    mocali.instance.names = "Ìú¿éÐ¡";
+                    mocali.instance.names = "ï¿½ï¿½ï¿½ï¿½Ð¡";
                 }
                 if (obj.name.Equals("mukuai1"))
                 {
@@ -191,7 +186,7 @@ public class MouseView : MonoBehaviour {
                     mocali.instance.text[3].text = "30";
                     mocali.instance.text[4].text = "0.25";
                     mocali.instance.text[5].text = "0.295";
-                    mocali.instance.names = "Ä¾¿éÐ¡";
+                    mocali.instance.names = "Ä¾ï¿½ï¿½Ð¡";
                 }
                 if (obj.name.Equals("tiekuai1"))
                 {
@@ -203,22 +198,16 @@ public class MouseView : MonoBehaviour {
                     mocali.instance.text[3].text = "30";
                     mocali.instance.text[4].text = "50";
                     mocali.instance.text[5].text = "0.295";
-                    mocali.instance.names = "Ìú¿é´ó";
+                    mocali.instance.names = "ï¿½ï¿½ï¿½ï¿½ï¿½";
                 }
-                //if (obj.name.Equals("íÀÂë2"))
-                //{
-                //    fama2 .SetActive(false);
-                //    fama4 .SetActive (true );
-                //    heziKG = heziKG + 1000;
-                //    GameObject.Find("hezi").GetComponent<hezi>().rigidbodyadd();
-                //}
             }
         }
-                if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(1))
         {
             if (m_axes == RotationAxes.MouseXAndY)
             {
-                float m_rotationX = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * m_sensitivityX;
+                float m_rotationX =
+                    transform.localEulerAngles.y + Input.GetAxis("Mouse X") * m_sensitivityX;
                 m_rotationY += Input.GetAxis("Mouse Y") * m_sensitivityY;
                 m_rotationY = Mathf.Clamp(m_rotationY, m_minimumY, m_maximumY);
 
@@ -233,14 +222,20 @@ public class MouseView : MonoBehaviour {
                 m_rotationY += Input.GetAxis("Mouse Y") * m_sensitivityY;
                 m_rotationY = Mathf.Clamp(m_rotationY, m_minimumY, m_maximumY);
 
-                transform.localEulerAngles = new Vector3(-m_rotationY, transform.localEulerAngles.y, 0);
+                transform.localEulerAngles = new Vector3(
+                    -m_rotationY,
+                    transform.localEulerAngles.y,
+                    0
+                );
             }
         }
     }
+
     public void chongzhi()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
     public void mainscene()
     {
         SceneManager.LoadScene("main");

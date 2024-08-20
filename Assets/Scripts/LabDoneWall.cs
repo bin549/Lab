@@ -12,7 +12,6 @@ public class LabDoneWall : MonoBehaviour {
         this.labOne = FindObjectOfType<LabOne>();
     }
 
-
     private void OnTriggerEnter(Collider collision) {
         this.labOne.PassLab();
         StartCoroutine(this.ResetLab());

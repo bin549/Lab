@@ -10,6 +10,6 @@ public class changG : MonoBehaviour {
 		} else {
 			Physics.gravity= new Vector3(0,-9.8f,0);
 			print(Physics.gravity);		
-		}
+		} 
 	}
 }

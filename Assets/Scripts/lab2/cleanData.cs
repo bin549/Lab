@@ -4,12 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class cleanData : MonoBehaviour {
-
 	public Text text;
 	
-	void cleanD()
-	{
+	void cleanD() {{
 		text.text = "";
-		
 	}
 }

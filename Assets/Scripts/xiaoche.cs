@@ -1,52 +1,64 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-using UnityEngine.UI;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
+using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using UnityEngine.UI;
 
-public class xiaoche : MonoBehaviour {
+public class xiaoche : MonoBehaviour
+{
     public static xiaoche Singleton;
     Rigidbody rigid;
     public float speed = 0;
-    public bool xiaochespeedbool=false;
-    float  xiaochespeed;
+    public bool xiaochespeedbool = false;
+    float xiaochespeed;
     public Text text;
-    bool suduxianshibool=false;
+    bool suduxianshibool = false;
     public float kg = 1;
     public float kh = 1;
     public GameObject jiasuduprefab;
     public Transform conent;
     public GameObject jiasudupanel;
 
-    public xiaoche() {
+    public xiaoche()
+    {
         Singleton = this;
     }
 
-    private void Start() {
+    private void Start()
+    {
         rigid = GetComponent<Rigidbody>();
     }
-    
-    private void FixedUpdate() {
+
+    private void FixedUpdate()
+    {
         DateTime NowTime = DateTime.Now.ToLocalTime();
         speed = GameObject.Find("endBox").GetComponent<hezi>().hezispeed;
-        if (this.xiaochespeedbool) {
+        if (this.xiaochespeedbool)
+        {
             rigid.velocity = Vector3.forward * speed;
         }
-            xiaochespeed = rigid.velocity.magnitude;
-        // if (speed != 0) {
-        //     string message = NowTime.ToString(" HH: mm:ss")+"=>" + (xiaochespeed / kg) * kh;
-        //     text.text += message + "\n";
-        // }
+        xiaochespeed = rigid.velocity.magnitude;
     }
 
-    public void addtxt() {
-        TxtWriteAndRead.ins.AddTxtTextByFileInfo("Ð¡³µÖØÁ¿" + MouseView.ins.carKG.ToString() + "g" +"\n"+ "ºÐ×ÓÖØÁ¿" + MouseView.ins.heziKG.ToString() + "g" + "\n" + text.text+"&");
+    public void addtxt()
+    {
+        TxtWriteAndRead.ins.AddTxtTextByFileInfo(
+            "Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+                + MouseView.ins.carKG.ToString()
+                + "g"
+                + "\n"
+                + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
+                + MouseView.ins.heziKG.ToString()
+                + "g"
+                + "\n"
+                + text.text
+                + "&"
+        );
     }
 
     public void readtxt()
@@ -86,6 +98,3 @@ public class xiaoche : MonoBehaviour {
         text.text = null;
     }
 }
-
-   
-

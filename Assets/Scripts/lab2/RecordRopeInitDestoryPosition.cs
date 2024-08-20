@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RecordRopeInitDestoryPosition : MonoBehaviour
-{
-
+public class RecordRopeInitDestoryPosition : MonoBehaviour {
 	public Transform lastJointOfRope;
 
 	private Vector3 position;

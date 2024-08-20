@@ -15,7 +15,7 @@ public class mocali : MonoBehaviour
     }
 
     public void add() {
-        TxtWriteAndRead.ins.AddTxtTextByFileInfo(names+"\n"+ "¼ÓËÙ¶È(m/s^2):" + text[0].text+ "\n " + "ÖÊÁ¿(kg):" + text[1].text+ "\n " + "ÖØÁ¦¼ÓËÙ¶Èm/s^2):" + text[2].text+ "\n " + "½Ç¶È(¡ã):" + text[3].text+ "\n " + "Ä¦²ÁÁ¦(N):" + text[4].text+"\n "+ "Ä¦²ÁÏµÊý:" + text[5].text+"&");
+        TxtWriteAndRead.ins.AddTxtTextByFileInfo(names+"\n"+ "ï¿½ï¿½ï¿½Ù¶ï¿½(m/s^2):" + text[0].text+ "\n " + "ï¿½ï¿½ï¿½ï¿½(kg):" + text[1].text+ "\n " + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½m/s^2):" + text[2].text+ "\n " + "ï¿½Ç¶ï¿½(ï¿½ï¿½):" + text[3].text+ "\n " + "Ä¦ï¿½ï¿½ï¿½ï¿½(N):" + text[4].text+"\n "+ "Ä¦ï¿½ï¿½Ïµï¿½ï¿½:" + text[5].text+"&");
     }
     
     public void readtxt() {

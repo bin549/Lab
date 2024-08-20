@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class lab3DownMove : MonoBehaviour {
-
 	private Vector3 moveSpeed;
 	private GameObject car;
 	

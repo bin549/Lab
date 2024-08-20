@@ -22,8 +22,7 @@ public class BlinkHandler : MonoBehaviour {
     }
 
     private void BlinkHandle() {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
             this.isOpen = !this.isOpen;
             this.animator.SetBool("isOpen", this.isOpen);
         }

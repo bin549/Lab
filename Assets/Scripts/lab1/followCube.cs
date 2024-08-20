@@ -7,8 +7,7 @@ public class followCube : MonoBehaviour {
 	private Transform target;
 	
 	void Update () {
-		if (GameObject.FindWithTag("Cube") != null)
-		{
+		if (GameObject.FindWithTag("Cube") != null) {
 			target = GameObject.FindWithTag("Cube").transform;
 		}
 	}

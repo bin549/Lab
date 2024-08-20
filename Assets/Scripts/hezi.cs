@@ -24,7 +24,6 @@ public class hezi : MonoBehaviour {
         this.rigidbody.useGravity = true;
         this.labOne.PassLab();
         StartCoroutine(this.ResetLab());
-
     }
 
     private IEnumerator ResetLab() {

@@ -12,7 +12,6 @@ public class Door01UI : MonoBehaviour {
         this.gameManager = FindObjectOfType<GameManager>();
     }
 
-
     private void Start() {
     	this.UpdateUI();
     }

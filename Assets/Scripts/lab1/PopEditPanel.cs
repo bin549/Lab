@@ -7,8 +7,7 @@ public class PopEditPanel : MonoBehaviour {
 	public GameObject input;
 	public Text text;
 	
-	private void Start()
-	{
+	private void Start() {
 		this.GetComponent<Button>().onClick.AddListener(inputField);
 	}
 	

@@ -4,17 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class showWeightMass : MonoBehaviour
-{
+public class showWeightMass : MonoBehaviour {
+    public Text text;
 
-	public Text text;
-
-	private void LateUpdate() {
-		if (GameObject.FindWithTag("Weight") != null)
-		{
-			text.text = GameObject.FindWithTag("Weight").GetComponent<Rigidbody>().mass.ToString()+"KG";
-
-		}
-		
-	}
+    private void LateUpdate() {
+        if (GameObject.FindWithTag("Weight") != null) {
+            text.text =
+                GameObject.FindWithTag("Weight").GetComponent<Rigidbody>().mass.ToString() + "KG";
+        }
+    }
 }

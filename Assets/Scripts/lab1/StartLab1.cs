@@ -21,19 +21,12 @@ public class StartLab1 : MonoBehaviour {
 				//weight.GetComponent<Rigidbody>().useGravity = true;
 			
 		}
-		else if ( Usnap!=null && Usnap.active )
-		{
+		else if ( Usnap!=null && Usnap.active ) {
 			print("run3");
 			
 				GameObject cube = GameObject.FindWithTag("Cube");
-			//	GameObject weight = GameObject.FindWithTag("Weight");
-				
 				cube.GetComponent<Rigidbody>().isKinematic = false;
-				
-				// weight.GetComponent<Rigidbody>().isKinematic = false;
-				// weight.GetComponent<Rigidbody>().useGravity = true;
 				cube.GetComponent<Rigidbody>().useGravity = true;
-			
 		}
 		else
 		{

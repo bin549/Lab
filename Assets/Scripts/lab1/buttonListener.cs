@@ -11,29 +11,24 @@ public class buttonListener : MonoBehaviour
 
 	public GameObject menu;
 	
-	void Start () {
+	private void Start () {
 		flag = true;
 	}
 	
-	private void B1Pressed(object sender)
-	{
+	private void B1Pressed(object sender) {
 		if (flag)
 		{
-//			print("run1");
 			lab1.SetActive(false);
 			menu.SetActive(true);
 			flag = false;
 
-		}
-		else
+		} else
 		{
 			lab1.SetActive(true);
 			menu.SetActive(false);
 			flag = true;
 			
 		}
-		
-		
 	}
 
 }

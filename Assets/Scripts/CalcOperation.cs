@@ -106,7 +106,6 @@ namespace ConsoleApplication1
                 {
                     tempOrder.Add(w.PrioRity);
                 }
-
             });
 
             tempOrder.Sort();
@@ -124,7 +123,8 @@ namespace ConsoleApplication1
                 }
             }
 
-            if (numList.Count == 1) return numList[0];
+            if (numList.Count == 1)
+                return numList[0];
 
             return 0m;
         }
@@ -132,19 +132,14 @@ namespace ConsoleApplication1
         public class Operation
         {
             protected int priority = 99;
+
             /// <summary>
             /// 优先级
             /// </summary>
             public virtual int PrioRity
             {
-                get
-                {
-                    return priority;
-                }
-                set
-                {
-                    priority = value;
-                }
+                get { return priority; }
+                set { priority = value; }
             }
 
             public virtual decimal OperationResult(decimal a, decimal b)
@@ -173,10 +168,7 @@ namespace ConsoleApplication1
         {
             public override int PrioRity
             {
-                get
-                {
-                    return 98;
-                }
+                get { return 98; }
             }
 
             public override decimal OperationResult(decimal a, decimal b)
@@ -189,11 +181,9 @@ namespace ConsoleApplication1
         {
             public override int PrioRity
             {
-                get
-                {
-                    return 98;
-                }
+                get { return 98; }
             }
+
             public override decimal OperationResult(decimal a, decimal b)
             {
                 return a / b;
@@ -204,16 +194,13 @@ namespace ConsoleApplication1
         {
             public override int PrioRity
             {
-                get
-                {
-                    return 97;
-                }
+                get { return 97; }
             }
+
             public override decimal OperationResult(decimal a, decimal b)
             {
                 return a % b;
             }
         }
-
     }
 }

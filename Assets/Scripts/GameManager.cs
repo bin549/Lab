@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class GameManager : MonoBehaviour {
-    private static GameManager _instance;
+    private static GameManager _instance; 
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private bool isBusy = false;
 

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class changeMaterial : MonoBehaviour
-{
+public class changeMaterial : MonoBehaviour {
 
 	public Material other;
 	public MeshRenderer meshRender;  //声明MeshRenderer组件

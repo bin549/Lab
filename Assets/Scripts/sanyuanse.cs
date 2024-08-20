@@ -1,6 +1,5 @@
 using UnityEngine;
 
-public class sanyuanse : MonoBehaviour 
-{
+public class sanyuanse : MonoBehaviour  {
 
 }

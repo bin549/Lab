@@ -1,21 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-public class 翻转 : MonoBehaviour  {
+public class 翻转 : MonoBehaviour {
     public static 翻转 ins;
     GameObject obj;
     public Transform Sun;
-    public  bool 开关=false;
+    public bool 开关 = false;
     public GameObject 灯;
     private Renderer _renderer;
-    public  Material _material;
+    public Material _material;
     public GameObject[] dianxianred;
     public GameObject[] dianxian;
     public shiyanjindu shiyanjindu;
-    [SerializeField] private LabOne labOne;
-    [SerializeField] private LabDetector labDetector;
 
-    private void Awake()  { 
+    [SerializeField]
+    private LabOne labOne;
+
+    [SerializeField]
+    private LabDetector labDetector;
+
+    private void Awake() {
         this.labOne = FindObjectOfType<LabOne>();
         ins = this;
         if (灯 != null) {
@@ -24,15 +28,15 @@ public class 翻转 : MonoBehaviour  {
             SetMaterialRenderingMode(_material, RenderingMode.Transparent);
             _material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
         }
-        for (int i = 0; i < dianxianred.Length; i++)
-        {
-            dianxianred[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
-           
+        for (int i = 0; i < dianxianred.Length; i++) {
+            dianxianred[i]
+                .GetComponent<Renderer>()
+                .material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
         }
-        for (int i = 0; i < dianxian.Length; i++)
-        {
-            dianxian[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
-
+        for (int i = 0; i < dianxian.Length; i++) {
+            dianxian[i]
+                .GetComponent<Renderer>()
+                .material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
         }
     }
 
@@ -48,20 +52,21 @@ public class 翻转 : MonoBehaviour  {
                 dianxian[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.blue);
             }
             shiyanjindu.dierbu();
-        } else {
+        }
+        else {
             obj.transform.RotateAround(Sun.transform.position, Vector3.forward, 60);
             开关 = false;
             _material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
             SetMaterialRenderingMode(_material, RenderingMode.Transparent);
-            for (int i = 0; i < dianxianred.Length; i++)
-            {
-                dianxianred[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
-           
+            for (int i = 0; i < dianxianred.Length; i++) {
+                dianxianred[i]
+                    .GetComponent<Renderer>()
+                    .material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
             }
-            for (int i = 0; i < dianxian.Length; i++)
-            {
-                dianxian[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
-
+            for (int i = 0; i < dianxian.Length; i++) {
+                dianxian[i]
+                    .GetComponent<Renderer>()
+                    .material.SetColor(_colorName, Color.HSVToRGB(_h, _s, minBrightness));
             }
         }
     }
@@ -70,12 +75,12 @@ public class 翻转 : MonoBehaviour  {
         if (开关 == true) {
             _material.SetColor(_colorName, Color.HSVToRGB(_h, _s, _v));
         }
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 obj = hit.collider.gameObject;
-                if (obj.name.Equals("铡刀")) {
+                if (obj.name.Equals("铡刀"))
+                {
                     this.labOne.PassLab();
                     this.ToggleLight();
                     StartCoroutine(this.ResetLab());
@@ -89,29 +94,29 @@ public class 翻转 : MonoBehaviour  {
         this.ToggleLight();
         this.labDetector.ExitLab(true);
     }
-   
-    public  readonly string _colorName = "_EmissionColor";
-    public float _deltaBrightness;     
+
+    public readonly string _colorName = "_EmissionColor";
+    public float _deltaBrightness;
+
     [Range(0.0f, 1.0f)]
     public float minBrightness = 0f;
+
     [Range(0.0f, 1)]
     public float maxBrightness = 1f;
     public Color color = new Color(1, 0, 1, 1);
-    public float _h, _s;
-    public float  _v;           
+    public float _h,
+        _s;
+    public float _v;
 
-    public enum RenderingMode
-    {
+    public enum RenderingMode {
         Opaque,
         Cutout,
         Fade,
         Transparent,
     }
 
-    public static void SetMaterialRenderingMode(Material material, RenderingMode renderingMode)
-    {
-        switch (renderingMode)
-        {
+    public static void SetMaterialRenderingMode(Material material, RenderingMode renderingMode) {
+        switch (renderingMode) {
             case RenderingMode.Opaque:
                 material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
                 material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
@@ -151,4 +156,3 @@ public class 翻转 : MonoBehaviour  {
         }
     }
 }
-

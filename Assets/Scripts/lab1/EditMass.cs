@@ -33,7 +33,6 @@ public class EditMass : MonoBehaviour {
 		{
 			wrongOjb.SetActive(true);
 			inputText.text = "";
-			
 		}
 		else
 		{
@@ -41,8 +40,6 @@ public class EditMass : MonoBehaviour {
 			target.GetComponent<Rigidbody>().mass = mass;
 			transform.parent.gameObject.SetActive(false);
 			updateText.text = mass.ToString() + "KG";
-			
-			
 		}
 	}
 }

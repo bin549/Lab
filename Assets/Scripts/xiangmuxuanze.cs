@@ -1,8 +1,9 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class xiangmuxuanze : MonoBehaviour {
+public class xiangmuxuanze : MonoBehaviour
+{
     public GameObject btnObj;
     public GameObject caidan;
     public Sprite expan;
@@ -10,4 +11,3 @@ public class xiangmuxuanze : MonoBehaviour {
     Button btn;
     bool isshow = false;
 }
-

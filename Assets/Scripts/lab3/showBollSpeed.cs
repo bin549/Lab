@@ -5,22 +5,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class showBollSpeed : MonoBehaviour {
+    private double speed;
+    private Text text;
 
-	private double speed;
+    void Start() {
+        text = GetComponent<Text>();
+    }
 
-	private Text text;
-	
-	void Start () {
-		text = GetComponent<Text>();
-		
-	}
-	
-	void FixedUpdate () {
-		if (GameObject.FindWithTag("Ideal") == null && GameObject.FindWithTag("ball")!=null)
-		{
-			text.text = "实时速度为:";
-			speed = GameObject.FindWithTag("ball").GetComponent<getBollSpeed>().getSpeed();
-			text.text += Math.Round(speed, 2);
-		}
-	}
+    void FixedUpdate() {
+        if (GameObject.FindWithTag("Ideal") == null && GameObject.FindWithTag("ball") != null) {
+            text.text = "实时速度为:";
+            speed = GameObject.FindWithTag("ball").GetComponent<getBollSpeed>().getSpeed();
+            text.text += Math.Round(speed, 2);
+        }
+    }
 }

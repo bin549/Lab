@@ -6,16 +6,12 @@ using UnityEngine.UI;
 
 public class DragSpawn : MonoBehaviour, IPointerDownHandler {
     private GameObject _objDragSpawning;
-
-    //是否正在拖拽
     private bool _isDragSpawning = false;
-    public Image image;//拖拽时显示的图标
-    // Update is called once per frame
-    public string nameInfo;//拖拽时生成的物体名称
+    public Image image;
+    
+    public string nameInfo;
 	void Update () {
         if (_isDragSpawning) {
-            //射线
-            //刷新位置
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             LayerMask aa = 1 << 8;
@@ -38,7 +34,7 @@ public class DragSpawn : MonoBehaviour, IPointerDownHandler {
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        GameObject prefab = Resources.Load<GameObject>(nameInfo);//根据名字在Resources文件夹内查找预制体生成
+        GameObject prefab = Resources.Load<GameObject>(nameInfo);
         if (prefab != null) {
             _objDragSpawning = Instantiate(prefab);
             _isDragSpawning = true;
