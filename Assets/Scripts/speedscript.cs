@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class speedscript : MonoBehaviour
-{
+public class speedscript : MonoBehaviour {
     public Rigidbody targetObj;
     public TextMesh inTimeSpeed;
     public TextMesh maxSpeed;
@@ -19,25 +18,20 @@ public class speedscript : MonoBehaviour
 
     private bool flag = true;
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         double speed = targetObj.velocity.magnitude;
-        if (flag)
-        {
+        if (flag) {
             flag = false;
             a = 0;
             lastSpeed = speed;
-        }
-        else
-        {
+        } else {
             a = (speed - lastSpeed) / 0.02;
             lastSpeed = speed;
         }
         aT.text = Math.Round(a, 2).ToString();
     }
 
-    void Update()
-    {
+    void Update() {
         double speed = targetObj.velocity.magnitude;
         speed = Math.Round(speed, 2);
         inTimeSpeed.text = speed.ToString();

@@ -3,21 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class recordSaveAndDelete : MonoBehaviour
-{
+public class recordSaveAndDelete : MonoBehaviour {
     private List<Record> records;
 
-    public void saveRecord()
-    {
+    public void saveRecord() {
         records = GameObject.FindWithTag("recordText").GetComponent<getRecord>().getRecords();
         //将实验记录保存到文件中
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record.txt", true))
-        {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record.txt", true)) {
             String recordS = "";
             recordS += DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff");
             recordS += "\r";
-            foreach (Record record in records)
-            {
+            foreach (Record record in records) {
                 recordS += "加速度:" + String.Format("{0,-10}", Math.Round(record.Acceleration, 2));
                 recordS += "质量:" + String.Format("{0,-10}", Math.Round(record.Mass, 2));
                 recordS += "重力加速度" + String.Format("{0,-10}", Math.Round(record.g, 2));
@@ -31,8 +27,7 @@ public class recordSaveAndDelete : MonoBehaviour
         }
     }
 
-    public void CleanRecord()
-    {
+    public void CleanRecord() {
         GameObject.FindWithTag("recordText").GetComponent<getRecord>().cleanRecord();
     }
 }

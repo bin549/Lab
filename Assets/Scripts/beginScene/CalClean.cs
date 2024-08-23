@@ -6,15 +6,11 @@ using UnityEngine.UI;
 public class CalClean : MonoBehaviour {
 	public Text inputText;
 
-	private void Start()
-	{
+	private void Start() {
 		this.GetComponent<Button>().onClick.AddListener(Onclick);
 	}
 	
-	void Onclick()
-	{
+	void Onclick() {
 		inputText.text = "";
-		
-		
 	}
 }

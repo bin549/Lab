@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class endProgram : MonoBehaviour {
 
-	public void onClick()
-	{
-		print("qut");
+	public void onClick() {
 		#if UNITY_EDITOR
 		         UnityEditor.EditorApplication.isPlaying = false;
 		 #else

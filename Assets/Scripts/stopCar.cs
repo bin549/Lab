@@ -9,10 +9,8 @@ public class stopCar : MonoBehaviour {
 	public AudioSource woodCollision;
 	
 	
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.tag.Equals("car"))
-		{
+	private void OnTriggerEnter(Collider other) {
+		if (other.tag.Equals("car")) {
 			other.GetComponent<carMove>().enabled = false;
 			// other.GetComponent<Rigidbody>().velocity=Vector3.zero;
 			// other.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;

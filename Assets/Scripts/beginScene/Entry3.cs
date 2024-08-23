@@ -5,16 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Entry3 : MonoBehaviour {
-
-
-	// Use this for initialization
-	void Start()
-	{
+	void Start() {
 		this.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	void OnClick()
-	{
+	void OnClick() {
 		SceneManager.LoadScene("experiment3");
 	}
 }

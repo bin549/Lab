@@ -4,12 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MouseView : MonoBehaviour
-{
+public class MouseView : MonoBehaviour {
     public static MouseView ins;
 
-    public enum RotationAxes
-    {
+    public enum RotationAxes {
         MouseXAndY = 0,
         MouseX = 1,
         MouseY = 2,
@@ -38,122 +36,97 @@ public class MouseView : MonoBehaviour
     GameObject obj;
     public GameObject[] mukuaitiekuai;
 
-    private void Awake()
-    {
+    private void Awake() {
         ins = this;
     }
 
-    private void Start()
-    {
-        for (int i = 5; i < fama.Length; i++)
-        {
+    private void Start() {
+        for (int i = 5; i < fama.Length; i++) {
             fama[i].SetActive(false);
         }
 
-        if (GetComponent<Rigidbody>())
-        {
+        if (GetComponent<Rigidbody>()) {
             GetComponent<Rigidbody>().freezeRotation = true;
         }
     }
 
-    private void OnMouseEnter()
-    {
+    private void OnMouseEnter() {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
+        if (Physics.Raycast(ray, out hit)) {
             obj = hit.collider.gameObject;
-            if (obj.name.Equals("����0"))
-            {
+            if (obj.name.Equals("����0")) {
                 text.text = "������������С��";
             }
-            if (obj.name.Equals("����1"))
-            {
+            if (obj.name.Equals("����1")) {
                 text.text = "������������С��";
             }
-            if (obj.name.Equals("����2"))
-            {
+            if (obj.name.Equals("����2")) {
                 text.text = "������������С��";
             }
-            if (obj.name.Equals("����3"))
-            {
+            if (obj.name.Equals("����3")) {
                 text.text = "���������������";
             }
-            if (obj.name.Equals("����4"))
-            {
+            if (obj.name.Equals("����4")) {
                 text.text = "���������������";
             }
-            if (obj.name.Equals("��Ͳ"))
-            {
+            if (obj.name.Equals("��Ͳ")) {
                 text1.text = "�۲�����ʼ�󣬹۲���ƽ����Ͳ�ı仯";
             }
-            if (obj.name.Equals("mukuai"))
-            {
+            if (obj.name.Equals("mukuai")) {
                 text1.text = "���ʹ��ľ�鿪ʼʵ��";
             }
-            if (obj.name.Equals("tiekuai"))
-            {
+            if (obj.name.Equals("tiekuai")) {
                 text1.text = "���ʹ�����鿪ʼʵ��";
             }
-            if (obj.name.Equals("mukuai1"))
-            {
+            if (obj.name.Equals("mukuai1")) {
                 text1.text = "���ʹ��ľ�鿪ʼʵ��";
             }
-            if (obj.name.Equals("tiekuai1"))
-            {
+            if (obj.name.Equals("tiekuai1")) {
                 text1.text = "���ʹ�����鿪ʼʵ��";
             }
         }
     }
 
-    void Update()
-    {
+    void Update() {
         carkg.text = "С������" + carKG.ToString() + "g";
         hezikg.text = "��������" + heziKG.ToString();
         OnMouseEnter();
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetMouseButtonDown(0)) {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
+            if (Physics.Raycast(ray, out hit)) {
                 obj = hit.collider.gameObject;
 
-                if (obj.name.Equals("����0"))
-                {
+                if (obj.name.Equals("����0")) {
                     carKG += 1000;
                     fama[0].SetActive(false);
                     fama[5].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("����1"))
-                {
+                if (obj.name.Equals("����1")) {
                     carKG += 1000;
                     fama[1].SetActive(false);
                     fama[6].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("����2"))
-                {
+                if (obj.name.Equals("����2")) {
                     carKG += 1000;
                     fama[2].SetActive(false);
                     fama[7].SetActive(true);
                     xiaoche.Singleton.kg += 1;
                 }
-                if (obj.name.Equals("����3"))
-                {
+                if (obj.name.Equals("����3")) {
                     heziKG += 1000;
                     fama[3].SetActive(false);
                     fama[8].SetActive(true);
                     xiaoche.Singleton.kh += 1;
                 }
-                if (obj.name.Equals("����4"))
-                {
+                if (obj.name.Equals("����4")) {
                     heziKG += 1000;
                     fama[4].SetActive(false);
                     fama[9].SetActive(true);
                     xiaoche.Singleton.kh += 1;
                 }
-                if (obj.name.Equals("mukuai"))
-                {
+                if (obj.name.Equals("mukuai")) {
                     obj.gameObject.SetActive(false);
                     mukuaitiekuai[0].SetActive(true);
                     mocali.instance.text[0].text = "2.4";
@@ -164,8 +137,7 @@ public class MouseView : MonoBehaviour
                     mocali.instance.text[5].text = "0.295";
                     mocali.instance.names = "ľ���";
                 }
-                if (obj.name.Equals("tiekuai"))
-                {
+                if (obj.name.Equals("tiekuai")) {
                     obj.gameObject.SetActive(false);
                     mukuaitiekuai[1].SetActive(true);
                     mocali.instance.text[0].text = "2.4";
@@ -176,8 +148,7 @@ public class MouseView : MonoBehaviour
                     mocali.instance.text[5].text = "0.295";
                     mocali.instance.names = "����С";
                 }
-                if (obj.name.Equals("mukuai1"))
-                {
+                if (obj.name.Equals("mukuai1")) {
                     obj.gameObject.SetActive(false);
                     mukuaitiekuai[2].SetActive(true);
                     mocali.instance.text[0].text = "2.4";
@@ -188,8 +159,7 @@ public class MouseView : MonoBehaviour
                     mocali.instance.text[5].text = "0.295";
                     mocali.instance.names = "ľ��С";
                 }
-                if (obj.name.Equals("tiekuai1"))
-                {
+                if (obj.name.Equals("tiekuai1")) {
                     obj.gameObject.SetActive(false);
                     mukuaitiekuai[3].SetActive(true);
                     mocali.instance.text[0].text = "2.4";
@@ -202,10 +172,8 @@ public class MouseView : MonoBehaviour
                 }
             }
         }
-        if (Input.GetMouseButton(1))
-        {
-            if (m_axes == RotationAxes.MouseXAndY)
-            {
+        if (Input.GetMouseButton(1)) {
+            if (m_axes == RotationAxes.MouseXAndY) {
                 float m_rotationX =
                     transform.localEulerAngles.y + Input.GetAxis("Mouse X") * m_sensitivityX;
                 m_rotationY += Input.GetAxis("Mouse Y") * m_sensitivityY;
@@ -213,12 +181,10 @@ public class MouseView : MonoBehaviour
 
                 transform.localEulerAngles = new Vector3(-m_rotationY, m_rotationX, 0);
             }
-            else if (m_axes == RotationAxes.MouseX)
-            {
+            else if (m_axes == RotationAxes.MouseX) {
                 transform.Rotate(0, Input.GetAxis("Mouse X") * m_sensitivityX, 0);
             }
-            else
-            {
+            else {
                 m_rotationY += Input.GetAxis("Mouse Y") * m_sensitivityY;
                 m_rotationY = Mathf.Clamp(m_rotationY, m_minimumY, m_maximumY);
 
@@ -231,13 +197,11 @@ public class MouseView : MonoBehaviour
         }
     }
 
-    public void chongzhi()
-    {
+    public void chongzhi() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public void mainscene()
-    {
+    public void mainscene() {
         SceneManager.LoadScene("main");
     }
 }

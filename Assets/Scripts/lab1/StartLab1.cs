@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class StartLab1 : MonoBehaviour {
-	public void Begin()
-	{
+	public void Begin() {
 		GameObject Dsnap1 = GameObject.FindWithTag("DownSnap");
 		GameObject Usnap = GameObject.FindWithTag("UpSnap");
 		print("begin");
-		if ( Dsnap1!=null && Dsnap1.active  )
-		{
+		if ( Dsnap1!=null && Dsnap1.active  ) {
 			print("run1");
 			
 				print("run2");
@@ -20,16 +18,14 @@ public class StartLab1 : MonoBehaviour {
 				cube.GetComponent<Rigidbody>().useGravity = true;
 				//weight.GetComponent<Rigidbody>().useGravity = true;
 			
-		}
-		else if ( Usnap!=null && Usnap.active ) {
+		} else if ( Usnap!=null && Usnap.active ) {
 			print("run3");
 			
 				GameObject cube = GameObject.FindWithTag("Cube");
 				cube.GetComponent<Rigidbody>().isKinematic = false;
 				cube.GetComponent<Rigidbody>().useGravity = true;
 		}
-		else
-		{
+		else {
 			print("777");
 		}
 		

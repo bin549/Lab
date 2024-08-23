@@ -2,26 +2,22 @@ using System.Collections;
 using UnityEngine;
 
 public class shizhi : MonoBehaviour {
-    public AnimationCurve curve; //放大的曲线
+    public AnimationCurve curve; 
 
     public int intt;
     public GameObject yinjiprefab;
     public string text;
 
-    void OnTriggerEnter(Collider other) //判断触发器
-    {
-        if (other.gameObject.name == "水滴")
-        {
-            //Destroy(other.gameObject);
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "水滴") {
+            
         }
     }
 
-    void OnCollisionEnter(Collision ctl)
-    {
-        if (ctl.gameObject.name == "试纸1") //碰撞到的物体名字是否等于预设物体名字
-        {
+    void OnCollisionEnter(Collision ctl) {
+        if (ctl.gameObject.name == "试纸1")  {
             ContactPoint contact = ctl.contacts[0];
-            //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            
             Vector3 pos = contact.point;
 
             GameObject go = Instantiate(
@@ -35,10 +31,9 @@ public class shizhi : MonoBehaviour {
             go.gameObject.GetComponent<yinji>().text.text = text;
             Destroy(gameObject);
         }
-        if (ctl.gameObject.name == "试纸2") //碰撞到的物体名字是否等于预设物体名字
-        {
+        if (ctl.gameObject.name == "试纸2")  {
             ContactPoint contact = ctl.contacts[0];
-            //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            
             Vector3 pos = contact.point;
 
             GameObject go = Instantiate(
@@ -52,10 +47,9 @@ public class shizhi : MonoBehaviour {
             go.gameObject.GetComponent<yinji>().text.text = text;
             Destroy(gameObject);
         }
-        if (ctl.gameObject.name == "试纸3") //碰撞到的物体名字是否等于预设物体名字
-        {
+        if (ctl.gameObject.name == "试纸3")  {
             ContactPoint contact = ctl.contacts[0];
-            //Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
+            
             Vector3 pos = contact.point;
 
             GameObject go = Instantiate(

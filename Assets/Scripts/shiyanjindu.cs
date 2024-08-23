@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class shiyanjindu : MonoBehaviour {
-    public GameObject[] jinducolor; //5个提示进度颜色
-    public Color fadeColor = Color.green; //进度默认颜色
-    public GameObject[] shiyantrue; //13个器材
-    public GameObject panel; //开始界面
-    public Text[] info; //10个数据显示
-    public int index; //数据测量计数
-    float[] shujujilu = new float[6]; //6个数据缓存
+    public GameObject[] jinducolor; 
+    public Color fadeColor = Color.green; 
+    public GameObject[] shiyantrue; 
+    public GameObject panel; 
+    public Text[] info; 
+    public int index; 
+    float[] shujujilu = new float[6]; 
 
     private void Awake() {
         for (int i = 0; i < jinducolor.Length; i++) {
@@ -20,7 +20,7 @@ public class shiyanjindu : MonoBehaviour {
         }
     }
 
-    private void Update() { //判断第一步是否完成
+    private void Update() { 
         if (
             shiyantrue[0].activeSelf
             && shiyantrue[1].activeSelf
@@ -43,28 +43,28 @@ public class shiyanjindu : MonoBehaviour {
         }
     }
 
-    public void dierbu() //判断第二步是否完成 {
+    public void dierbu() {
         float alpha = jinducolor[1].GetComponent<Image>().color.a;
         alpha = 1f;
         fadeColor.a = alpha;
         jinducolor[1].GetComponent<Image>().color = fadeColor;
     }
 
-    public void disanbu() //判断第三步是否完成 {
+    public void disanbu()  {
         float alpha = jinducolor[2].GetComponent<Image>().color.a;
         alpha = 1f;
         fadeColor.a = alpha;
         jinducolor[2].GetComponent<Image>().color = fadeColor;
     }
 
-    public void disibu() //判断第四步是否完成 {
+    public void disibu()  {
         float alpha = jinducolor[3].GetComponent<Image>().color.a;
         alpha = 1f;
         fadeColor.a = alpha;
         jinducolor[3].GetComponent<Image>().color = fadeColor;
     }
 
-    public void jilu() //记录数据 {
+    public void jilu()  {
         if (index >= 3) {
             index = 0;
         }
@@ -89,7 +89,7 @@ public class shiyanjindu : MonoBehaviour {
         index++;
     }
 
-    public void chakan() //查看数据页面，并计算最终结果 {
+    public void chakan()  {
         panel.SetActive(!panel.activeSelf);
         info[6].text = (shujujilu[0] / shujujilu[1]).ToString();
         info[7].text = (shujujilu[2] / shujujilu[3]).ToString();
@@ -109,7 +109,7 @@ public class shiyanjindu : MonoBehaviour {
         }
     }
 
-    public void chongzhi() //重新开始实验 {
+    public void chongzhi()  {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

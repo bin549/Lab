@@ -2,20 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ropeDownMove : MonoBehaviour
-{
+public class ropeDownMove : MonoBehaviour {
     private Transform target;
 
     private Vector3 startPostion;
 
-    void Start()
-    {
+    void Start() {
         target = GameObject.FindWithTag("car").transform;
         startPostion = this.transform.position;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         this.transform.position =
             startPostion
             + new Vector3(0, GameObject.FindWithTag("car").GetComponent<carMove>().Move.x, 0);

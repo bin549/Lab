@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class buttonListener : MonoBehaviour
-{
+public class buttonListener : MonoBehaviour {
 	private bool flag;
 	
 	public GameObject lab1;
@@ -16,18 +15,14 @@ public class buttonListener : MonoBehaviour
 	}
 	
 	private void B1Pressed(object sender) {
-		if (flag)
-		{
+		if (flag) {
 			lab1.SetActive(false);
 			menu.SetActive(true);
 			flag = false;
-
-		} else
-		{
+		} else {
 			lab1.SetActive(true);
 			menu.SetActive(false);
 			flag = true;
-			
 		}
 	}
 

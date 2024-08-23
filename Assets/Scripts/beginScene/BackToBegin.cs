@@ -5,15 +5,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BackToBegin : MonoBehaviour {
-
-	// Use this for initialization
-	private void Start()
-	{
+	private void Start() {
 		this.GetComponent<Button>().onClick.AddListener(backTObegin);
 	}
 
-	void backTObegin()
-	{
+	void backTObegin() {
 		SceneManager.LoadScene("beginScene");
 	}
 }

@@ -11,45 +11,36 @@ public class CalCore : MonoBehaviour {
 	string cal = "";
 	
 	CalcOperation calcOperation=new CalcOperation();
-	private void Start()
-	{
+	private void Start() {
 		this.GetComponent<Button>().onClick.AddListener(getResult);
 	}
 	
-	public void getResult()
-	{
+	public void getResult() {
 		bool isWrong=false;
 		cal = input.text;
 		
 		string r="";
-		if (input.text.Equals(""))
-		{
+		if (input.text.Equals("")) {
 			isWrong = true;
 			
-		}
-		else
-		{
+		} else {
 			isWrong = CalCos();
 	
-			try
-			{
+			try {
 				DataTable dt = new DataTable();
 				r = dt.Compute(cal, "false").ToString();
 				
 			}
-			catch (Exception e)
-			{
+			catch (Exception e) {
 				isWrong = true;
 			}
 
 			
 		}
-		if (isWrong)
-		{
+		if (isWrong) {
 			input.text = "ERROR";
 		}
-		else
-		{
+		else {
 			input.text = r;
 			
 		}
@@ -57,33 +48,26 @@ public class CalCore : MonoBehaviour {
 	
 	
 	
-	private bool CalCos()
-	{
+	private bool CalCos() {
 		bool isWrong = false;
 		String getCos = "";
-		while (cal.IndexOf("cos") > 0)
-		{
+		while (cal.IndexOf("cos") > 0) {
 			//Stack sanjiaohanshu =new Stack();
 			int head = cal.IndexOf("cos");
-			if (!(cal[head+3]=='('))
-			{
+			if (!(cal[head+3]=='(')) {
 				isWrong = true;
 				break;
 			}
-			else
-			{
-				for (int i = head+4; i < cal.Length; i++)
-				{
+			else {
+				for (int i = head+4; i < cal.Length; i++) {
 					//sanjiaohanshu.Push(s[i]);
 					getCos += cal[i];
-					if ((cal[i]==')'))
-					{
+					if ((cal[i]==')')) {
 						break;
 					}
 				}
 				//getCos = sanjiaohanshu.ToString();
-				if (getCos.IndexOf(")")<0)
-				{
+				if (getCos.IndexOf(")")<0) {
 					isWrong = true;
 					break;
 				}

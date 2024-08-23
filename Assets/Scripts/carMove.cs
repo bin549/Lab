@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class carMove : MonoBehaviour
-{
+public class carMove : MonoBehaviour {
     int second;
     Vector3 MOVE;
     private Vector3 MoveSpeed;
@@ -17,55 +16,45 @@ public class carMove : MonoBehaviour
 
     private List<double> Slist;
 
-    public double MassOfCar
-    {
+    public double MassOfCar {
         get { return massOfCar; }
     }
 
-    public double MassOfWeight
-    {
+    public double MassOfWeight {
         get { return massOfWeights; }
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         Slist = new List<double>();
     }
 
-    public void beginLab()
-    {
+    public void beginLab() {
         GetComponent<carMove>().enabled = true;
         isBegin = true;
     }
 
-    public void restart()
-    {
+    public void restart() {
         second = 0;
         isBegin = false;
     }
 
-    public Vector3 Move
-    {
+    public Vector3 Move {
         get { return MOVE; }
     }
 
-    public bool getIsBegin()
-    {
+    public bool getIsBegin() {
         return isBegin;
     }
 
-    void Start()
-    {
+    void Start() {
         isBegin = false;
     }
 
-    public Vector3 getDownSpeed()
-    {
+    public Vector3 getDownSpeed() {
         return MoveSpeed;
     }
 
-    void FixedUpdate()
-    {
+    void FixedUpdate() {
         // 		//this.transform.SetPositionAndRotation(MoveByTime(second),this.transform.rotation);
         // 		MOVE = MoveByTime(second);
         // 		//
@@ -78,8 +67,7 @@ public class carMove : MonoBehaviour
         }
     }
 
-    private Vector3 speed(int s)
-    {
+    private Vector3 speed(int s) {
         double carspeed;
         double massOfWeight = 0;
 
@@ -119,18 +107,15 @@ public class carMove : MonoBehaviour
         return new Vector3(-(float)carspeed, 0, 0);
     }
 
-    public List<double> getSlist()
-    {
+    public List<double> getSlist() {
         return Slist;
     }
 
-    public void cleanSlist()
-    {
+    public void cleanSlist() {
         Slist.Clear();
     }
 
-    public double getAce()
-    {
+    public double getAce() {
         return Ace;
     }
 }

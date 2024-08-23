@@ -4,21 +4,17 @@ using UnityEngine;
 using UnityEngine.Video;
 
 public class PlayVideo : MonoBehaviour {
-
 	public VideoPlayer videoPlayer;
 	
-	public void PlayButton()
-	{
+	public void PlayButton() {
 		videoPlayer.Play();
 	}
 	
-	public void StopButton()
-	{
+	public void StopButton() {
 		videoPlayer.Stop();
 	}
 	
-	public void ReplayButton()
-	{
+	public void ReplayButton() {
 		videoPlayer.Pause();
 	}
 }

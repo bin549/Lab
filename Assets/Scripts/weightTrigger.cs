@@ -3,21 +3,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weightTrigger : MonoBehaviour
-{
-	private bool WeightIn=false;//砝码是否在触发器中
-	private bool hasWeight = false;//实验时是否有砝码
+public class weightTrigger : MonoBehaviour {
+	private bool WeightIn=false;
+	private bool hasWeight = false;
 
 	private void Awake() {
 		WeightIn=false;
 		hasWeight = false;
 	}
-	//重置砝码
+	
 	public void resetHasWeight() {
 		hasWeight = false;
 		WeightIn = false;
 	}
-	//当砝码位于预制体中，开始实验时调用该函数，用于记录实验是否有砝码参与
+	
 	public void StartLab() {
 		if (WeightIn) {
 			hasWeight = true;
@@ -29,7 +28,7 @@ public class weightTrigger : MonoBehaviour
 	}
 	
 	private void OnTriggerStay(Collider other) {
-		//Debug.Log(other.gameObject.tag);
+		
 		if (other.gameObject.tag.Equals("Weight")) {
 			WeightIn = true;
 		}

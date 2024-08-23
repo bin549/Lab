@@ -2,24 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class addinterference : MonoBehaviour
-{
+public class addinterference : MonoBehaviour {
 	public GameObject target;
-	public void OnClick(bool isOn)
-	{
-		if (isOn)
-		{
-			print("run1");
-			//target.SetActive(true);
+	public void OnClick(bool isOn) {
+		if (isOn) {
 			target.GetComponent<getRecord>().onInter();
-			
-		}
-		else
-		{
-			print("run2");
+		} else {
 			target.GetComponent<getRecord>().offInter();
-
-			//target.SetActive(false);
 		}
 	}
 }

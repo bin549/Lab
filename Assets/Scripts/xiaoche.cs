@@ -9,8 +9,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.UI;
 
-public class xiaoche : MonoBehaviour
-{
+public class xiaoche : MonoBehaviour {
     public static xiaoche Singleton;
     Rigidbody rigid;
     public float speed = 0;
@@ -24,29 +23,24 @@ public class xiaoche : MonoBehaviour
     public Transform conent;
     public GameObject jiasudupanel;
 
-    public xiaoche()
-    {
+    public xiaoche() {
         Singleton = this;
     }
 
-    private void Start()
-    {
+    private void Start() {
         rigid = GetComponent<Rigidbody>();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         DateTime NowTime = DateTime.Now.ToLocalTime();
         speed = GameObject.Find("endBox").GetComponent<hezi>().hezispeed;
-        if (this.xiaochespeedbool)
-        {
+        if (this.xiaochespeedbool) {
             rigid.velocity = Vector3.forward * speed;
         }
         xiaochespeed = rigid.velocity.magnitude;
     }
 
-    public void addtxt()
-    {
+    public void addtxt() {
         TxtWriteAndRead.ins.AddTxtTextByFileInfo(
             "С������"
                 + MouseView.ins.carKG.ToString()
@@ -61,40 +55,33 @@ public class xiaoche : MonoBehaviour
         );
     }
 
-    public void readtxt()
-    {
+    public void readtxt() {
         jiasudupanel.SetActive(!jiasudupanel.activeSelf);
-        if (jiasudupanel.activeSelf)
-        {
+        if (jiasudupanel.activeSelf) {
             Transform transform;
-            for (int i = 0; i < conent.transform.childCount; i++)
-            {
+            for (int i = 0; i < conent.transform.childCount; i++) {
                 transform = conent.transform.GetChild(i);
                 GameObject.Destroy(transform.gameObject);
             }
             TxtWriteAndRead.ins.ReadTxtFifth();
             string[] str = TxtWriteAndRead.ins.str.Split('&');
-            for (int i = 0; i < str.Length; i++)
-            {
+            for (int i = 0; i < str.Length; i++) {
                 GameObject go = Instantiate(jiasuduprefab, conent, false);
                 go.GetComponent<jiasuduprefab>().text.text = str[i];
             }
         }
     }
 
-    public void rigidbodyadd2()
-    {
+    public void rigidbodyadd2() {
         rigid.mass = rigid.mass + 1;
         suduxianshibool = true;
     }
 
-    public void kaishiyouxi()
-    {
+    public void kaishiyouxi() {
         xiaochespeedbool = true;
     }
 
-    public void qingkong()
-    {
+    public void qingkong() {
         text.text = null;
     }
 }

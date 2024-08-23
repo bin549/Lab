@@ -16,8 +16,7 @@ public class haveFrictionalforce : MonoBehaviour {
 		if (targetRigidbody.drag == 0) {
 			targetRigidbody.drag = 0.1f;
 			tip.text = "有摩擦力";
-		}
-		else {
+		} else {
 			targetRigidbody.drag =0;
 			tip.text = "无摩擦力";
 		}

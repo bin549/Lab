@@ -4,17 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Entry1 : MonoBehaviour
-{
-
-	// Use this for initialization
-	void Start()
-	{
+public class Entry1 : MonoBehaviour {
+	void Start() {
 		this.GetComponent<Button>().onClick.AddListener(OnClick);
 	}
 
-	void OnClick()
-	{
+	void OnClick() {
 		SceneManager.LoadScene("experiment1");
 	}
 }

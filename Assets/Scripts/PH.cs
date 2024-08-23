@@ -1,8 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class PH : MonoBehaviour
-{
+public class PH : MonoBehaviour {
     private Vector3 _vec3TargetScreenSpace;
     private Vector3 _vec3TargetWorldSpace;
     public Transform _trans;
@@ -21,12 +20,9 @@ public class PH : MonoBehaviour
     public GameObject shuidiprefab;
     string text;
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "醋")
-        {
-            if (qusebool == true)
-            {
+    void OnTriggerEnter(Collider other) {
+        if (other.gameObject.name == "醋") {
+            if (qusebool == true) {
                 goquses = other.gameObject;
                 qusebool = false;
                 yangben.GetComponent<Renderer>().material.color = new Color(
@@ -39,10 +35,8 @@ public class PH : MonoBehaviour
                 text = other.gameObject.name;
             }
         }
-        if (other.gameObject.name == "纯水")
-        {
-            if (qusebool == true)
-            {
+        if (other.gameObject.name == "纯水") {
+            if (qusebool == true) {
                 goquses = other.gameObject;
                 qusebool = false;
                 yangben.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
@@ -50,10 +44,8 @@ public class PH : MonoBehaviour
                 text = other.gameObject.name;
             }
         }
-        if (other.gameObject.name == "肥皂水")
-        {
-            if (qusebool == true)
-            {
+        if (other.gameObject.name == "肥皂水") {
+            if (qusebool == true) {
                 goquses = other.gameObject;
                 qusebool = false;
                 yangben.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
@@ -61,10 +53,8 @@ public class PH : MonoBehaviour
                 text = other.gameObject.name;
             }
         }
-        if (other.gameObject.name == "试纸1")
-        {
-            if (dirubool == true && goquses != null)
-            {
+        if (other.gameObject.name == "试纸1") {
+            if (dirubool == true && goquses != null) {
                 GameObject go = Instantiate(
                     shuidiprefab,
                     shuiditr.transform.position,
@@ -80,10 +70,8 @@ public class PH : MonoBehaviour
                 dirubool = false;
             }
         }
-        if (other.gameObject.name == "试纸2")
-        {
-            if (dirubool == true && goquses != null)
-            {
+        if (other.gameObject.name == "试纸2") {
+            if (dirubool == true && goquses != null) {
                 GameObject go = Instantiate(
                     shuidiprefab,
                     shuiditr.transform.position,
@@ -98,10 +86,8 @@ public class PH : MonoBehaviour
                 dirubool = false;
             }
         }
-        if (other.gameObject.name == "试纸3")
-        {
-            if (dirubool == true && goquses != null)
-            {
+        if (other.gameObject.name == "试纸3") {
+            if (dirubool == true && goquses != null) {
                 GameObject go = Instantiate(
                     shuidiprefab,
                     shuiditr.transform.position,
@@ -118,28 +104,23 @@ public class PH : MonoBehaviour
         }
     }
 
-    public void infopanel()
-    {
+    public void infopanel() {
         panelinfo.SetActive(!panelinfo.activeSelf);
     }
 
-    public void dirubutton()
-    {
+    public void dirubutton() {
         dirubool = true;
     }
 
-    public void qusebutton()
-    {
+    public void qusebutton() {
         qusebool = true;
     }
 
-    private void Awake()
-    {
+    private void Awake() {
         _trans = transform;
     }
 
-    private void Update()
-    {
+    private void Update() {
         _trans.position = new Vector3(
             _trans.transform.position.x,
             -3.416f,
@@ -147,8 +128,7 @@ public class PH : MonoBehaviour
         );
     }
 
-    IEnumerator OnMouseDown()
-    {
+    IEnumerator OnMouseDown() {
         _vec3TargetScreenSpace = Camera.main.WorldToScreenPoint(_trans.position);
 
         _vec3MouseScreenSpace = new Vector3(
@@ -159,8 +139,7 @@ public class PH : MonoBehaviour
 
         _vec3Offset = _trans.position - Camera.main.ScreenToWorldPoint(_vec3MouseScreenSpace);
 
-        while (Input.GetMouseButton(0))
-        {
+        while (Input.GetMouseButton(0)) {
             _vec3MouseScreenSpace = new Vector3(
                 Input.mousePosition.x,
                 Input.mousePosition.y,
