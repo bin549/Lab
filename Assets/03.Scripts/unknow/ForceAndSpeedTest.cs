@@ -13,7 +13,6 @@ public class ForceAndSpeedTest : MonoBehaviour {
 	private void Start () {
 		Debug.Log("开始位置"+this.GetComponent<Transform>().position);
 		rigidbody= this.transform.GetComponent<Rigidbody>();
-		//每秒显示一次速度加速度
 		//InvokeRepeating("recordStatu", 0f,1f);
 	}
 
@@ -22,9 +21,9 @@ public class ForceAndSpeedTest : MonoBehaviour {
 		a = (speed - lastspeed) / 0.02;
 		lastspeed = speed;
 		Debug.Log("速度"+speed.ToString());
-		 Debug.Log("质量"+rigidbody.mass);
-		 Debug.Log(Physics.gravity);
-		 Debug.Log("加速度" + a.ToString());
+		Debug.Log("质量"+rigidbody.mass);
+		Debug.Log(Physics.gravity);
+		Debug.Log("加速度" + a.ToString());
 	}
 
 	private void recordStatu() {

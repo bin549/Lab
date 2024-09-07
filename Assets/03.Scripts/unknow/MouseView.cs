@@ -53,40 +53,10 @@ public class MouseView : MonoBehaviour {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit)) {
             obj = hit.collider.gameObject;
-            if (obj.name.Equals("����0")) {
-                text.text = "������������С��";
-            }
-            if (obj.name.Equals("����1")) {
-                text.text = "������������С��";
-            }
-            if (obj.name.Equals("����2")) {
-                text.text = "������������С��";
-            }
-            if (obj.name.Equals("����3")) {
-                text.text = "���������������";
-            }
-            if (obj.name.Equals("����4")) {
-                text.text = "���������������";
-            }
-            if (obj.name.Equals("��Ͳ")) {
-                text1.text = "�۲�����ʼ�󣬹۲���ƽ����Ͳ�ı仯";
-            }
-            if (obj.name.Equals("mukuai")) {
-                text1.text = "���ʹ��ľ�鿪ʼʵ��";
-            }
-            if (obj.name.Equals("tiekuai")) {
-                text1.text = "���ʹ�����鿪ʼʵ��";
-            }
-            if (obj.name.Equals("mukuai1")) {
-                text1.text = "���ʹ��ľ�鿪ʼʵ��";
-            }
-            if (obj.name.Equals("tiekuai1")) {
-                text1.text = "���ʹ�����鿪ʼʵ��";
-            }
         }
     }
 
-    void Update() {
+    private void Update() {
         carkg.text = "С������" + carKG.ToString() + "g";
         hezikg.text = "��������" + heziKG.ToString();
         OnMouseEnter();

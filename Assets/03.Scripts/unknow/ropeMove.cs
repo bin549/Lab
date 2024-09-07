@@ -7,13 +7,12 @@ public class ropeMove : MonoBehaviour {
 
     private Vector3 startPostion;
 
-    void Start() {
+    private void Start() {
         target = GameObject.FindWithTag("car").transform;
         startPostion = this.transform.position;
     }
 
-    void FixedUpdate() {
-        this.transform.position =
-            startPostion + GameObject.FindWithTag("car").GetComponent<carMove>().Move;
+    private void FixedUpdate() {
+        this.transform.position = startPostion + GameObject.FindWithTag("car").GetComponent<carMove>().Move;
     }
 }

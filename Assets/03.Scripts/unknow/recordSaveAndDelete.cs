@@ -8,7 +8,6 @@ public class recordSaveAndDelete : MonoBehaviour {
 
     public void saveRecord() {
         records = GameObject.FindWithTag("recordText").GetComponent<getRecord>().getRecords();
-        //将实验记录保存到文件中
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record.txt", true)) {
             String recordS = "";
             recordS += DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff");
@@ -21,7 +20,7 @@ public class recordSaveAndDelete : MonoBehaviour {
                 recordS += "摩擦力" + String.Format("{0,-10}", Math.Round(record.Friction, 2));
                 recordS += "摩擦系数" + String.Format("{0,-10}", Math.Round(record.CoF, 2));
                 recordS += "\r";
-                file.WriteLine(recordS); // 直接追加文件末尾，换行
+                file.WriteLine(recordS); 
             }
         }
     }

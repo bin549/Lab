@@ -7,12 +7,9 @@ public class addinterference2 : MonoBehaviour {
 
     public void OnClick(bool isOn) {
         if (isOn) {
-            //target.SetActive(true);
             target.GetComponent<getCarMove>().onInter();
-        }
-        else {
+        } else {
             target.GetComponent<getCarMove>().offInter();
-            //target.SetActive(false);
         }
     }
 }

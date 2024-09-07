@@ -6,7 +6,7 @@ using UnityEngine;
 public class followCube : MonoBehaviour {
 	private Transform target;
 	
-	void Update () {
+	private void Update () {
 		if (GameObject.FindWithTag("Cube") != null) {
 			target = GameObject.FindWithTag("Cube").transform;
 		}

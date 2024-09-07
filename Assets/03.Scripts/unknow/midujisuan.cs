@@ -6,7 +6,7 @@ public class midujisuan : MonoBehaviour {
     public GameObject fama, fama1;
     public GameObject shuiwei;
 
-    void Start() {
+    private void Start() {
         fama.SetActive(true);
         fama1.SetActive(false);
     }

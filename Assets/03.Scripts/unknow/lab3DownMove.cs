@@ -8,12 +8,12 @@ public class lab3DownMove : MonoBehaviour {
 	
 	private bool isBegin;
 	
-	void Start () {
+	private void Start () {
 		car = GameObject.FindWithTag("car");
 		isBegin = car.GetComponent<carMove>().getIsBegin();
 	}
 	
-	void FixedUpdate () {
+	private void FixedUpdate () {
 		moveSpeed = car.GetComponent<carMove>().getDownSpeed();
 		Vector3 speed = new Vector3(0, moveSpeed.x, 0);
 		if(GameObject.FindWithTag("car").GetComponent<carMove>().enabled) {

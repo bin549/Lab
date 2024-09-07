@@ -11,9 +11,7 @@ public class weightMove : MonoBehaviour {
         startPostion = this.transform.position;
     }
 
-    void FixedUpdate() {
-        this.transform.position =
-            startPostion
-            + new Vector3(0, GameObject.FindWithTag("car").GetComponent<carMove>().Move.x, 0);
+    private void FixedUpdate() {
+        this.transform.position = startPostion + new Vector3(0, GameObject.FindWithTag("car").GetComponent<carMove>().Move.x, 0);
     }
 }

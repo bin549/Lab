@@ -86,7 +86,6 @@ public class getCarMove : MonoBehaviour {
                 text.text += "\r";
             }
         }
-        //放到类中，方便保存
         CarRecord newRecord = new CarRecord(Slist, massOfcar, massOfWeight);
         carRecords.Add(newRecord);
         if (isAddInter) {

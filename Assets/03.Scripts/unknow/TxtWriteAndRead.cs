@@ -6,7 +6,7 @@ using System.Text;
 
 public class TxtWriteAndRead : MonoBehaviour {
     public static TxtWriteAndRead ins;
-    TextAsset m_Txt;
+    private TextAsset m_Txt;
     public string str;
     public string jiasuduTXT;
    
@@ -18,7 +18,6 @@ public class TxtWriteAndRead : MonoBehaviour {
         string path = Application.dataPath + jiasuduTXT;
         StreamWriter sw;
         FileInfo fi = new FileInfo(path);
-
         if (!File.Exists(path)) {
             sw = fi.CreateText();
         } else {
@@ -30,7 +29,7 @@ public class TxtWriteAndRead : MonoBehaviour {
     }
 
    
-   public  void ReadTxtFifth() {
+   public void ReadTxtFifth() {
         string path = Application.dataPath + jiasuduTXT;
         FileStream files = new FileStream(path, FileMode.Open, FileAccess.Read);
         byte[] bytes = new byte[files.Length];

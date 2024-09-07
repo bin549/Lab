@@ -9,13 +9,10 @@ public class speedscript : MonoBehaviour {
     public TextMesh inTimeSpeed;
     public TextMesh maxSpeed;
     public TextMesh aT;
-
     private double max = 0;
     private double min = 0;
-
     private double lastSpeed = 0;
     private double a = 0;
-
     private bool flag = true;
 
     private void FixedUpdate() {
@@ -31,7 +28,7 @@ public class speedscript : MonoBehaviour {
         aT.text = Math.Round(a, 2).ToString();
     }
 
-    void Update() {
+    private void Update() {
         double speed = targetObj.velocity.magnitude;
         speed = Math.Round(speed, 2);
         inTimeSpeed.text = speed.ToString();

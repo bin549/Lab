@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class showBallSpeedIdeal : MonoBehaviour
-{
+public class showBallSpeedIdeal : MonoBehaviour {
     private double speed;
 
     private Text text;
 
-    void Start() {
+    private void Start() {
         text = GetComponent<Text>();
     }
 
-    void FixedUpdate() {
+    private void FixedUpdate() {
         if (GameObject.FindWithTag("Ideal") != null) {
             text.text = "实时速度为:";
             speed = GameObject.FindWithTag("ball").GetComponent<getBollSpeed>().getSpeed();

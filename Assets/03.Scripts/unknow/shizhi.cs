@@ -3,18 +3,17 @@ using UnityEngine;
 
 public class shizhi : MonoBehaviour {
     public AnimationCurve curve; 
-
     public int intt;
     public GameObject yinjiprefab;
     public string text;
 
-    void OnTriggerEnter(Collider other) {
+    private void OnTriggerEnter(Collider other) {
         if (other.gameObject.name == "水滴") {
             
         }
     }
 
-    void OnCollisionEnter(Collision ctl) {
+    private void OnCollisionEnter(Collision ctl) {
         if (ctl.gameObject.name == "试纸1")  {
             ContactPoint contact = ctl.contacts[0];
             Vector3 pos = contact.point;

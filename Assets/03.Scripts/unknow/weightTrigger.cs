@@ -28,7 +28,6 @@ public class weightTrigger : MonoBehaviour {
 	}
 	
 	private void OnTriggerStay(Collider other) {
-		
 		if (other.gameObject.tag.Equals("Weight")) {
 			WeightIn = true;
 		}

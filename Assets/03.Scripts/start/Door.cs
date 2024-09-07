@@ -26,7 +26,7 @@ public class Door : MonoBehaviour {
     }
 
 	public void OpenDoor() {
-        doorMirrorAnimator.SetTrigger("open");
+        this.doorMirrorAnimator.SetTrigger("open");
         this.audioSource.clip = openDoorClip;
 		this.audioSource.Play();
 	}

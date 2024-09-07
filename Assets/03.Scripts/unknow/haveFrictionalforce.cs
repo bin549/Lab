@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class haveFrictionalforce : MonoBehaviour {
 	public Rigidbody targetRigidbody;
 	public TextMesh tip;

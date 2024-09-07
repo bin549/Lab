@@ -11,12 +11,12 @@ using UnityEngine.UI;
 
 public class xiaoche : MonoBehaviour {
     public static xiaoche Singleton;
-    Rigidbody rigid;
+    private Rigidbody rigid;
     public float speed = 0;
     public bool xiaochespeedbool = false;
-    float xiaochespeed;
+    private float xiaochespeed;
     public Text text;
-    bool suduxianshibool = false;
+    private bool suduxianshibool = false;
     public float kg = 1;
     public float kh = 1;
     public GameObject jiasuduprefab;
