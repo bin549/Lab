@@ -82,7 +82,7 @@ public class BulbClosure : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 obj = hit.collider.gameObject;
-                if (obj.name.Equals("铡刀")) {
+                if (obj.name.Equals("BulbClosure")) {
                     this.labOne.PassLab();
                     this.ToggleLight();
                     StartCoroutine(this.ResetLab());

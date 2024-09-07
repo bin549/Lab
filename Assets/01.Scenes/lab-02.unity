@@ -271,7 +271,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 724827716023817189, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 1177339780110666567, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_Name
@@ -327,31 +327,31 @@ PrefabInstance:
       objectReference: {fileID: 1520759676}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0000008940697
+      value: -15.80954
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.8
+      value: 4.4100003
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8
+      value: 13.085647
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.44823414
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.080628075
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: -0.87620986
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.15761207
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00824920ad7d114f9e4462d60ece841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experimentalAccuracy: {fileID: 0}
+  experimentalAccuracy: {fileID: 1242240137}
   _trans: {fileID: 543450652009359846}
 --- !u!65 &664921772
 BoxCollider:
