@@ -16,10 +16,8 @@ public class lab3DownMove : MonoBehaviour {
 	void FixedUpdate () {
 		moveSpeed = car.GetComponent<carMove>().getDownSpeed();
 		Vector3 speed = new Vector3(0, moveSpeed.x, 0);
-		if(GameObject.FindWithTag("car").GetComponent<carMove>().enabled)
-		{
+		if(GameObject.FindWithTag("car").GetComponent<carMove>().enabled) {
 			transform.Translate(speed*0.02f);
 		}
-		
 	}
 }

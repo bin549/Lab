@@ -11,8 +11,7 @@ public class SaveData : MonoBehaviour {
     public void saveRecord() {
         carRecord = RecordInTHisOBj.GetComponent<getCarMove>().getcarrecord();
         //将实验记录保存到文件中
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record2.txt", true))
-        {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record2.txt", true)) {
             String recordS = "";
             recordS += DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff");
             recordS += "\r";

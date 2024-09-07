@@ -12,8 +12,7 @@ public class followCube : MonoBehaviour {
 		}
 	}
 
-	private void FixedUpdate()
-	{
+	private void FixedUpdate() {
 		transform.position=new Vector3(target.position.x-0.1f,target.position.y+0.1f,target.position.z);
 	}
 }

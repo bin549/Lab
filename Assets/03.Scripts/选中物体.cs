@@ -12,8 +12,7 @@ public class 选中物体 : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetMouseButtonDown(0)) {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 obj = hit.collider.gameObject;

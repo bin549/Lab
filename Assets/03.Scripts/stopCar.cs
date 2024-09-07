@@ -4,10 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class stopCar : MonoBehaviour {
-
 	public GameObject Stext;
 	public AudioSource woodCollision;
-	
 	
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag.Equals("car")) {

@@ -7,7 +7,7 @@ public class haveFrictionalforce : MonoBehaviour {
 	public TextMesh tip;
 	private Vector3 position;
 
-	void Start() {
+	private void Start() {
 		position = targetRigidbody.position;
 		tip.text = "无摩擦力";
 	}

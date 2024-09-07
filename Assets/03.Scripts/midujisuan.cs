@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class midujisuan : MonoBehaviour {
-    public GameObject fama,
-        fama1;
+    public GameObject fama, fama1;
     public GameObject shuiwei;
 
     void Start() {

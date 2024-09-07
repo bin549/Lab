@@ -17125,7 +17125,7 @@ GameObject:
   - component: {fileID: 1669046496}
   - component: {fileID: 1669046495}
   m_Layer: 0
-  m_Name: "\u94E1\u5200"
+  m_Name: BulbClosure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

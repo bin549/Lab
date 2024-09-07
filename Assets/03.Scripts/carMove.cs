@@ -54,15 +54,10 @@ public class carMove : MonoBehaviour {
         return MoveSpeed;
     }
 
-    void FixedUpdate() {
-        // 		//this.transform.SetPositionAndRotation(MoveByTime(second),this.transform.rotation);
-        // 		MOVE = MoveByTime(second);
-        // 		//
-        // 		this.transform.position = startPostion +MOVE ;
+    private void FixedUpdate() {
         if (isBegin) {
             second += 1;
             MoveSpeed = speed(second);
-
             this.transform.Translate(MoveSpeed * 0.02f);
         }
     }
@@ -77,18 +72,12 @@ public class carMove : MonoBehaviour {
         }
 
         massOfWeights = massOfWeight;
-        //massOfWeight = 1;
-        //计算拉力
-        //double fPull = massOfWeight * Math.Abs(Physics.gravity.y);
-
         double massOfCar = 0;
-        //通过tag得出小车的质量加上砝码的质量
         if (GameObject.FindGameObjectsWithTag("carWeight").Length > 0) {
             foreach (var g in GameObject.FindGameObjectsWithTag("carWeight")) {
                 massOfCar += g.GetComponent<Rigidbody>().mass;
             }
         }
-
         if (GameObject.FindWithTag("car") != null) {
             massOfCar += this.gameObject.GetComponent<Rigidbody>().mass;
         }

@@ -21,8 +21,7 @@ public class getCarSpeed : MonoBehaviour {
 
     private void FixedUpdate() {
         speed = (this.transform.position.x - lastposition.x) / 0.02;
-        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record3.txt", true))
-        {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"record3.txt", true)) {
             String recordS = "";
             recordS +=
                 "s1:"
@@ -42,12 +41,9 @@ public class getCarSpeed : MonoBehaviour {
         }
         lastposition = this.transform.position;
         a = (speed - lastspeed) / 0.02;
-
         lastspeed = speed;
         flag += 1;
-        if (flag == 3)
-        {
-            //showSpeed();
+        if (flag == 3) {
             flag = 0;
         }
     }

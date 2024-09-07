@@ -18,7 +18,6 @@ public class UIManager : MonoBehaviour {
         this.UpdateUI();
     }
 
-
     private void UpdateUI() {
         this.room01Text.text = "("+ this.gameManager.GetCurrentCount(1).ToString()+ "/"+ this.gameManager.GetTotalCount(1).ToString()+ ")";
         this.room02Text.text = "("+ this.gameManager.GetCurrentCount(2).ToString()+ "/"+ this.gameManager.GetTotalCount(2).ToString()+ ")";

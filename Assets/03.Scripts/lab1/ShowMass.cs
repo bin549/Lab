@@ -5,6 +5,5 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ShowMass : MonoBehaviour {
-
 	public GameObject target;
 }

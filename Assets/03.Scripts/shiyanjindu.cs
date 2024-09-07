@@ -69,22 +69,22 @@ public class shiyanjindu : MonoBehaviour {
             index = 0;
         }
         if (index == 0) {
-            shujujilu[0] = 翻转.ins._v * 10f / 4;
-            info[0].text = (翻转.ins._v * 10f / 4).ToString();
-            shujujilu[1] = 翻转.ins._v * 10f / 4 / 5;
-            info[3].text = (翻转.ins._v * 10f / 4 / 5).ToString();
+            shujujilu[0] = BulbClosure.instance._v * 10f / 4;
+            info[0].text = (BulbClosure.instance._v * 10f / 4).ToString();
+            shujujilu[1] = BulbClosure.instance._v * 10f / 4 / 5;
+            info[3].text = (BulbClosure.instance._v * 10f / 4 / 5).ToString();
         }
         if (index == 1) {
-            shujujilu[2] = 翻转.ins._v * 10f / 4;
-            info[1].text = (翻转.ins._v * 10f / 4).ToString();
-            shujujilu[3] = 翻转.ins._v * 10f / 4 / 5;
-            info[4].text = (翻转.ins._v * 10f / 4 / 5).ToString();
+            shujujilu[2] = BulbClosure.instance._v * 10f / 4;
+            info[1].text = (BulbClosure.instance._v * 10f / 4).ToString();
+            shujujilu[3] = BulbClosure.instance._v * 10f / 4 / 5;
+            info[4].text = (BulbClosure.instance._v * 10f / 4 / 5).ToString();
         }
         if (index == 2) {
-            shujujilu[4] = 翻转.ins._v * 10f / 4;
-            info[2].text = (翻转.ins._v * 10f / 4).ToString();
-            shujujilu[5] = 翻转.ins._v * 10f / 4 / 5;
-            info[5].text = (翻转.ins._v * 10f / 4 / 5).ToString();
+            shujujilu[4] = BulbClosure.instance._v * 10f / 4;
+            info[2].text = (BulbClosure.instance._v * 10f / 4).ToString();
+            shujujilu[5] = BulbClosure.instance._v * 10f / 4 / 5;
+            info[5].text = (BulbClosure.instance._v * 10f / 4 / 5).ToString();
         }
         index++;
     }

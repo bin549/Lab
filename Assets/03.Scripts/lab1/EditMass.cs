@@ -19,23 +19,17 @@ public class EditMass : MonoBehaviour {
 		float mass=target.GetComponent<Rigidbody>().mass;
 		bool isWrong = false;
 		
-		try
-		{
+		try {
 			mass=float.Parse(inputText.text);
-		}
-		catch (Exception e)
-		{
+		} catch (Exception e) {
 			isWrong = true;
 			
 		}
 
-		if (isWrong)
-		{
+		if (isWrong) {
 			wrongOjb.SetActive(true);
 			inputText.text = "";
-		}
-		else
-		{
+		} else {
 			wrongOjb.SetActive(false);
 			target.GetComponent<Rigidbody>().mass = mass;
 			transform.parent.gameObject.SetActive(false);

@@ -44,7 +44,6 @@ public class MouseView : MonoBehaviour {
         for (int i = 5; i < fama.Length; i++) {
             fama[i].SetActive(false);
         }
-
         if (GetComponent<Rigidbody>()) {
             GetComponent<Rigidbody>().freezeRotation = true;
         }

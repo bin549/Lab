@@ -12,6 +12,5 @@ public class Del : MonoBehaviour {
 	
 	void Onclick() {
 		inputText.text = inputText.text.Substring(0, inputText.text.Length - 1);
-		
 	}
 }

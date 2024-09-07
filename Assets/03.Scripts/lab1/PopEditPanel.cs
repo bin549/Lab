@@ -11,10 +11,8 @@ public class PopEditPanel : MonoBehaviour {
 		this.GetComponent<Button>().onClick.AddListener(inputField);
 	}
 	
-	public void inputField()
-	{
+	public void inputField() {
 		text.text = "";
-		
 		input.SetActive(true);
 	}
 }

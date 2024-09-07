@@ -60,32 +60,20 @@ public class getRecord : MonoBehaviour {
     void updateText(double ac) {
         double mass;
         mass = GameObject.FindWithTag("Cube").GetComponent<Rigidbody>().mass;
-    
-        if (isaddinterference)
-        {
+        if (isaddinterference) {
             Random random = new Random();
             double randomAc = random.Next(-10, 10) / 100f;
             print(randomAc);
             records.Add(new Record(ac + (randomAc), mass, Angle));
-        }
-        else
-        {
+        } else {
             records.Add(new Record(ac, mass, Angle));
         }
         recordText.text = "";
-        foreach (var record in records)
-        {
-            
-            
-
-            
+        foreach (var record in records) {
             recordText.text += String.Format("{0,-20}", Math.Round(record.Acceleration, 3));
             recordText.text += String.Format("{0,-20}", Math.Round(record.Friction, 3));
             recordText.text += String.Format("{0,-20}", Math.Round(record.CoF, 3));
             recordText.text += "\r";
-            
-            
-            
         }
         GameObject
             .FindWithTag("DetailData")

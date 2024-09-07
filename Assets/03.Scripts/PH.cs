@@ -15,7 +15,6 @@ public class PH : MonoBehaviour {
     public readonly string _colorName = "_EmissionColor";
     public GameObject panelinfo;
     public int quseint;
-
     public Transform shuiditr;
     public GameObject shuidiprefab;
     string text;
@@ -77,9 +76,7 @@ public class PH : MonoBehaviour {
                     shuiditr.transform.position,
                     Quaternion.identity
                 );
-                go.GetComponent<Renderer>().material.color = yangben
-                    .GetComponent<Renderer>()
-                    .material.color;
+                go.GetComponent<Renderer>().material.color = yangben.GetComponent<Renderer>().material.color;
                 go.gameObject.GetComponent<shizhi>().intt = quseint;
                 go.gameObject.GetComponent<shizhi>().text = text;
                 yangben.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
@@ -128,29 +125,22 @@ public class PH : MonoBehaviour {
         );
     }
 
-    IEnumerator OnMouseDown() {
+    private IEnumerator OnMouseDown() {
         _vec3TargetScreenSpace = Camera.main.WorldToScreenPoint(_trans.position);
-
         _vec3MouseScreenSpace = new Vector3(
             Input.mousePosition.x,
             Input.mousePosition.y,
             _vec3TargetScreenSpace.z
         );
-
         _vec3Offset = _trans.position - Camera.main.ScreenToWorldPoint(_vec3MouseScreenSpace);
-
         while (Input.GetMouseButton(0)) {
             _vec3MouseScreenSpace = new Vector3(
                 Input.mousePosition.x,
                 Input.mousePosition.y,
                 _vec3TargetScreenSpace.z
             );
-
-            _vec3TargetWorldSpace =
-                Camera.main.ScreenToWorldPoint(_vec3MouseScreenSpace) + _vec3Offset;
-
+            _vec3TargetWorldSpace = Camera.main.ScreenToWorldPoint(_vec3MouseScreenSpace) + _vec3Offset;
             _trans.position = _vec3TargetWorldSpace;
-
             yield return new WaitForFixedUpdate();
         }
     }

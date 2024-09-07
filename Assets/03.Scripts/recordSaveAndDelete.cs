@@ -21,7 +21,6 @@ public class recordSaveAndDelete : MonoBehaviour {
                 recordS += "摩擦力" + String.Format("{0,-10}", Math.Round(record.Friction, 2));
                 recordS += "摩擦系数" + String.Format("{0,-10}", Math.Round(record.CoF, 2));
                 recordS += "\r";
-
                 file.WriteLine(recordS); // 直接追加文件末尾，换行
             }
         }

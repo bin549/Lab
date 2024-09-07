@@ -12,11 +12,9 @@ public class getBollSpeed : MonoBehaviour {
     }
 
     void Update() {
-        {
-            speed = GetComponent<Rigidbody>().velocity.magnitude;
-            a = (speed - lastspeed) / 0.02;
-            lastspeed = speed;
-        }
+        speed = GetComponent<Rigidbody>().velocity.magnitude;
+        a = (speed - lastspeed) / 0.02;
+        lastspeed = speed;
     }
 
     void showSpeed() {

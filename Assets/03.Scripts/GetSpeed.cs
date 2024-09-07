@@ -28,10 +28,7 @@ public class GetSpeed : MonoBehaviour {
     }
 
     void Start() {
-        //		Debug.Log("开始位置"+this.GetComponent<Transform>().position);
         rigidbody = this.transform.GetComponent<Rigidbody>();
-        //每秒显示一次速度加速度
-        //InvokeRepeating("recordStatu", 0f,1f);
     }
 
     public List<double> getAccelerate() {
@@ -42,8 +39,7 @@ public class GetSpeed : MonoBehaviour {
         speed = rigidbody.velocity.magnitude;
         a = (speed - lastspeed) / 0.02;
         lastspeed = speed;
-        if (a > 0)
-        {
+        if (a > 0) {
             Accelerate.Add(a);
         }
         showSpeed();
@@ -51,7 +47,6 @@ public class GetSpeed : MonoBehaviour {
 
     void showSpeed() { }
 
-    //每秒获取参数
     void recordStatu() {
         Debug.Log(this.GetComponent<Transform>().position);
         Debug.Log("速度" + speed.ToString());

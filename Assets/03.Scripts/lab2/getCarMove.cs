@@ -37,7 +37,6 @@ public class getCarMove : MonoBehaviour {
     private double massOfWeight;
     private List<CarRecord> carRecords;
 
-    //是否添加干扰
     private bool isAddInter = false;
 
     private void Start() {
