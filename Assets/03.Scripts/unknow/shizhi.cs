@@ -17,9 +17,7 @@ public class shizhi : MonoBehaviour {
     void OnCollisionEnter(Collision ctl) {
         if (ctl.gameObject.name == "试纸1")  {
             ContactPoint contact = ctl.contacts[0];
-            
             Vector3 pos = contact.point;
-
             GameObject go = Instantiate(
                 yinjiprefab,
                 new Vector3(pos.x, ctl.transform.position.y + 0.01f, pos.z),
@@ -33,9 +31,7 @@ public class shizhi : MonoBehaviour {
         }
         if (ctl.gameObject.name == "试纸2")  {
             ContactPoint contact = ctl.contacts[0];
-            
             Vector3 pos = contact.point;
-
             GameObject go = Instantiate(
                 yinjiprefab,
                 new Vector3(pos.x, ctl.transform.position.y + 0.01f, pos.z),
@@ -49,9 +45,7 @@ public class shizhi : MonoBehaviour {
         }
         if (ctl.gameObject.name == "试纸3")  {
             ContactPoint contact = ctl.contacts[0];
-            
             Vector3 pos = contact.point;
-
             GameObject go = Instantiate(
                 yinjiprefab,
                 new Vector3(pos.x, ctl.transform.position.y + 0.01f, pos.z),

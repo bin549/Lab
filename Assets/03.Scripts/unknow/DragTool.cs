@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class DragTool : MonoBehaviour  {
-    public shiyanjindu shiyanjindu;
+    public ExperimentalAccuracy experimentalAccuracy;
     private Vector3 _vec3TargetScreenSpace;
     private Vector3 _vec3TargetWorldSpace;
     public  Transform _trans;
@@ -18,8 +18,7 @@ public class DragTool : MonoBehaviour  {
         if (BulbClosure.instance.isTriggerEnabled) {
             BulbClosure.instance._v =1-( (_trans.position.x / 0.13f) - 50.7861523f);
             Rotate.ShowSpeed(_trans.position.x * 20, 45f, 360);
-            Rotate1.ShowSpeed(_trans.position.x * 20, 45, 360);
-            shiyanjindu.disanbu();
+            this.experimentalAccuracy.disanbu();
         }
     }
  

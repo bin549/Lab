@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class 选中物体 : MonoBehaviour {
     public Texture2D tex;
-    GameObject obj;
+    private GameObject obj;
     public GameObject camera;
-    public shiyanjindu shiyanjindu;
+    public ExperimentalAccuracy experimentalAccuracy;
 
     private void Start() {
         Cursor.SetCursor(tex, Vector2.zero, CursorMode.Auto);
@@ -43,7 +43,7 @@ public class 选中物体 : MonoBehaviour {
                         obj.transform.position.y + 0.15f,
                         obj.transform.position.z - 0.15f
                     );
-                    shiyanjindu.disibu();
+                    this.experimentalAccuracy.disibu();
                 }
                 if (obj.name.Equals("电压表")) {
                     camera.transform.position = new Vector3(
@@ -51,7 +51,7 @@ public class 选中物体 : MonoBehaviour {
                         obj.transform.position.y + 0.15f,
                         obj.transform.position.z - 0.15f
                     );
-                    shiyanjindu.disibu();
+                    this.experimentalAccuracy.disibu();
                 }
                 if (obj.name.Equals("负载")) {
                     camera.transform.position = new Vector3(

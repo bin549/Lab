@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class shiyanjindu : MonoBehaviour {
+public class ExperimentalAccuracy : MonoBehaviour {
     public GameObject[] jinducolor; 
     public Color fadeColor = Color.green; 
     public GameObject[] shiyantrue; 
@@ -94,8 +94,7 @@ public class shiyanjindu : MonoBehaviour {
         info[6].text = (shujujilu[0] / shujujilu[1]).ToString();
         info[7].text = (shujujilu[2] / shujujilu[3]).ToString();
         info[8].text = (shujujilu[4] / shujujilu[5]).ToString();
-        info[9].text = (
-            (
+        info[9].text = ((
                 (shujujilu[0] / shujujilu[1])
                 + (shujujilu[2] / shujujilu[3])
                 + (shujujilu[4] / shujujilu[5])

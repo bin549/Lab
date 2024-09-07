@@ -17,7 +17,7 @@ public class BulbClosure : MonoBehaviour {
     public Material material;
     public GameObject[] dianxianred;
     public GameObject[] dianxian;
-    public shiyanjindu shiyanjindu;
+    public ExperimentalAccuracy experimentalAccuracy;
     [SerializeField] private LabOne labOne;
     [SerializeField] private LabDetector labDetector;
     public readonly string _colorName = "_EmissionColor";
@@ -59,7 +59,7 @@ public class BulbClosure : MonoBehaviour {
             for (int i = 0; i < dianxian.Length; i++) {
                 dianxian[i].GetComponent<Renderer>().material.SetColor(_colorName, Color.blue);
             }
-            shiyanjindu.dierbu();
+            this.experimentalAccuracy.dierbu();
         } else {
             obj.transform.RotateAround(Sun.transform.position, Vector3.forward, 60);
             this.isTriggerEnabled = false;

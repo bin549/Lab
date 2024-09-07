@@ -22,7 +22,7 @@ public class TxtWriteAndRead : MonoBehaviour {
         if (!File.Exists(path)) {
             sw = fi.CreateText();
         } else {
-            sw = fi.AppendText();   //在原文件后面追加内容      
+            sw = fi.AppendText();
         }
         sw.WriteLine(txtText);
         sw.Close();
@@ -41,10 +41,7 @@ public class TxtWriteAndRead : MonoBehaviour {
 
    public void ReWriteMyTxtByFileStreamTxt() {
         string path = Application.dataPath + jiasuduTXT;
-
         string[] strs = { null};
-
         File.WriteAllLines(path, strs);
-
     }
 }

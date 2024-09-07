@@ -271,7 +271,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 724827716023817189, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: field of view
-      value: 70
+      value: 60.000004
       objectReference: {fileID: 0}
     - target: {fileID: 1177339780110666567, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_Name
@@ -327,31 +327,31 @@ PrefabInstance:
       objectReference: {fileID: 1520759676}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.80954
+      value: 0.0000008940697
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.4100003
+      value: 2.8
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.085647
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.44823414
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.080628075
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.87620986
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8530920226417908948, guid: 9d9a5e83826ab4dc68871320fd19c9b1, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.15761207
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4304,7 +4304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00824920ad7d114f9e4462d60ece841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shiyanjindu: {fileID: 1242240137}
+  experimentalAccuracy: {fileID: 0}
   _trans: {fileID: 543450652009359846}
 --- !u!65 &664921772
 BoxCollider:
@@ -9293,9 +9293,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Sun: {fileID: 911887714}
-  "\u5F00\u5173": 0
-  "\u706F": {fileID: 2717622740042743530}
-  _material: {fileID: 0}
+  isTriggerEnabled: 0
+  bulb: {fileID: 919132147588591483}
+  material: {fileID: 2100000, guid: a0339320d51189d47a7bd3ce4e32addb, type: 2}
   dianxianred:
   - {fileID: 1060916894}
   - {fileID: 1522794729}
@@ -9305,7 +9305,7 @@ MonoBehaviour:
   dianxian:
   - {fileID: 1936590168}
   - {fileID: 472613727}
-  shiyanjindu: {fileID: 1242240137}
+  experimentalAccuracy: {fileID: 1242240137}
   labOne: {fileID: 0}
   labDetector: {fileID: 9175998987598285448}
   _deltaBrightness: 0
