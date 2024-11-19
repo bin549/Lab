@@ -45,7 +45,8 @@ public class GetSpeed : MonoBehaviour {
         showSpeed();
     }
 
-    void showSpeed() { }
+    void showSpeed() {
+    }
 
     void recordStatu() {
         Debug.Log(this.GetComponent<Transform>().position);
@@ -56,7 +57,6 @@ public class GetSpeed : MonoBehaviour {
         //Debug.Log(this.GetComponent<BoxCollider>().material.);
         Debug.Log("摩擦系数：" + this.GetComponent<BoxCollider>().material.dynamicFriction);
         Debug.Log("摩擦系数结合方式：" + this.GetComponent<BoxCollider>().material.frictionCombine);
-
         Debug.Log("加速度" + a.ToString());
         Debug.Log("**********************************");
     }

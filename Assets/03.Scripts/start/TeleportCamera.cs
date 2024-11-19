@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeleportCamera : MonoBehaviour {
     public Door mDoor;
-    
+
     public void SetupDoor(Door door) {
         this.mDoor = door;
     }

@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class Door : MonoBehaviour {
-	public float smooth = 1.0f;
-	public AudioSource audioSource;
-	public AudioClip openDoorClip, closeDoorClip;
+    public float smooth = 1.0f;
+    public AudioSource audioSource;
+    public AudioClip openDoorClip, closeDoorClip;
     [SerializeField] private GameObject doorMirror;
     [SerializeField] private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
@@ -25,11 +25,11 @@ public class Door : MonoBehaviour {
         this.doorMirror.SetActive(true);
     }
 
-	public void OpenDoor() {
+    public void OpenDoor() {
         this.doorMirrorAnimator.SetTrigger("open");
         this.audioSource.clip = openDoorClip;
-		this.audioSource.Play();
-	}
+        this.audioSource.Play();
+    }
 
     public void CloseDoor() {
         this.audioSource.clip = closeDoorClip;

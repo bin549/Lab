@@ -81,14 +81,10 @@ public class carMove : MonoBehaviour {
         if (GameObject.FindWithTag("car") != null) {
             massOfCar += this.gameObject.GetComponent<Rigidbody>().mass;
         }
-
         this.massOfCar = massOfCar;
         double a = massOfWeight / (massOfWeight + massOfCar) * Math.Abs(Physics.gravity.y);
-
         Ace = a;
-
         carspeed = a * 0.02 * s;
-
         Slist.Add(a * Math.Pow((0.02f * s), 2.0f) / 2f);
         return new Vector3(-(float)carspeed, 0, 0);
     }

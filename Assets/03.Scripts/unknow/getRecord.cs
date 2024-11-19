@@ -6,12 +6,12 @@ using UnityEngine.UI;
 using Random = System.Random;
 
 public class Record {
-    public double Acceleration; 
-    public double Friction; 
-    public double CoF; 
-    public double Mass; 
-    public double Angle; 
-    public double g; 
+    public double Acceleration;
+    public double Friction;
+    public double CoF;
+    public double Mass;
+    public double Angle;
+    public double g;
 
     public Record(double ac, double q, double ang) {
         Angle = ang;
@@ -79,6 +79,5 @@ public class getRecord : MonoBehaviour {
             .FindWithTag("DetailData")
             .gameObject.GetComponent<getDetailData>()
             .updateRecord();
-        
     }
 }

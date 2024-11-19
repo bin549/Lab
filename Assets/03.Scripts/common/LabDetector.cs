@@ -10,7 +10,7 @@ public class LabDetector : MonoBehaviour {
     [SerializeField] private bool isActive = false;
     private string title = "斜面上静摩擦和动摩擦";
     private string introduction = "这是一个模拟箱子被绳子拉着沿着水平面移动的过程。学生可以通过模拟来探索静摩擦和动摩擦的影响，以及它们与表面法向力的关系。";
-    private string step =  "第一步，第二步，第三步";
+    private string step = "第一步，第二步，第三步";
     private bool isFinishied = false;
     private PlayerController mControllerRef = null;
     [SerializeField] private GameManager gameManager;
@@ -19,15 +19,11 @@ public class LabDetector : MonoBehaviour {
     [SerializeField] private GameObject unpassObj;
 
     public bool IsActive {
-        get {
-            return this.isActive;
-        }
-        set {
-            isActive = value;
-        }
+        get { return this.isActive; }
+        set { isActive = value; }
     }
 
-    private void Awake() { 
+    private void Awake() {
         this.labOne = GameObject.FindObjectOfType<LabOne>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
@@ -58,7 +54,7 @@ public class LabDetector : MonoBehaviour {
         this.IsActive = true;
         this.gameManager.IsBusy = true;
         this.mControllerRef = controller;
-        this.mControllerRef.SetInputEnabled(false); 
+        this.mControllerRef.SetInputEnabled(false);
         this.labActiveUI.SetActive(true);
         this.virtualCamera.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -81,14 +77,14 @@ public class LabDetector : MonoBehaviour {
             this.labOne.IsDone = true;
         }
         this.labActiveUI.SetActive(false);
-        this.mControllerRef.SetInputEnabled(true); 
+        this.mControllerRef.SetInputEnabled(true);
         this.mControllerRef.mUiBorder.SetActive(false);
         this.SetIsPasssIndicate();
         StartCoroutine(this.DisableBusy());
         this.virtualCamera.gameObject.SetActive(false);
         this.IsActive = false;
         Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;   
+        Cursor.lockState = CursorLockMode.Locked;
         this.mControllerRef.transform.Rotate(1, 0, 0);
     }
 

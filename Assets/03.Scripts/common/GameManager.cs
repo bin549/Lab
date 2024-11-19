@@ -3,7 +3,7 @@ using System.Collections;
 
 
 public class GameManager : MonoBehaviour {
-    private static GameManager _instance; 
+    private static GameManager _instance;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private bool isBusy = false;
 
@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField] [Range(0, 10)] private int totalDoor01 = 3;
     [SerializeField] private int currentDoor02 = 0;
     [SerializeField] [Range(0, 10)] private int totalDoor02 = 1;
-    [SerializeField]  private int currentDoor03 = 0;
-    [SerializeField] [Range(0, 10)]private int totalDoor03 = 2;
+    [SerializeField] private int currentDoor03 = 0;
+    [SerializeField] [Range(0, 10)] private int totalDoor03 = 2;
 
     private void Awake() {
         if (_instance != null) {
@@ -24,12 +24,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public bool IsBusy {
-        get {
-            return this.isBusy;
-        }
-        set { 
-            isBusy = value;
-        }
+        get { return this.isBusy; }
+        set { isBusy = value; }
     }
 
     private void Start() {

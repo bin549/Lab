@@ -17,7 +17,8 @@ public class LabItem : MonoBehaviour {
     }
 
     private void Update() {
-        if (this.IsFocus) { }
+        if (this.IsFocus) {
+        }
     }
 
     private void OnMouseDown() {

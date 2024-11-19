@@ -6,26 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class Door01UI : MonoBehaviour {
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private TextMeshProUGUI room01Text; 
+    [SerializeField] private TextMeshProUGUI room01Text;
 
     private void Awake() {
         this.gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start() {
-    	this.UpdateUI();
+        this.UpdateUI();
     }
 
-    public void UpdateUI() {  
+    public void UpdateUI() {
         int num = this.GetSceneNum();
-        this.room01Text.text = this.gameManager.GetCurrentCount(num).ToString()+ "/"+ this.gameManager.GetTotalCount(num).ToString();
+        this.room01Text.text = this.gameManager.GetCurrentCount(num).ToString() + "/" +
+                               this.gameManager.GetTotalCount(num).ToString();
     }
-    
+
     public void PassLab() {
         int num = this.GetSceneNum();
         this.gameManager.IncreaseCount(num);
         this.UpdateUI();
-    } 
+    }
 
     private int GetSceneNum() {
         int num = 1;
@@ -37,9 +38,9 @@ public class Door01UI : MonoBehaviour {
                 num = 2;
                 return num;
             case LabsTag.BlackSpace_SCENE:
-                num = 3 ;
+                num = 3;
                 return num;
         }
         return num;
     }
-} 
+}

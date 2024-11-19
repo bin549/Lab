@@ -16,7 +16,7 @@ public class AudioManager : MonoBehaviour {
     public void Play() {
         this.audioSource.Play();
     }
-    
+
     public void Stop() {
         this.audioSource.Stop();
     }

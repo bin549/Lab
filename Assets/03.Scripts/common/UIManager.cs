@@ -19,8 +19,11 @@ public class UIManager : MonoBehaviour {
     }
 
     private void UpdateUI() {
-        this.room01Text.text = "("+ this.gameManager.GetCurrentCount(1).ToString()+ "/"+ this.gameManager.GetTotalCount(1).ToString()+ ")";
-        this.room02Text.text = "("+ this.gameManager.GetCurrentCount(2).ToString()+ "/"+ this.gameManager.GetTotalCount(2).ToString()+ ")";
-        this.room03Text.text = "("+ this.gameManager.GetCurrentCount(3).ToString()+ "/"+ this.gameManager.GetTotalCount(3).ToString()+ ")";
+        this.room01Text.text = "(" + this.gameManager.GetCurrentCount(1).ToString() + "/" +
+                               this.gameManager.GetTotalCount(1).ToString() + ")";
+        this.room02Text.text = "(" + this.gameManager.GetCurrentCount(2).ToString() + "/" +
+                               this.gameManager.GetTotalCount(2).ToString() + ")";
+        this.room03Text.text = "(" + this.gameManager.GetCurrentCount(3).ToString() + "/" +
+                               this.gameManager.GetTotalCount(3).ToString() + ")";
     }
-} 
+}

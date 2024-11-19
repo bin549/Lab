@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour {
         this.mCharacterController.Move(moveDir * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
         if (mouseInput.magnitude < mMouseResetDeadzone) {
-            mReset = true; 
+            mReset = true;
         }
         if (mReset) {
             mRotationX += mouseInput.y * mLookSpeed;

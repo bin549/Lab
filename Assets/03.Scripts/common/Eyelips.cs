@@ -8,7 +8,7 @@ public class Eyelips : MonoBehaviour {
     public void DisplayText() {
         this.text.SetActive(true);
     }
-    
+
     public void HideText() {
         this.text.SetActive(false);
     }

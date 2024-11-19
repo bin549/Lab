@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 public class PlayerFootsteps : MonoBehaviour {
     private AudioSource footstepSound;
     [SerializeField] private AudioClip[] footstepClip;
@@ -28,5 +27,5 @@ public class PlayerFootsteps : MonoBehaviour {
                 this.accumulatedDistance = 0f;
             }
         }
-	}	
+    }
 }
