@@ -4313,7 +4313,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u7535\u5B66\u7269\u7406\u5BA4"
+  m_text: "\u7535\u5B66\u7269\u7406"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32db904f1b9d94c59902a831b45e62d9, type: 2}
   m_sharedMaterial: {fileID: 242534081730568327, guid: 32db904f1b9d94c59902a831b45e62d9, type: 2}
@@ -4400,7 +4400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1673051582}
   - component: {fileID: 1673051581}
-  - component: {fileID: 1673051583}
   m_Layer: 0
   m_Name: FreeLook Camera
   m_TagString: Untagged
@@ -4450,7 +4449,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0.3
     m_SpeedMode: 0
-    m_MaxSpeed: 100
+    m_MaxSpeed: 2
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -4531,20 +4530,6 @@ Transform:
   - {fileID: 1797335376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1673051583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673051580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b00d8064ece04f46b7989a889558502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  freeLookCam: {fileID: 1673051581}
-  yAxisLimit: 3
 --- !u!1 &1673584798
 GameObject:
   m_ObjectHideFlags: 0
@@ -6365,7 +6350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.77, y: -0.5905}
+  m_AnchoredPosition: {x: 0.16, y: -0.5905}
   m_SizeDelta: {x: 1.8, y: 0.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2123055778
@@ -6388,7 +6373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u5316\u5B66\u5B9E\u9A8C\u5BA4"
+  m_text: "\u5316\u5B66\u5B9E\u9A8C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 32db904f1b9d94c59902a831b45e62d9, type: 2}
   m_sharedMaterial: {fileID: 242534081730568327, guid: 32db904f1b9d94c59902a831b45e62d9, type: 2}
