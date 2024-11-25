@@ -25,6 +25,8 @@ TagManager:
   - UpSnap
   - calInput
   - LabDetector
+  - Ground
+  - Interactable
   layers:
   - Default
   - TransparentFX
