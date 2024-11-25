@@ -4,12 +4,12 @@ using UnityEngine;
 public class PlayerLabChecker : MonoBehaviour {
     [SerializeField] private Transform hoverItem;
     private Transform activeItem;
-    private PlayerController playerController;
+    private FirstPlayerController FirstPlayerController;
     [SerializeField] private GameManager gameManager;
 
     private void Awake() {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
-        this.playerController = GetComponent<PlayerController>();
+        this.FirstPlayerController = GetComponent<FirstPlayerController>();
     }
 
     private void Update() {
@@ -27,13 +27,13 @@ public class PlayerLabChecker : MonoBehaviour {
                 this.hoverItem = null;
             }
         }
-        GetComponent<PlayerController>().mUiBorder.SetActive(false);
-        Ray r = new Ray(playerController.mPlayerCamera.transform.position,
-            playerController.mPlayerCamera.transform.forward);
+        GetComponent<FirstPlayerController>().mUiBorder.SetActive(false);
+        Ray r = new Ray(FirstPlayerController.mPlayerCamera.transform.position,
+            FirstPlayerController.mPlayerCamera.transform.forward);
         if (Physics.Raycast(r, out RaycastHit hit)) {
             this.hoverItem = hit.transform;
             if (this.hoverItem.CompareTag("LabDetector")) {
-                GetComponent<PlayerController>().mUiBorder.SetActive(true);
+                GetComponent<FirstPlayerController>().mUiBorder.SetActive(true);
                 this.hoverItem = hit.transform;
                 this.hoverItem.transform.gameObject.GetComponent<LabDetector>().HoverUI(true);
             }
@@ -44,7 +44,7 @@ public class PlayerLabChecker : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             if (this.hoverItem & this.hoverItem.CompareTag("LabDetector")) {
                 this.hoverItem.gameObject.GetComponent<LabDetector>().HoverUI(false);
-                this.hoverItem.transform.gameObject.GetComponent<LabDetector>().Focus(this.playerController);
+                this.hoverItem.transform.gameObject.GetComponent<LabDetector>().Focus(this.FirstPlayerController);
             }
         }
     }

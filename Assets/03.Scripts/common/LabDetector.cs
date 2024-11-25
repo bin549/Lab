@@ -11,7 +11,7 @@ public class LabDetector : MonoBehaviour {
     private string introduction = "这是一个模拟箱子被绳子拉着沿着水平面移动的过程。学生可以通过模拟来探索静摩擦和动摩擦的影响，以及它们与表面法向力的关系。";
     private string step = "第一步，第二步，第三步";
     private bool isFinishied = false;
-    private PlayerController mControllerRef = null;
+    private FirstPlayerController mControllerRef = null;
     [SerializeField] private GameManager gameManager;
     [SerializeField] public LabOne labOne;
     [SerializeField] private GameObject passObj;
@@ -49,7 +49,7 @@ public class LabDetector : MonoBehaviour {
         this.labHoverUI.SetActive(isHover);
     }
 
-    public void Focus(PlayerController controller) {
+    public void Focus(FirstPlayerController controller) {
         this.IsActive = true;
         this.gameManager.IsBusy = true;
         this.mControllerRef = controller;
