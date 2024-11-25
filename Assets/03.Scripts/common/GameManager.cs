@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-
 
 public class GameManager : MonoBehaviour {
     private static GameManager _instance;
@@ -27,11 +25,6 @@ public class GameManager : MonoBehaviour {
         get { return this.isBusy; }
         set { isBusy = value; }
     }
-
-    private void Start() {
-        this.audioManager.Play();
-    }
-
 
     public int GetCurrentCount(int doorNum) {
         var currentCount = 0;

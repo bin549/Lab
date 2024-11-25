@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerLabChecker : MonoBehaviour {

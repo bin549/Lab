@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-
     public void SetInputEnabled(bool v) {
         // mUiBorder.SetActive(!v);
         mCanMove = v;

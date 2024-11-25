@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class panDuanFanZhuan : MonoBehaviour {
     public GameObject zhengfang;
@@ -16,7 +12,6 @@ public class panDuanFanZhuan : MonoBehaviour {
             if (GameObject.FindWithTag("Cube")) {
                 GameObject.FindWithTag("Cube").tag = "CubeUnusing";
             }
-
             other.tag = "Cube";
             showTip.SetActive(true);
             if (flag) {
@@ -28,7 +23,6 @@ public class panDuanFanZhuan : MonoBehaviour {
                 daofang.SetActive(true);
                 flag = true;
             }
-
             showData.SetActive(true);
         }
     }
