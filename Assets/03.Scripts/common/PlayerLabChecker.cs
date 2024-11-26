@@ -23,7 +23,6 @@ public class PlayerLabChecker : MonoBehaviour {
         }
         if (this.hoverItem) {
             if (this.hoverItem.gameObject.GetComponent<LabDetector>()) {
-                this.hoverItem.gameObject.GetComponent<LabDetector>().HoverUI(false);
                 this.hoverItem = null;
             }
         }
@@ -33,7 +32,6 @@ public class PlayerLabChecker : MonoBehaviour {
             this.hoverItem = hit.transform;
             if (this.hoverItem.CompareTag("LabDetector")) {
                 this.hoverItem = hit.transform;
-                this.hoverItem.transform.gameObject.GetComponent<LabDetector>().HoverUI(true);
             }
         }
     }
@@ -41,7 +39,6 @@ public class PlayerLabChecker : MonoBehaviour {
     private void ActiveExpUI() {
         if (Input.GetMouseButtonDown(0)) {
             if (this.hoverItem & this.hoverItem.CompareTag("LabDetector")) {
-                this.hoverItem.gameObject.GetComponent<LabDetector>().HoverUI(false);
                 this.hoverItem.transform.gameObject.GetComponent<LabDetector>().Focus(this.firstPersonController);
             }
         }

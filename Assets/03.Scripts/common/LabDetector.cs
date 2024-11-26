@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
+[RequireComponent(typeof(InteractableObject))]
 public class LabDetector : MonoBehaviour {
     [SerializeField] private GameObject labHoverUI;
     [SerializeField] private GameObject labActiveUI;
@@ -16,7 +17,8 @@ public class LabDetector : MonoBehaviour {
     [SerializeField] public LabOne labOne;
     [SerializeField] private GameObject passObj;
     [SerializeField] private GameObject unpassObj;
-
+    [SerializeField] private InteractableObject interactableObject;
+    
     public bool IsActive {
         get { return this.isActive; }
         set { isActive = value; }
@@ -25,6 +27,7 @@ public class LabDetector : MonoBehaviour {
     private void Awake() {
         this.labOne = GameObject.FindObjectOfType<LabOne>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
+        this.interactableObject = GameObject.FindObjectOfType<InteractableObject>();
     }
 
     private void Start() {
@@ -41,12 +44,11 @@ public class LabDetector : MonoBehaviour {
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.E) && this.interactableObject.IsInteractable()) {
+            FirstPersonController controller = FindObjectOfType<FirstPersonController>();
+            this.Focus(controller);
+        }
         this.UnFocusHandle();
-        transform.Rotate(0, 0, 100f * Time.deltaTime);
-    }
-
-    public void HoverUI(bool isHover) {
-        this.labHoverUI.SetActive(isHover);
     }
 
     public void Focus(FirstPersonController controller) {
