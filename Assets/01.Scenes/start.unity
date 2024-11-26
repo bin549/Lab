@@ -453,7 +453,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originText: {fileID: 183331055}
   detectedText: {fileID: 2097374063}
-  playerCollider: {fileID: 0}
 --- !u!1 &135863494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,7 +2906,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &923778336
 Transform:
   m_ObjectHideFlags: 0
@@ -3810,7 +3809,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originText: {fileID: 768869214}
   detectedText: {fileID: 21756837}
-  playerCollider: {fileID: 0}
 --- !u!65 &1445125761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5640,7 +5638,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originText: {fileID: 997673618}
   detectedText: {fileID: 1701781589}
-  playerCollider: {fileID: 0}
 --- !u!65 &1939620756
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5930,11 +5927,11 @@ MonoBehaviour:
   distanceOpen: 5
   teleportDoor: {fileID: 4227889088582596}
   teleportCamera: {fileID: 737294530}
-  mCamera: {fileID: 5348379364349872722}
   isTeleport: 0
   audioManager: {fileID: 990566406}
   skyBoxObj: {fileID: 837685109}
   door: {fileID: 0}
+  personCameraController: {fileID: 0}
 --- !u!114 &1977769711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8541,6 +8538,7 @@ GameObject:
   - component: {fileID: 2970343251069523808}
   - component: {fileID: 6938301813296877381}
   - component: {fileID: 6938301813296877382}
+  - component: {fileID: 6938301813296877383}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -9015,7 +9013,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPersonController: {fileID: 0}
   thirdPersonController: {fileID: 0}
-  interationObjectDetector: {fileID: 0}
+  firstInterationObjectDetector: {fileID: 0}
+  thirdInterationObjectDetector: {fileID: 0}
+--- !u!114 &6938301813296877383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159989933325300931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 927864850a0d2423da6944210338487a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceOpen: 5
+  interactableObject: {fileID: 0}
 --- !u!95 &7017206623087812404
 Animator:
   serializedVersion: 5

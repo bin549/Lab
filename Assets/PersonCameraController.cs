@@ -6,12 +6,19 @@ using UnityEngine;
 public class PersonCameraController : MonoBehaviour {
     [SerializeField] private FirstPersonController firstPersonController;
     [SerializeField] private ThirdPersonController thirdPersonController;
-    [SerializeReference] private BoxCollider interationObjectDetector;
+    [SerializeReference] private InteractableDetector firstInterationObjectDetector;
+    [SerializeReference] private BoxCollider thirdInterationObjectDetector;
 
     private void Awake() {
         this.firstPersonController = this.GetComponent<FirstPersonController>();
         this.thirdPersonController = this.GetComponent<ThirdPersonController>();
-        this.interationObjectDetector = this.GetComponent<BoxCollider>();
+        this.firstInterationObjectDetector = this.GetComponent<InteractableDetector>();
+        this.thirdInterationObjectDetector = this.GetComponent<BoxCollider>();
+    }
+
+    public void HideCamera() {
+        this.firstPersonController.mPlayerCamera.gameObject.SetActive(false);
+        this.thirdPersonController.mPlayerCamera.gameObject.SetActive(false);
     }
     
     public void ChangeViewCamera() {
@@ -24,7 +31,8 @@ public class PersonCameraController : MonoBehaviour {
         }
         this.firstPersonController.mPlayerCamera.gameObject.SetActive(this.firstPersonController.enabled);
         this.thirdPersonController.mPlayerCamera.gameObject.SetActive(this.thirdPersonController.enabled);
-        this.interationObjectDetector.enabled = this.thirdPersonController.enabled;
+        this.firstInterationObjectDetector.enabled = this.firstPersonController.enabled;
+        this.thirdInterationObjectDetector.enabled = this.thirdPersonController.enabled;
     }
 
     private void Update() {
