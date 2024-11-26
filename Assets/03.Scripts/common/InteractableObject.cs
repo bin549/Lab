@@ -4,12 +4,10 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour {
     [SerializeField] private GameObject originText, detectedText;
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && this.detectedText.activeSelf) {
-            this.gameObject.SetActive(false);
-        }
+    public bool IsInteractable() {
+        return this.detectedText.activeSelf;
     }
-
+    
     public void OnHintToggle(bool isToggle) {
         this.originText.SetActive(!isToggle);
         this.detectedText.SetActive(isToggle);

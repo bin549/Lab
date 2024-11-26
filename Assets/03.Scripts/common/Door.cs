@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(InteractableObject))]
 public class Door : MonoBehaviour {
     public float smooth = 1.0f;
     public AudioSource audioSource;
@@ -10,34 +11,18 @@ public class Door : MonoBehaviour {
     [SerializeField] private GameObject doorMirror;
     [SerializeField] private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
-    [SerializeField] private GameObject originText, detectedText;
     [SerializeField] private DoorHandler doorHandler;
-
+    [SerializeField] private InteractableObject interactableObject;
+    
     private void Awake() {
         this.audioSource = GetComponent<AudioSource>();
         this.doorMirrorAnimator = doorMirror.GetComponent<Animator>();
+        this.interactableObject = gameObject.GetComponent<InteractableObject>();
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && this.detectedText.activeSelf) {
+        if (Input.GetKeyDown(KeyCode.E) && this.interactableObject.IsInteractable()) {
             this.doorHandler.ChangeScene(this);
-        }
-    }
-
-    public void OnHintToggle(bool isToggle) {
-        this.originText.SetActive(!isToggle);
-        this.detectedText.SetActive(isToggle);
-    }
-
-    private void OnTriggerEnter(Collider collision) {
-        if (collision.gameObject.CompareTag("Player")) {
-            this.OnHintToggle(true);
-        }
-    }
-
-    private void OnTriggerExit(Collider collision) {
-        if (collision.gameObject.CompareTag("Player")) {
-            this.OnHintToggle(false);
         }
     }
 

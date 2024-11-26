@@ -23,7 +23,12 @@ public class InteractableDetector : MonoBehaviour {
                 this.interactableObject = hit.transform.GetComponent<InteractableObject>();
                 this.interactableObject.OnHintToggle(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
-                    Destroy(this.interactableObject.gameObject);
+                    if (hit.transform.GetComponent<BulletinBoard>()) {
+                        Destroy(this.interactableObject.gameObject);
+                    } else if (hit.transform.GetComponent<Door>()) {
+                        Door door = hit.transform.GetComponent<Door>();
+                        GameObject.FindObjectOfType<DoorHandler>().ChangeScene(door);
+                    }
                 }
             }
         }
