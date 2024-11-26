@@ -4,7 +4,6 @@ using UnityEngine;
 public class InteractableObject : MonoBehaviour {
     [SerializeField] private GameObject originText, detectedText;
     [SerializeField] private CapsuleCollider playerCollider;
-    private bool isInteractabled = false;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && this.detectedText.activeSelf) {

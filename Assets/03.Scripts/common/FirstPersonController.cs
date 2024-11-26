@@ -2,16 +2,15 @@ using UnityEngine;
 using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPlayerController : MonoBehaviour {
-                                     [SerializeField] private float mMoveSpeed = 7.5f;
-                                     [SerializeField] private float mLookSpeed = 2.0f;
-                                     [SerializeField] private float mLookXLimit = 45.0f;
-                                     [SerializeField] private float mMouseResetDeadzone = 0.1f;
-                                     [SerializeField] public GameObject mUiBorder = null;
-                                 
-                                     private CharacterController mCharacterController = null;
-                                     public CinemachineVirtualCamera mPlayerCamera = null;
-                                     private float mRotationX = 0;
+public class FirstPersonController : MonoBehaviour {
+    [SerializeField] private float mMoveSpeed = 7.5f;
+    [SerializeField] private float mLookSpeed = 2.0f;
+    [SerializeField] private float mLookXLimit = 45.0f;
+    [SerializeField] private float mMouseResetDeadzone = 0.1f;
+    [SerializeField] public GameObject mUiBorder = null;
+    private CharacterController mCharacterController = null;
+    public CinemachineVirtualCamera mPlayerCamera = null;
+    private float mRotationX = 0;
     private bool mCanMove = true;
     private bool mReset = false;
 

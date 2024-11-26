@@ -34,19 +34,23 @@ public class DoorHandler : MonoBehaviour {
             if (hit.transform.GetComponent<Door>()) {
                 this.text.SetActive(true);
                 this.mUiBorder.SetActive(true);
+                Door door = hit.transform.GetComponent<Door>();
                 if (Input.GetKeyDown(KeyCode.E)) {
-                    this.isTeleport = true;
-                    this.text.SetActive(false);
-                    this.mUiBorder.SetActive(false);
-                    this.mCamera.gameObject.SetActive(false);
-                    this.skyBoxObj.gameObject.SetActive(false);
-                    this.teleportCamera.gameObject.SetActive(true);
-                    Door door = hit.transform.GetComponent<Door>();
-                    this.audioManager.Stop();
-                    door.Teleport(teleportDoor);
-                    this.teleportCamera.SetupDoor(door);
+                    this.ChangeScene(door);
                 }
             }
         }
+    }
+
+    public void ChangeScene(Door door) {
+        this.isTeleport = true;
+        this.text.SetActive(false);
+        this.mUiBorder.SetActive(false);
+        this.mCamera.gameObject.SetActive(false);
+        this.skyBoxObj.gameObject.SetActive(false);
+        this.teleportCamera.gameObject.SetActive(true);
+        this.audioManager.Stop();
+        door.Teleport(teleportDoor);
+        this.teleportCamera.SetupDoor(door);
     }
 }

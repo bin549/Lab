@@ -1,7 +1,8 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 
-public class ThirdPlayerController : MonoBehaviour {
+public class ThirdPersonController : MonoBehaviour {
     [SerializeReference] private GameObject firstCamera;
     public Camera mainCamera;
     [SerializeReference] private Animator animator;
@@ -10,15 +11,14 @@ public class ThirdPlayerController : MonoBehaviour {
     public float deceleration = 5f; 
     private Vector3 currentVelocity; 
     public float walkSpeed = 2f; 
-    public float runSpeed = 4f; 
-        
+    public float runSpeed = 4f;
+    public CinemachineFreeLook mPlayerCamera = null;
+    
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.T)) {
-            firstCamera.SetActive(!firstCamera.activeSelf);
-        }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(moveHorizontal, 0, moveVertical).normalized;
+        float currentSpeed = 0f;
         if (inputDirection.magnitude > 0) {
             Vector3 cameraForward = mainCamera.transform.forward;
             Vector3 cameraRight = mainCamera.transform.right;
@@ -29,7 +29,7 @@ public class ThirdPlayerController : MonoBehaviour {
             Vector3 moveDirection = (cameraForward * inputDirection.z + cameraRight * inputDirection.x).normalized;
             Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSmoothTime * Time.deltaTime);
-            float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
+            currentSpeed = Input.GetKey(KeyCode.LeftShift) ? runSpeed : walkSpeed;
             Vector3 targetVelocity = moveDirection * currentSpeed;
             if (moveDirection != Vector3.zero) {
                 Quaternion toRotation = Quaternion.LookRotation(moveDirection, Vector3.up);
@@ -37,11 +37,10 @@ public class ThirdPlayerController : MonoBehaviour {
                     720 * Time.deltaTime);
             }
             currentVelocity = Vector3.Lerp(currentVelocity, targetVelocity, acceleration * Time.deltaTime);
-            animator.SetFloat("Speed", currentSpeed);
         } else {    
             currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, deceleration * Time.deltaTime);
-            animator.SetFloat("Speed", 0);
         }
+        animator.SetFloat("speed", currentSpeed);
         transform.Translate(currentVelocity * Time.deltaTime, Space.World);
     }
 }

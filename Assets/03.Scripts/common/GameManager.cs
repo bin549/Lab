@@ -4,7 +4,6 @@ public class GameManager : MonoBehaviour {
     private static GameManager _instance;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private bool isBusy = false;
-
     [SerializeField] private int currentDoor01 = 0;
     [SerializeField] [Range(0, 10)] private int totalDoor01 = 3;
     [SerializeField] private int currentDoor02 = 0;
@@ -31,13 +30,10 @@ public class GameManager : MonoBehaviour {
         switch (doorNum) {
             case 1:
                 return this.currentDoor01;
-                break;
             case 2:
                 return this.currentDoor02;
-                break;
             default:
                 return this.currentDoor03;
-                break;
         }
     }
 
@@ -46,13 +42,10 @@ public class GameManager : MonoBehaviour {
         switch (doorNum) {
             case 1:
                 return this.totalDoor01;
-                break;
             case 2:
                 return this.totalDoor02;
-                break;
             default:
                 return this.totalDoor03;
-                break;
         }
     }
 

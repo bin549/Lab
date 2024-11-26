@@ -30,11 +30,12 @@ public class LabItem : MonoBehaviour {
     }
 
     private void OnMouseUp() {
-        if (!this.labOne.IsWork) {
-            this.IsFocus = false;
-            this.cubeShadow.SetActive(false);
-            GetComponent<MeshRenderer>().enabled = true;
+        if (this.labOne.IsWork) {
+            return;
         }
+        this.IsFocus = false;
+        this.cubeShadow.SetActive(false);
+        GetComponent<MeshRenderer>().enabled = true;
     }
 
     private void OnMouseEnter() {
