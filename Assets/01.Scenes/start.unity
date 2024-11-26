@@ -1403,7 +1403,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9219358335910887082, guid: 5026eadae11ad4ad984fb8133195f728, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2495,7 +2495,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &773977714
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2884,7 +2884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903342975}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16067038, y: -0.043889266, z: 0.007151787, w: 0.9860059}
+  m_LocalRotation: {x: 0.16067038, y: -0.0438893, z: 0.0071517937, w: 0.9860059}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3631,7 +3631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1382101466
 Transform:
   m_ObjectHideFlags: 0
@@ -4403,7 +4403,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1673051581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4543,7 +4543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1673584799
 Transform:
   m_ObjectHideFlags: 0
@@ -5567,7 +5567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1918718869
 Transform:
   m_ObjectHideFlags: 0
@@ -5927,14 +5927,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db10078b8d5b4417a8d09012883e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 773977713}
-  DistanceOpen: 5
+  distanceOpen: 5
   teleportDoor: {fileID: 4227889088582596}
   teleportCamera: {fileID: 737294530}
-  mCamera: {fileID: 0}
+  mCamera: {fileID: 5348379364349872722}
+  isTeleport: 0
   audioManager: {fileID: 990566406}
   skyBoxObj: {fileID: 837685109}
-  mUiBorder: {fileID: 2095638730}
+  door: {fileID: 0}
 --- !u!114 &1977769711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6608,7 +6608,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1975789045114846
 GameObject:
   m_ObjectHideFlags: 0
@@ -8418,7 +8418,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5159989933325300931}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d95079e420a3a084aad759a14d99cada, type: 3}
   m_Name: 
@@ -8556,8 +8556,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 114222707623508925}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.16429913, y: 0.050887324, z: -0.008487543, w: 0.9850606}
-  m_LocalPosition: {x: 0.13466361, y: 1.5374286, z: -1.509663}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.52, z: 0.17}
   m_LocalScale: {x: 0.20000002, y: 0.2, z: 0.20000003}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8594,11 +8594,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 50
+  near clip plane: 0.01
+  far clip plane: 1000
+  field of view: 60.000004
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -8945,7 +8945,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5159989933325300931}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 80dff9e18434a43c4a3c33b2ebb20feb, type: 3}
   m_Name: 
@@ -8997,7 +8997,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2}
   m_Center: {x: 0, y: 0, z: 1}

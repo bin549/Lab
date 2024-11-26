@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -19,7 +20,7 @@ public class GameManager : MonoBehaviour {
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-
+    
     public bool IsBusy {
         get { return this.isBusy; }
         set { isBusy = value; }

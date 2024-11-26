@@ -1,18 +1,17 @@
 using UnityEngine;
 
 public class DoorHandler : MonoBehaviour {
-    public GameObject text;
-    public float DistanceOpen = 5;
+    public float distanceOpen = 5;
     [SerializeField] private Transform teleportDoor;
     [SerializeField] private TeleportCamera teleportCamera;
     [SerializeField] private Camera mCamera;
-    private bool isTeleport = false;
+    [SerializeField] private bool isTeleport = false;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject skyBoxObj;
-    [SerializeField] private GameObject mUiBorder;
-
+    [SerializeField] private Door door = null;
+        
     private void Awake() {
-        this.mCamera = GetComponentInChildren<Camera>();
+        this.mCamera = FindObjectOfType<Camera>();
     }
 
     private void Start() {
@@ -20,6 +19,12 @@ public class DoorHandler : MonoBehaviour {
     }
 
     private void Update() {
+        if (this.door) {
+            door.OnHintToggle(false);
+        }
+    }
+    
+    private void LateUpdate() {
         this.DetectDoor();
     }
 
@@ -27,14 +32,11 @@ public class DoorHandler : MonoBehaviour {
         if (this.isTeleport) {
             return;
         }
-        this.text.SetActive(false);
-        this.mUiBorder.SetActive(false);
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, DistanceOpen)) {
+        if (Physics.Raycast(transform.position, transform.forward, out hit, distanceOpen)) {
             if (hit.transform.GetComponent<Door>()) {
-                this.text.SetActive(true);
-                this.mUiBorder.SetActive(true);
-                Door door = hit.transform.GetComponent<Door>();
+                door = hit.transform.GetComponent<Door>();
+                door.OnHintToggle(true);
                 if (Input.GetKeyDown(KeyCode.E)) {
                     this.ChangeScene(door);
                 }
@@ -44,12 +46,9 @@ public class DoorHandler : MonoBehaviour {
 
     public void ChangeScene(Door door) {
         this.isTeleport = true;
-        this.text.SetActive(false);
-        this.mUiBorder.SetActive(false);
         this.mCamera.gameObject.SetActive(false);
         this.skyBoxObj.gameObject.SetActive(false);
         this.teleportCamera.gameObject.SetActive(true);
-        this.audioManager.Stop();
         door.Teleport(teleportDoor);
         this.teleportCamera.SetupDoor(door);
     }

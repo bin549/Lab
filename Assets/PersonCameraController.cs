@@ -14,7 +14,7 @@ public class PersonCameraController : MonoBehaviour {
         this.interationObjectDetector = this.GetComponent<BoxCollider>();
     }
     
-    private void ChangeViewCamera() {
+    public void ChangeViewCamera() {
         if (this.firstPersonController.enabled) {
             this.thirdPersonController.enabled = true;
             this.firstPersonController.enabled = false;
