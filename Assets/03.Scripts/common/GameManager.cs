@@ -11,7 +11,13 @@ public class GameManager : MonoBehaviour {
     [SerializeField] [Range(0, 10)] private int totalDoor02 = 1;
     [SerializeField] private int currentDoor03 = 0;
     [SerializeField] [Range(0, 10)] private int totalDoor03 = 2;
+    [SerializeField] private bool isFirstPersonView = true;
 
+    public bool IsFirstPersonView {
+        get => isFirstPersonView;
+        set => isFirstPersonView = value;
+    }
+    
     private void Awake() {
         if (_instance != null) {
             Destroy(gameObject);

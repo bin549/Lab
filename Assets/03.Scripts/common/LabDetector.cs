@@ -77,7 +77,6 @@ public class LabDetector : MonoBehaviour {
         }
         this.labActiveUI.SetActive(false);
         this.mControllerRef.SetInputEnabled(true);
-        this.mControllerRef.mUiBorder.SetActive(false);
         this.SetIsPasssIndicate();
         StartCoroutine(this.DisableBusy());
         this.virtualCamera.gameObject.SetActive(false);

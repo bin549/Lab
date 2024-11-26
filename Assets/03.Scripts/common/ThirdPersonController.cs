@@ -13,7 +13,7 @@ public class ThirdPersonController : MonoBehaviour {
     public float walkSpeed = 2f; 
     public float runSpeed = 4f;
     public CinemachineFreeLook mPlayerCamera = null;
-    
+
     private void Update() {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");

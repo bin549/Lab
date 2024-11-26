@@ -4,23 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PersonCameraController : MonoBehaviour {
-    [SerializeField] private FirstPersonController firstPersonController;
-    [SerializeField] private ThirdPersonController thirdPersonController;
-    [SerializeReference] private InteractableDetector firstInterationObjectDetector;
-    [SerializeReference] private BoxCollider thirdInterationObjectDetector;
+    private FirstPersonController firstPersonController;
+    private ThirdPersonController thirdPersonController;
+    private InteractableDetector firstInterationObjectDetector;
+    private BoxCollider thirdInterationObjectDetector;
+    private GameManager gameManager;
 
     private void Awake() {
+        this.gameManager = GameObject.FindObjectOfType<GameManager>();
         this.firstPersonController = this.GetComponent<FirstPersonController>();
         this.thirdPersonController = this.GetComponent<ThirdPersonController>();
         this.firstInterationObjectDetector = this.GetComponent<InteractableDetector>();
         this.thirdInterationObjectDetector = this.GetComponent<BoxCollider>();
     }
 
+    private void Start() {
+        if ((this.gameManager.IsFirstPersonView && !this.firstPersonController.enabled) || (!this.gameManager.IsFirstPersonView && !this.thirdPersonController.enabled)) {
+               this.ChangeViewCamera();
+        }
+    }
+
     public void HideCamera() {
         this.firstPersonController.mPlayerCamera.gameObject.SetActive(false);
         this.thirdPersonController.mPlayerCamera.gameObject.SetActive(false);
     }
-    
+
     public void ChangeViewCamera() {
         if (this.firstPersonController.enabled) {
             this.thirdPersonController.enabled = true;
@@ -37,6 +45,7 @@ public class PersonCameraController : MonoBehaviour {
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
+            this.gameManager.IsFirstPersonView = !this.gameManager.IsFirstPersonView;
             this.ChangeViewCamera();
         }
     }

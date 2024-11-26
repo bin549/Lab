@@ -27,13 +27,11 @@ public class PlayerLabChecker : MonoBehaviour {
                 this.hoverItem = null;
             }
         }
-        GetComponent<FirstPersonController>().mUiBorder.SetActive(false);
         Ray r = new Ray(this.firstPersonController.mPlayerCamera.transform.position,
             this.firstPersonController.mPlayerCamera.transform.forward);
         if (Physics.Raycast(r, out RaycastHit hit)) {
             this.hoverItem = hit.transform;
             if (this.hoverItem.CompareTag("LabDetector")) {
-                GetComponent<FirstPersonController>().mUiBorder.SetActive(true);
                 this.hoverItem = hit.transform;
                 this.hoverItem.transform.gameObject.GetComponent<LabDetector>().HoverUI(true);
             }
