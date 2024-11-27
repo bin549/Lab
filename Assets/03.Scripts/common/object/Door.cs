@@ -4,26 +4,28 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(InteractableObject))]
-public class Door : MonoBehaviour {
+public class Door : InteractableItem {
     public float smooth = 1.0f;
-    public AudioSource audioSource;
+    [HideInInspector] public AudioSource audioSource;
     public AudioClip openDoorClip, closeDoorClip;
     [SerializeField] private GameObject doorMirror;
     [SerializeField] private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
-    [SerializeField] private DoorHandler doorHandler;
-    [SerializeField] private InteractableObject interactableObject;
+    private DoorHandler doorHandler;
     
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         this.audioSource = GetComponent<AudioSource>();
         this.doorMirrorAnimator = doorMirror.GetComponent<Animator>();
-        this.interactableObject = gameObject.GetComponent<InteractableObject>();
+        this.doorHandler = GameObject.FindObjectOfType<DoorHandler>();
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && this.interactableObject.IsInteractable()) {
-            this.doorHandler.ChangeScene(this);
-        }
+    protected override void Update() {
+        base.Update();
+    }
+    
+    protected override void InteractAction() {
+        this.doorHandler.ChangeScene(this);
     }
 
     public void Teleport(Transform teleportDoor) {

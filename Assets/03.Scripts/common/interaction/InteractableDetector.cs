@@ -29,12 +29,14 @@ public class InteractableDetector : MonoBehaviour {
 
     private void OnInteract(RaycastHit hit) {
         if (hit.transform.GetComponent<BulletinBoard>()) {
+            GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             BulletinBoard bulletinBoard = hit.transform.GetComponent<BulletinBoard>();
-            bulletinBoard.DisplayBulletin(true);
+            bulletinBoard.DisplayBulletin(bulletinBoard.BulletinPrefab.activeSelf);
         } else if (hit.transform.GetComponent<Door>()) {
             Door door = hit.transform.GetComponent<Door>();
             GameObject.FindObjectOfType<DoorHandler>().ChangeScene(door);
         } else if (hit.transform.GetComponent<LabDetector>()) {
+            GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             LabDetector labDetector = hit.transform.GetComponent<LabDetector>();
             labDetector.Focus(GetComponent<PersonController>());
         }

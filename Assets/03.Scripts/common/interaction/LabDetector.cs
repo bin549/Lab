@@ -2,8 +2,7 @@ using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
-[RequireComponent(typeof(InteractableObject))]
-public class LabDetector : MonoBehaviour {
+public class LabDetector : InteractableItem {
     [SerializeField] private GameObject labActiveUI;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private bool isActive = false;
@@ -13,57 +12,57 @@ public class LabDetector : MonoBehaviour {
     private bool isFinishied = false;
     [SerializeField] private GameManager gameManager;
     [SerializeField] public LabOne labOne;
-    private InteractableObject interactableObject;
-    
+
     public bool IsActive {
         get { return this.isActive; }
         set { isActive = value; }
     }
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
         this.labOne = GameObject.FindObjectOfType<LabOne>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
-        this.interactableObject = gameObject.GetComponent<InteractableObject>();
     }
 
     private void Start() {
         this.virtualCamera.gameObject.SetActive(false);
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.E) && this.interactableObject.IsInteractable()) {
-            PersonController controller = FindObjectOfType<PersonController>();
-            this.Focus(controller);
+    protected override void Update() {
+        base.Update();
+    }
+
+    protected override void InteractAction() {
+        PersonController controller = FindObjectOfType<PersonController>();
+        this.Focus(controller);
+    }
+
+    protected override void DeactiveAction() {
+        if (!this.gameManager.IsBusy) {
+            return;
         }
-        this.UnFocusHandle();
+        this.ExitLab(false);
     }
 
     public void Focus(PersonController controller) {
         this.IsActive = true;
         this.gameManager.IsBusy = true;
         this.labActiveUI.SetActive(true);
-        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject.SetActive(false);
+        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
+            .SetActive(false);
         this.virtualCamera.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-
-    public void UnFocusHandle() {
-        if (!this.gameManager.IsBusy) {
-            return;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            this.ExitLab(false);
-        }
-    }
-
+    
     public void ExitLab(bool isPassed) {
         if (isPassed) {
             this.labOne.IsDone = true;
         }
         this.labActiveUI.SetActive(false);
         StartCoroutine(this.DisableBusy());
-        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject.SetActive(true);
+        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
+            .SetActive(true);
         this.virtualCamera.gameObject.SetActive(false);
         this.IsActive = false;
         Cursor.visible = false;

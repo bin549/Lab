@@ -25,10 +25,11 @@ public class FirstPersonController : PersonController {
     }
 
     protected override void PlayerMove() {
-        if (!base.mCanMove) {
+        if (base.gameManager.IsBusy) {
             return;
         }
         Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * mMoveSpeed;
+        base.playerAnimate.UpdateSpeed(inputDir.magnitude);
         Vector3 moveDir = (transform.forward * inputDir.x) + (transform.right * inputDir.y);
         this.mCharacterController.Move(moveDir * Time.deltaTime);
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));

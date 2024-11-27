@@ -1,7 +1,6 @@
 using UnityEngine;
 
 public class ThirdPersonController : PersonController {
-    [SerializeReference] private Animator animator;
     public float rotationSmoothTime = 0.1f; 
     public float acceleration = 10f;
     public float deceleration = 5f; 
@@ -10,11 +9,18 @@ public class ThirdPersonController : PersonController {
     public float runSpeed = 4f;
     public Camera mainCamera;
 
+    private void Awake() {
+        base.Awake();
+    }
+
     private void Update() {
         this.PlayerMove();
     }
 
     protected override void PlayerMove() {
+        if (base.gameManager.IsBusy) {
+            return;
+        }
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(moveHorizontal, 0, moveVertical).normalized;
@@ -40,7 +46,7 @@ public class ThirdPersonController : PersonController {
         } else {    
             currentVelocity = Vector3.Lerp(currentVelocity, Vector3.zero, deceleration * Time.deltaTime);
         }
-        animator.SetFloat("speed", currentSpeed);
+        base.playerAnimate.UpdateSpeed(currentSpeed);
         transform.Translate(currentVelocity * Time.deltaTime, Space.World);
     }
 }

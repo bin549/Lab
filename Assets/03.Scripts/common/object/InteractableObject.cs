@@ -1,16 +1,19 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class InteractableObject : MonoBehaviour {
-    [SerializeField] private GameObject originText, detectedText;
+    [SerializeField] private TextMeshProUGUI originText, detectedText;
+
+    public TextMeshProUGUI DetectedText => detectedText;
 
     public bool IsInteractable() {
-        return this.detectedText.activeSelf;
+        return this.detectedText.gameObject.activeSelf;
     }
     
     public void OnHintToggle(bool isToggle) {
-        this.originText.SetActive(!isToggle);
-        this.detectedText.SetActive(isToggle);
+        this.originText.gameObject.SetActive(!isToggle);
+        this.detectedText.gameObject.SetActive(isToggle);
     }
     
     private void OnTriggerEnter(Collider collision) {

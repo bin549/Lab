@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class BlinkHandler : MonoBehaviour {
     [SerializeField] private Animator animator;
-    [SerializeField] private GameManager gameManager;
+    private GameManager gameManager;
     [SerializeField] private bool isOpen = true;
     public int doorNum = 400;
 
