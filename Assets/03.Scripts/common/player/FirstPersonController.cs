@@ -2,23 +2,21 @@ using UnityEngine;
 using Cinemachine;
 
 [RequireComponent(typeof(CharacterController))]
-public class FirstPersonController : MonoBehaviour {
+public class FirstPersonController : PersonController {
     [SerializeField] private float mMoveSpeed = 7.5f;
     [SerializeField] private float mLookSpeed = 2.0f;
     [SerializeField] private float mLookXLimit = 45.0f;
     [SerializeField] private float mMouseResetDeadzone = 0.1f;
     private CharacterController mCharacterController = null;
-    public CinemachineVirtualCamera mPlayerCamera = null;
     private float mRotationX = 0;
-    private bool mCanMove = true;
-    private bool mReset = false;
 
-    private void Awake() {
+    protected override void Awake() {
+        base.Awake();
+        base.mPlayerCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         this.mCharacterController = GetComponent<CharacterController>();
-        this.mPlayerCamera = GetComponentInChildren<CinemachineVirtualCamera>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        SetInputEnabled(true);
+        base.SetInputEnabled(true);
     }
 
     private void Update() {
@@ -26,8 +24,8 @@ public class FirstPersonController : MonoBehaviour {
         // this.SelectItem();
     }
 
-    private void PlayerMove() {
-        if (!this.mCanMove) {
+    protected override void PlayerMove() {
+        if (!base.mCanMove) {
             return;
         }
         Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * mMoveSpeed;
@@ -43,10 +41,5 @@ public class FirstPersonController : MonoBehaviour {
             mPlayerCamera.transform.localRotation = Quaternion.Euler(mRotationX, 0, 0);
             transform.rotation *= Quaternion.Euler(0, mouseInput.x * mLookSpeed, 0);
         }
-    }
-
-    public void SetInputEnabled(bool v) {
-        mCanMove = v;
-        mReset = false;
     }
 }

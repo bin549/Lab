@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncreaseCount(int doorNum) {
         switch (doorNum) {
-            case 1:
+            case 1: 
                 currentDoor01++;
                 break;
             case 2:
@@ -66,8 +66,6 @@ public class GameManager : MonoBehaviour {
                 break;
             case 3:
                 currentDoor03++;
-                break;
-            default:
                 break;
         }
     }

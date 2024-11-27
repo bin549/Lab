@@ -4,8 +4,8 @@ public class AudioManager : MonoBehaviour {
     private AudioSource audioSource;
 
     private void Awake() {
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.playOnAwake = false;
+        this.audioSource = gameObject.AddComponent<AudioSource>();
+        this.audioSource.playOnAwake = false;
     }
 
     public void Play() {

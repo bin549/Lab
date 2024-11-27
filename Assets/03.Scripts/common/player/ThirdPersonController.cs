@@ -1,10 +1,6 @@
-using System;
-using Cinemachine;
 using UnityEngine;
 
-public class ThirdPersonController : MonoBehaviour {
-    [SerializeReference] private GameObject firstCamera;
-    public Camera mainCamera;
+public class ThirdPersonController : PersonController {
     [SerializeReference] private Animator animator;
     public float rotationSmoothTime = 0.1f; 
     public float acceleration = 10f;
@@ -12,9 +8,13 @@ public class ThirdPersonController : MonoBehaviour {
     private Vector3 currentVelocity; 
     public float walkSpeed = 2f; 
     public float runSpeed = 4f;
-    public CinemachineFreeLook mPlayerCamera = null;
+    public Camera mainCamera;
 
     private void Update() {
+        this.PlayerMove();
+    }
+
+    protected override void PlayerMove() {
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
         Vector3 inputDirection = new Vector3(moveHorizontal, 0, moveVertical).normalized;

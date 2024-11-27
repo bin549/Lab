@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PersonCameraController : MonoBehaviour {
@@ -24,9 +21,16 @@ public class PersonCameraController : MonoBehaviour {
         }
     }
 
+    public PersonController GetPersonController() {
+        if (this.firstPersonController.enabled) {
+            return this.firstPersonController;
+        } else {
+            return this.thirdPersonController;
+        }
+    }
+
     public void HideCamera() {
-        this.firstPersonController.mPlayerCamera.gameObject.SetActive(false);
-        this.thirdPersonController.mPlayerCamera.gameObject.SetActive(false);
+        this.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
     }
 
     public void ChangeViewCamera() {

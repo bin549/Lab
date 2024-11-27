@@ -309,13 +309,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db10078b8d5b4417a8d09012883e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceOpen: 5
   teleportDoor: {fileID: 0}
   teleportCamera: {fileID: 0}
   isTeleport: 0
   audioManager: {fileID: 0}
   skyBoxObj: {fileID: 0}
-  door: {fileID: 0}
   personCameraController: {fileID: 0}
 --- !u!114 &1698262588700577574
 MonoBehaviour:
@@ -345,15 +343,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80dff9e18434a43c4a3c33b2ebb20feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstCamera: {fileID: 3511682223206677987}
-  mainCamera: {fileID: 0}
+  mPlayerCamera: {fileID: 0}
   animator: {fileID: 1238948835925083642}
   rotationSmoothTime: 0.1
   acceleration: 10
   deceleration: 5
   walkSpeed: 2
   runSpeed: 4
-  mPlayerCamera: {fileID: 0}
+  mainCamera: {fileID: 0}
 --- !u!135 &2723367468374663080
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -387,12 +384,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d95079e420a3a084aad759a14d99cada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mPlayerCamera: {fileID: 4891916759627370341}
   mMoveSpeed: 7.5
   mLookSpeed: 2
   mLookXLimit: 45
   mMouseResetDeadzone: 0.1
-  mUiBorder: {fileID: 0}
-  mPlayerCamera: {fileID: 4891916759627370341}
 --- !u!65 &6687589820147723628
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -426,10 +422,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e5f872229d304db0b9ad4733770ec0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstPersonController: {fileID: 0}
-  thirdPersonController: {fileID: 0}
-  firstInterationObjectDetector: {fileID: 0}
-  thirdInterationObjectDetector: {fileID: 0}
 --- !u!114 &4379429125206824559
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,8 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927864850a0d2423da6944210338487a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceOpen: 5
-  interactableObject: {fileID: 0}
+  distanceOpen: 2.5
 --- !u!1 &5242390358119480060
 GameObject:
   m_ObjectHideFlags: 0

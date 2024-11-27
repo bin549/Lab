@@ -6101,10 +6101,6 @@ PrefabInstance:
       propertyPath: teleportCamera
       value: 
       objectReference: {fileID: 737294530}
-    - target: {fileID: 2290005569156223669, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
-      propertyPath: mUiBorder
-      value: 
-      objectReference: {fileID: 2095638730}
     - target: {fileID: 5071395121294800536, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
       propertyPath: m_Name
       value: Player

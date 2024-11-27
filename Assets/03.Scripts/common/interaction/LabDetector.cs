@@ -4,7 +4,6 @@ using Cinemachine;
 
 [RequireComponent(typeof(InteractableObject))]
 public class LabDetector : MonoBehaviour {
-    [SerializeField] private GameObject labHoverUI;
     [SerializeField] private GameObject labActiveUI;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private bool isActive = false;
@@ -12,12 +11,9 @@ public class LabDetector : MonoBehaviour {
     private string introduction = "这是一个模拟箱子被绳子拉着沿着水平面移动的过程。学生可以通过模拟来探索静摩擦和动摩擦的影响，以及它们与表面法向力的关系。";
     private string step = "第一步，第二步，第三步";
     private bool isFinishied = false;
-    private FirstPersonController mControllerRef = null;
     [SerializeField] private GameManager gameManager;
     [SerializeField] public LabOne labOne;
-    [SerializeField] private GameObject passObj;
-    [SerializeField] private GameObject unpassObj;
-    [SerializeField] private InteractableObject interactableObject;
+    private InteractableObject interactableObject;
     
     public bool IsActive {
         get { return this.isActive; }
@@ -27,41 +23,29 @@ public class LabDetector : MonoBehaviour {
     private void Awake() {
         this.labOne = GameObject.FindObjectOfType<LabOne>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
-        this.interactableObject = GameObject.FindObjectOfType<InteractableObject>();
+        this.interactableObject = gameObject.GetComponent<InteractableObject>();
     }
 
     private void Start() {
         this.virtualCamera.gameObject.SetActive(false);
-        this.SetIsPasssIndicate();
-    }
-
-    private void SetIsPasssIndicate() {
-        if (this.labOne.IsDone) {
-            this.passObj.SetActive(true);
-        } else {
-            this.unpassObj.SetActive(true);
-        }
     }
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E) && this.interactableObject.IsInteractable()) {
-            FirstPersonController controller = FindObjectOfType<FirstPersonController>();
+            PersonController controller = FindObjectOfType<PersonController>();
             this.Focus(controller);
         }
         this.UnFocusHandle();
     }
 
-    public void Focus(FirstPersonController controller) {
+    public void Focus(PersonController controller) {
         this.IsActive = true;
         this.gameManager.IsBusy = true;
-        this.mControllerRef = controller;
-        this.mControllerRef.SetInputEnabled(false);
         this.labActiveUI.SetActive(true);
+        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject.SetActive(false);
         this.virtualCamera.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        this.passObj.SetActive(false);
-        this.unpassObj.SetActive(false);
     }
 
     public void UnFocusHandle() {
@@ -78,14 +62,12 @@ public class LabDetector : MonoBehaviour {
             this.labOne.IsDone = true;
         }
         this.labActiveUI.SetActive(false);
-        this.mControllerRef.SetInputEnabled(true);
-        this.SetIsPasssIndicate();
         StartCoroutine(this.DisableBusy());
+        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject.SetActive(true);
         this.virtualCamera.gameObject.SetActive(false);
         this.IsActive = false;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        this.mControllerRef.transform.Rotate(1, 0, 0);
     }
 
     private IEnumerator DisableBusy() {
