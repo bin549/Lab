@@ -339,9 +339,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologues:
-  - audioClip: {fileID: 8300000, guid: fde9efd01b1a14a85826667ebc4db810, type: 3}
-    subtitle: "\u8FD9\u4E2A\u7834\u76D2\u5B50\u5199\u7740\u5565"
+  - audioClip: {fileID: 8300000, guid: 563f379c4aa5a49359b97bc7db7eb50f, type: 3}
+    subtitle: "\u8BF6 \u5C0F\u7834\u76D2 "
   bulletinPrefab: {fileID: 1518651768}
+  isVoiceCheck: 0
 --- !u!120 &66949359
 LineRenderer:
   serializedVersion: 2
@@ -1200,8 +1201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e8c2ec1df3fc460287a767e07bcb17f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monologues: []
+  monologues:
+  - audioClip: {fileID: 8300000, guid: ecaec8c17d32c418fb1985f20afad4f9, type: 3}
+    subtitle: "\u4EC0\u4E48\u4E1C\u897F"
   bulletinPrefab: {fileID: 1518651768}
+  isVoiceCheck: 1
 --- !u!120 &383783649
 LineRenderer:
   serializedVersion: 2
@@ -4153,8 +4157,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monologues:
-  - audioClip: {fileID: 8300000, guid: 08986dc616b884e2aaefe668ef0b81bf, type: 3}
-    subtitle: "\u4E0D\u6015\u5931\u8D25 \u575A\u6301\u4E0D\u61C8 \u52A0\u6CB9"
+  - audioClip: {fileID: 8300000, guid: 598c20f3164e3474dbef293e20132856, type: 3}
+    subtitle: "\u6211\u662F\u8C01 \u6211\u5728\u54EA"
 --- !u!114 &1731224007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7925,6 +7929,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gramophone
       objectReference: {fileID: 0}
+    - target: {fileID: 5593003924686189462, guid: 6b45ed955240b407db8c518c9eb613b6, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cea196d377a14c4782496eca9f95831, type: 3}
     - target: {fileID: 5593003924686189462, guid: 6b45ed955240b407db8c518c9eb613b6, type: 3}
       propertyPath: monologues.Array.size
       value: 0
