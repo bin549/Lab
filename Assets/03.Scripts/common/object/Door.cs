@@ -12,7 +12,9 @@ public class Door : InteractableItem {
     [SerializeField] private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
     private DoorHandler doorHandler;
-    
+    [SerializeField] private int playerLocationIndex = 0;
+
+
     protected override void Awake() {
         base.Awake();
         this.audioSource = GetComponent<AudioSource>();
@@ -23,8 +25,13 @@ public class Door : InteractableItem {
     protected override void Update() {
         base.Update();
     }
-    
+
     protected override void InteractAction() {
+        if (this.labScene.Equals("start")) {
+            GameManager gameManager = GameObject.FindObjectOfType<GameManager>();
+            gameManager.IsInLobby = true;
+            gameManager.PlayerLobbyState = this.playerLocationIndex;
+        }
         this.doorHandler.ChangeScene(this);
     }
 

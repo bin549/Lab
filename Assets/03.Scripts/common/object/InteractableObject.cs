@@ -32,7 +32,7 @@ public class InteractableObject : MonoBehaviour {
     }
 
     public bool IsInteractable() {
-        return this.detectedText.gameObject.activeSelf;
+        return this.detectedText.gameObject.activeSelf; 
     }
 
     public void OnHintToggle(bool isToggle) {

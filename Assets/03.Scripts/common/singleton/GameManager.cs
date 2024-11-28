@@ -12,6 +12,18 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private int currentDoor03 = 0;
     [SerializeField] [Range(0, 10)] private int totalDoor03 = 2;
     [SerializeField] private bool isFirstPersonView = true;
+    [SerializeField] private bool isInLobby = true;
+    [SerializeField] [Range(0,3)] private int playerLobbyState = 0;
+
+    public int PlayerLobbyState {
+        get => playerLobbyState;
+        set => playerLobbyState = value;
+    }
+
+    public bool IsInLobby {
+        get => isInLobby;
+        set => isInLobby = value;
+    }
 
     public bool IsFirstPersonView {
         get => isFirstPersonView;

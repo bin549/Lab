@@ -11,8 +11,8 @@ public class PersonController : MonoBehaviour {
     protected GameManager gameManager;
 
     protected virtual void Awake() {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
-        gameManager.IsBusy = false;
+        this.gameManager = GameObject.FindObjectOfType<GameManager>();
+        this.gameManager.IsBusy = false;
         this.playerAnimate = this.GetComponent<PlayerAnimate>();
     }
 
