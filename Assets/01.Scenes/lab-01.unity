@@ -820,6 +820,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1346348036}
     m_Modifications:
+    - target: {fileID: 2077301294017473053, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_text
+      value: "\u8FDB\u5165"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077301294017473053, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b9912a2ed8442432da7ea577826608af, type: 2}
+    - target: {fileID: 2077301294017473053, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3411032630294725239, guid: 49b425fe2d749493190eded9fc123344, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -835,6 +847,22 @@ PrefabInstance:
     - target: {fileID: 4528412380081889655, guid: 49b425fe2d749493190eded9fc123344, type: 3}
       propertyPath: m_Name
       value: SpaceCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826304773723759826, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_text
+      value: "\u5927\u5385"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826304773723759826, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: b9912a2ed8442432da7ea577826608af, type: 2}
+    - target: {fileID: 5826304773723759826, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 9003076493969520780, guid: b9912a2ed8442432da7ea577826608af, type: 2}
+    - target: {fileID: 5826304773723759826, guid: 49b425fe2d749493190eded9fc123344, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8409665695250507238, guid: 49b425fe2d749493190eded9fc123344, type: 3}
       propertyPath: m_Pivot.x
