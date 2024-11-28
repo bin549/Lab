@@ -26,6 +26,7 @@ public class BulletinBoard : InteractableItem {
     protected override void InteractAction() {
         GameObject.FindObjectOfType<PlayerAnimate>().UpdateSpeed(0f);
         if (!this.bulletinPrefab.activeSelf) {
+            base.InteractAction();
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject.SetActive(false);
             this.DisplayBulletin(true);

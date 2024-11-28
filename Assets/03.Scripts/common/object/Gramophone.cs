@@ -24,6 +24,7 @@ public class Gramophone : InteractableItem {
 
     protected override void InteractAction() {
         if (base.interactableObject.DetectedText.text == "播放") {
+            base.InteractAction();
             this.recordPlayer.RecordPlayerActive = true;
             base.interactableObject.DetectedText.text = "停止";
             StartCoroutine(this.OnRecordPlay());

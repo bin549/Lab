@@ -4,9 +4,12 @@ using UnityEngine;
 [RequireComponent(typeof(InteractableObject))]
 public class InteractableItem : MonoBehaviour {
     [HideInInspector] protected InteractableObject interactableObject;
+    private Monologue monologue;
+    [SerializeField] private MonologueClip[] monologues;
 
     protected virtual void Awake() {
         this.interactableObject = GetComponent<InteractableObject>();
+        this.monologue = FindObjectOfType<Monologue>();
     }
 
     protected virtual void Update() {
@@ -19,6 +22,10 @@ public class InteractableItem : MonoBehaviour {
     }
 
     protected virtual void InteractAction() {
+        if (this.monologues.Length != 0) {
+            MonologueClip monologueClip = this.monologues[0];
+            this.monologue.Play(monologueClip);
+        }
     }
 
     protected virtual void DeactiveAction() {
