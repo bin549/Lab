@@ -26,11 +26,12 @@ public class BulletinBoard : InteractableItem {
             if (this.isVoiceCheck) {
                 base.InteractAction();
             }
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
                 .SetActive(false);
             this.DisplayBulletin(true);
-            return;
         } else {
             this.DeactiveAction();
         }
@@ -41,6 +42,8 @@ public class BulletinBoard : InteractableItem {
             if (!this.isVoiceCheck) {
                 base.DeactiveAction();
             }
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             this.DisplayBulletin(false);
             GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
                 .SetActive(true);
