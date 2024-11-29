@@ -1,10 +1,17 @@
 using UnityEngine;
 
+[System.Serializable]
+public class LabStep {
+    public int step;
+    public string tip;
+}
+
 public class LabItem : MonoBehaviour {
     private bool isFocus = false;
     [SerializeField] private GameObject cubeShadow;
     [SerializeField] private LabOne labOne;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private LabStep[] labSteps;
 
     public bool IsFocus {
         get { return this.isFocus; }

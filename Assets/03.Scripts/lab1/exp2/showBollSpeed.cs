@@ -13,7 +13,7 @@ public class showBollSpeed : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (GameObject.FindWithTag("Ideal") == null && GameObject.FindWithTag("ball") != null) {
+        if (!GameObject.FindWithTag("Ideal") && !GameObject.FindWithTag("ball")) {
             text.text = "实时速度为:";
             speed = GameObject.FindWithTag("ball").GetComponent<getBollSpeed>().getSpeed();
             text.text += Math.Round(speed, 2);

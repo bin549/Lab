@@ -65,7 +65,6 @@ public class PH : MonoBehaviour {
                 go.gameObject.GetComponent<shizhi>().intt = quseint;
                 go.gameObject.GetComponent<shizhi>().text = text;
                 yangben.GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
-
                 dirubool = false;
             }
         }

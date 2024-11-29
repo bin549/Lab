@@ -12,7 +12,6 @@ public class ts : MonoBehaviour {
             flag = false;
             speedRecord = other.GetComponent<Rigidbody>().velocity;
         }
-
         if (other.GetComponent<Rigidbody>().velocity.x < 0) {
             other.GetComponent<Rigidbody>().velocity = new Vector3(speedRecord.x, 0f, 0.0f) * 1.1f;
         } else {

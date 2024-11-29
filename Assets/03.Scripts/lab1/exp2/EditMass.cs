@@ -20,7 +20,6 @@ public class EditMass : MonoBehaviour {
         } catch (Exception e) {
             isWrong = true;
         }
-
         if (isWrong) {
             wrongOjb.SetActive(true);
             inputText.text = "";

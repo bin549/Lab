@@ -45,9 +45,7 @@ public class Outline : MonoBehaviour {
     }
 
     [SerializeField] private Mode outlineMode;
-
     [SerializeField] private Color outlineColor = Color.white;
-
     [SerializeField, Range(0f, 10f)] private float outlineWidth = 2f;
 
     [Header("Optional")]
@@ -68,15 +66,11 @@ public class Outline : MonoBehaviour {
 
     void Awake() {
         renderers = GetComponentsInChildren<Renderer>();
-
         outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
         outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
-
         outlineMaskMaterial.name = "OutlineMask (Instance)";
         outlineFillMaterial.name = "OutlineFill (Instance)";
-
         LoadSmoothNormals();
-
         needsUpdate = true;
     }
 
@@ -146,26 +140,19 @@ public class Outline : MonoBehaviour {
             if (!registeredMeshes.Add(meshFilter.sharedMesh)) {
                 continue;
             }
-
             var index = bakeKeys.IndexOf(meshFilter.sharedMesh);
             var smoothNormals = (index >= 0) ? bakeValues[index].data : SmoothNormals(meshFilter.sharedMesh);
-
             meshFilter.sharedMesh.SetUVs(3, smoothNormals);
-
             var renderer = meshFilter.GetComponent<Renderer>();
-
             if (renderer != null) {
                 CombineSubmeshes(meshFilter.sharedMesh, renderer.sharedMaterials);
             }
         }
-
         foreach (var skinnedMeshRenderer in GetComponentsInChildren<SkinnedMeshRenderer>()) {
             if (!registeredMeshes.Add(skinnedMeshRenderer.sharedMesh)) {
                 continue;
             }
-
             skinnedMeshRenderer.sharedMesh.uv4 = new Vector2[skinnedMeshRenderer.sharedMesh.vertexCount];
-
             CombineSubmeshes(skinnedMeshRenderer.sharedMesh, skinnedMeshRenderer.sharedMaterials);
         }
     }
@@ -173,22 +160,16 @@ public class Outline : MonoBehaviour {
     List<Vector3> SmoothNormals(Mesh mesh) {
         var groups = mesh.vertices.Select((vertex, index) => new KeyValuePair<Vector3, int>(vertex, index))
             .GroupBy(pair => pair.Key);
-
         var smoothNormals = new List<Vector3>(mesh.normals);
-
         foreach (var group in groups) {
             if (group.Count() == 1) {
                 continue;
             }
-
             var smoothNormal = Vector3.zero;
-
             foreach (var pair in group) {
                 smoothNormal += smoothNormals[pair.Value];
             }
-
             smoothNormal.Normalize();
-
             foreach (var pair in group) {
                 smoothNormals[pair.Value] = smoothNormal;
             }
@@ -201,7 +182,6 @@ public class Outline : MonoBehaviour {
         if (mesh.subMeshCount == 1) {
             return;
         }
-
         if (mesh.subMeshCount > materials.Length) {
             return;
         }

@@ -3937,6 +3937,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &540020487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540020488}
+  m_Layer: 0
+  m_Name: middle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540020488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540020487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45, y: -1.57, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352414982}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &546260445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8305,6 +8336,7 @@ Transform:
   m_Children:
   - {fileID: 703955024}
   - {fileID: 692626652}
+  - {fileID: 540020488}
   m_Father: {fileID: 643319604468806512}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1356813927
@@ -25790,13 +25822,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee8d48311f3b44fae90981445eb0f6f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: {fileID: 5780333886330931575}
-  introductionText: {fileID: 1690529106544026127}
-  tutorialText: {fileID: 6361370587277033060}
-  door01UI: {fileID: 7813754880987311965}
-  title: "\u706F\u6CE1\u901A\u8DEF\u5B9E\u9A8C"
-  introduction: "\u901A\u8FC7\u8FDE\u63A5\u4E0D\u540C\u7535\u8DEF\uFF08\u4E32\u8054\u548C\u5E76\u8054\uFF09\u4E2D\u7684\u706F\u6CE1\uFF0C\u89C2\u5BDF\u706F\u6CE1\u4EAE\u5EA6\u7684\u53D8\u5316\uFF0C\u4E86\u89E3\u7535\u8DEF\u4E2D\u7535\u6D41\u548C\u7535\u538B\u7684\u5206\u5E03\u89C4\u5F8B\uFF0C\u9A8C\u8BC1\u4E32\u8054\u4E0E\u5E76\u8054\u7535\u8DEF\u7684\u7279\u6027\u3002 "
-  tutorial: "\u7B2C\u4E00\u6B65\uFF0C//n\u7B2C\u4E8C\u6B65\uFF0C\\n\u7B2C\u4E09\u6B65"
   isFinishied: 1
   isWork: 0
   isDone: 0
@@ -48332,6 +48357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5317507706704290396}
   - component: {fileID: 1617598934212589592}
+  - component: {fileID: 6248043784111787443}
   m_Layer: 0
   m_Name: Virtual Camera 01
   m_TagString: Untagged
@@ -48339,6 +48365,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &6248043784111787443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6248043784111787442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec524fd611e0b4f8291e7780aac8348a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 540020488}
+  distance: 3
+  rotationSpeed: 550
 --- !u!1 &6248163978732687777
 GameObject:
   m_ObjectHideFlags: 0
