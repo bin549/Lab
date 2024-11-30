@@ -11,7 +11,17 @@ public class LabDetector : InteractableItem {
     private string step = "第一步，第二步，第三步";
     private bool isFinishied = false;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] public LabOne labOne;
+    [SerializeField]  private bool isFocus = false;
+
+    public bool IsFocus {
+        get => isFocus;
+        set => isFocus = value;
+    }
+
+    public CinemachineVirtualCamera VirtualCamera {
+        get => virtualCamera;
+        set => virtualCamera = value;
+    }
 
     public bool IsActive {
         get { return this.isActive; }
@@ -20,7 +30,6 @@ public class LabDetector : InteractableItem {
 
     protected override void Awake() {
         base.Awake();
-        this.labOne = GameObject.FindObjectOfType<LabOne>();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
@@ -56,9 +65,6 @@ public class LabDetector : InteractableItem {
     }
     
     public void ExitLab(bool isPassed) {
-        if (isPassed) {
-            this.labOne.IsDone = true;
-        }
         this.labActiveUI.SetActive(false);
         StartCoroutine(this.DisableBusy());
         GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject

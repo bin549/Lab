@@ -6,7 +6,11 @@ public class LabObject : MonoBehaviour {
     private const float doubleClickDelay = 0.3f;
 
     [SerializeField] private LabDetector labDetector;
-    [SerializeField] private CinemachineVirtualCamera objectCamera;
+    private CinemachineVirtualCamera objectCamera;
+
+    private void Awake() {
+        this.objectCamera = gameObject.GetComponentInChildren<CinemachineVirtualCamera>(true);
+    }
 
     private void Update() {
         CheckMouseButton();
@@ -36,16 +40,16 @@ public class LabObject : MonoBehaviour {
         if (Input.GetMouseButtonDown(1) && this.labDetector.IsFocus) {
             this.labDetector.IsFocus = false;
             this.labDetector.VirtualCamera.gameObject.SetActive(true);
-            objectCamera.gameObject.SetActive(false);
-            objectCamera.Priority = 0;
+            this.objectCamera.gameObject.SetActive(false);
+            this.objectCamera.Priority = 0;
         }
     }
 
     private void OnDoubleClick() {
         this.labDetector.IsFocus = true;
         this.labDetector.VirtualCamera.gameObject.SetActive(false);
-        objectCamera.gameObject.SetActive(true);
-        objectCamera.Priority = 10;
+        this.objectCamera.gameObject.SetActive(true);
+        this.objectCamera.Priority = 10;
         this.labDetector.VirtualCamera.Priority = 0;
     }
 }
