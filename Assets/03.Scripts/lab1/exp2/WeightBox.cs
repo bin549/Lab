@@ -10,19 +10,13 @@ public class WeightBox : MonoBehaviour {
     [SerializeField] private Transform resetPoint;
     [SerializeField] private Transform xcResetPoint;
     [SerializeField] private WeightCar weightCar;
-    [SerializeField] private LabOne labOne;
     
-    private void Awake() { 
-        this.labOne = FindObjectOfType<LabOne>();
-    }
-
     private void Start() {
         this.rigidbody = GetComponent<Rigidbody>();
     } 
 
     private void OnMouseDown(){
         this.rigidbody.useGravity = true;
-        this.labOne.PassLab();
         StartCoroutine(this.ResetLab());
     }
 

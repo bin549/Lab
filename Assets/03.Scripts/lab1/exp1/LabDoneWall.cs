@@ -2,17 +2,11 @@ using System.Collections;
 using UnityEngine;
 
 public class LabDoneWall : MonoBehaviour {
-    [SerializeField] private LabOne labOne;
     [SerializeField] private GameObject cube;
     [SerializeField] private Transform resetPoint;
     [SerializeField] private LabDetector labDetector;
 
-    private void Awake() {
-        this.labOne = FindObjectOfType<LabOne>();
-    }
-
     private void OnTriggerEnter(Collider collision) {
-        this.labOne.PassLab();
         StartCoroutine(this.ResetLab());
     }
 

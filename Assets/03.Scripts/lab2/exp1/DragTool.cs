@@ -14,12 +14,12 @@ public class DragTool : MonoBehaviour  {
     }
     
     private void Update() {
-        _trans.position = new Vector3(Mathf.Clamp(_trans.transform.position.x, _trans.parent.position.x - 0.09f, _trans.parent.position.x + 0.04f), _trans.parent.position.y, _trans.parent.position.z);
-        if (BulbClosure.instance.isTriggerEnabled) {
-            BulbClosure.instance._v =1-( (_trans.position.x / 0.13f) - 50.7861523f);
-            Rotate.ShowSpeed(_trans.position.x * 20, 45f, 360);
-            this.experimentalAccuracy.disanbu();
-        }
+        // _trans.position = new Vector3(Mathf.Clamp(_trans.transform.position.x, _trans.parent.position.x - 0.09f, _trans.parent.position.x + 0.04f), _trans.parent.position.y, _trans.parent.position.z);
+        // if (BulbClosure.instance.isTriggerEnabled) {
+        //     BulbClosure.instance._v =1-( (_trans.position.x / 0.13f) - 50.7861523f);
+        //     Rotate.ShowSpeed(_trans.position.x * 20, 45f, 360);
+        //     this.experimentalAccuracy.disanbu();
+        // }
     }
  
     private IEnumerator OnMouseDown() {

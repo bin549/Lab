@@ -18,7 +18,6 @@ public class BulbClosure : MonoBehaviour {
     public GameObject[] dianxianred;
     public GameObject[] dianxian;
     public ExperimentalAccuracy experimentalAccuracy;
-    [SerializeField] private LabOne labOne;
     [SerializeField] private LabDetector labDetector;
     public readonly string _colorName = "_EmissionColor";
     public float _deltaBrightness;
@@ -29,7 +28,6 @@ public class BulbClosure : MonoBehaviour {
     public float _v;
 
     private void Awake() {
-        this.labOne = FindObjectOfType<LabOne>();
         instance = this;
     }
 
@@ -83,7 +81,6 @@ public class BulbClosure : MonoBehaviour {
             if (Physics.Raycast(ray, out RaycastHit hit)) {
                 obj = hit.collider.gameObject;
                 if (obj.name.Equals("BulbClosure")) {
-                    this.labOne.PassLab();
                     this.ToggleLight();
                     StartCoroutine(this.ResetLab());
                 }

@@ -14,7 +14,6 @@ public class Door : InteractableItem {
     private DoorHandler doorHandler;
     [SerializeField] private int playerLocationIndex = 0;
 
-
     protected override void Awake() {
         base.Awake();
         this.audioSource = GetComponent<AudioSource>();
