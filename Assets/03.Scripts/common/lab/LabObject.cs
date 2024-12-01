@@ -6,8 +6,12 @@ public class LabObject : MonoBehaviour {
     private const float doubleClickDelay = 0.3f;
 
     [SerializeField] private LabDetector labDetector;
-    private CinemachineVirtualCamera objectCamera;
+    [SerializeField]  private CinemachineVirtualCamera objectCamera;
 
+    public LabDetector LabDetector {
+        get => labDetector;
+    }
+    
     private void Awake() {
         this.objectCamera = gameObject.GetComponentInChildren<CinemachineVirtualCamera>(true);
     }

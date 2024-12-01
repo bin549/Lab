@@ -86,5 +86,7 @@ crashlytics-build.properties
 /[Aa]ssets/Obi/*
 /[Aa]ssets/Ultimate Game Tools/*
 /[Aa]ssets/TirGames/*
+/[Aa]ssets/Sci-fi Buttons and Panels/*
+/[Aa]ssets/Simple Vector Icons/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity

@@ -1,7 +1,15 @@
 using System.Collections;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
+[System.Serializable]
+class LabStep {
+    public string tip;
+    public AudioClip AudioClip;
+}
+
+[RequireComponent(typeof(AudioSource))]
 public class LabDetector : InteractableItem {
     [SerializeField] private GameObject labActiveUI;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
@@ -11,13 +19,27 @@ public class LabDetector : InteractableItem {
     private string step = "第一步，第二步，第三步";
     private bool isFinishied = false;
     [SerializeField] private GameManager gameManager;
-    [SerializeField]  private bool isFocus = false;
+    [SerializeField] private bool isFocus = false;
+    [SerializeField] private LabStep[] labSteps;
+    [SerializeField] private int currentStep = 0;
+    [SerializeField] private GameObject tipUI;
+    [SerializeField] private TextMeshProUGUI tipText;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject finishUI;
 
     public bool IsFocus {
         get => isFocus;
         set => isFocus = value;
     }
 
+    public void IncreateTip() {
+        if (this.currentStep == this.labSteps.Length) {
+            this.FinishLabItem();
+            return;
+        }
+        this.currentStep++;
+    }
+    
     public CinemachineVirtualCamera VirtualCamera {
         get => virtualCamera;
         set => virtualCamera = value;
@@ -31,6 +53,7 @@ public class LabDetector : InteractableItem {
     protected override void Awake() {
         base.Awake();
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
+        this.audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void Start() {
@@ -39,6 +62,9 @@ public class LabDetector : InteractableItem {
 
     protected override void Update() {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape) && !this.isFocus) {
+            this.ExitLab(false);
+        }
     }
 
     protected override void InteractAction() {
@@ -63,7 +89,7 @@ public class LabDetector : InteractableItem {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
-    
+
     public void ExitLab(bool isPassed) {
         this.labActiveUI.SetActive(false);
         StartCoroutine(this.DisableBusy());
@@ -78,5 +104,31 @@ public class LabDetector : InteractableItem {
     private IEnumerator DisableBusy() {
         yield return new WaitForSeconds(.4f);
         this.gameManager.IsBusy = false;
+    }
+
+    public void ShowTip() {
+        LabStep labStep = this.labSteps[this.currentStep];
+        this.tipText.text = labStep.tip;
+        this.audioSource.clip = labStep.AudioClip;
+        this.audioSource.Play();
+        this.EnableTip(true);
+        StartCoroutine(DisenableUI(this.audioSource.clip.length));
+    }
+
+    private IEnumerator DisenableUI(float seconds) {
+        yield return new WaitForSeconds(seconds);
+        this.EnableTip(false);
+    }
+
+    private void EnableTip(bool isEnable) {
+        this.tipUI.SetActive(isEnable);
+    }
+    
+    public void FinishLabItem() {
+        this.finishUI.gameObject.SetActive(true);
+    }
+
+    public void OnContinueBtnDown() {
+        this.finishUI.gameObject.SetActive(false);
     }
 }

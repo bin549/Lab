@@ -14,6 +14,9 @@ public class BulletinBoard : InteractableItem {
 
     protected override void Update() {
         base.Update();
+        if (Input.GetKeyDown(KeyCode.Escape) && base.isInteracting) {
+            this.DeactiveAction();
+        }
     }
 
     public void DisplayBulletin(bool isDisplay) {
@@ -25,16 +28,27 @@ public class BulletinBoard : InteractableItem {
         if (!this.bulletinPrefab.activeSelf) {
             if (this.isVoiceCheck) {
                 base.InteractAction();
+                StartCoroutine(this.WaitAndPrint());
+            } else {
+                DisplayBoard();
             }
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-            GameObject.FindObjectOfType<GameManager>().IsBusy = true;
-            GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
-                .SetActive(false);
-            this.DisplayBulletin(true);
         } else {
             this.DeactiveAction();
         }
+    }
+
+    private IEnumerator WaitAndPrint() {
+        yield return new WaitForSeconds(1.0f);
+        DisplayBoard();
+    }
+
+    private void DisplayBoard() {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        GameObject.FindObjectOfType<GameManager>().IsBusy = true;
+        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
+            .SetActive(false);
+        this.DisplayBulletin(true);
     }
 
     protected override void DeactiveAction() {

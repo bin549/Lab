@@ -6,7 +6,7 @@ public class DoorHandler : MonoBehaviour {
     [SerializeField] private bool isTeleport = false;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject skyBoxObj;
-    [HideInInspector] private PersonCameraController personCameraController;
+    private PersonCameraController personCameraController;
     
     private void Awake() {
         this.personCameraController = GameObject.FindObjectOfType<PersonCameraController>();

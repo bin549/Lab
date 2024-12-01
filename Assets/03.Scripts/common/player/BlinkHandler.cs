@@ -7,6 +7,8 @@ public class BlinkHandler : MonoBehaviour {
     private GameManager gameManager;
     [SerializeField] private bool isOpen = true;
     public int doorNum = 400;
+    [SerializeField] private GameObject blackScreen;
+    [SerializeField] private GameObject blackText;
 
     private void Awake() {
         animator.gameObject.SetActive(true);
@@ -17,7 +19,11 @@ public class BlinkHandler : MonoBehaviour {
         if (this.gameManager.IsBusy) {
             return;
         }
-        this.BlinkHandle();
+        if (this.gameManager.IsFirstPersonView) {
+            this.BlinkHandle();
+        } else {
+            this.BlackScreenHandle();
+        }
         this.SceneHandle();
     }
 
@@ -25,6 +31,14 @@ public class BlinkHandler : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
             this.isOpen = !this.isOpen;
             this.animator.SetBool("isOpen", this.isOpen);
+        }
+    }
+
+    private void BlackScreenHandle() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            this.isOpen = !this.isOpen;
+            this.blackScreen.SetActive(this.isOpen);
+            this.blackText.SetActive(this.isOpen);
         }
     }
 
