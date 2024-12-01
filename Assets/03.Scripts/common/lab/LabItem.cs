@@ -8,9 +8,8 @@ public class LabItem : MonoBehaviour {
     protected virtual void Awake() {
         this.labObject = this.GetComponent<LabObject>();
     }
-    
-    
-    protected void CheckMouseButton() {
+
+    protected virtual void CheckMouseButton() {
         if (Input.GetMouseButtonDown(0) && this.labObject.LabDetector.IsFocus) {
             if (Camera.main == null) {
                 Debug.LogError("No camera tagged as MainCamera found.");
@@ -20,7 +19,8 @@ public class LabItem : MonoBehaviour {
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.transform == transform) {
-                    OnSingleClick();
+                    this.OnSingleClick();
+                    Debug.Log("Base OnSingleClick called");
                 }
             }
         }
@@ -28,7 +28,7 @@ public class LabItem : MonoBehaviour {
 
     protected virtual void OnSingleClick() {
     }
-    
+
     protected virtual void TakeOnAction() {
         this.labObject.LabDetector.IncreateTip();
     }

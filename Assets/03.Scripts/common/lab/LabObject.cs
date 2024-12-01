@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Cinemachine;
 
@@ -6,12 +7,12 @@ public class LabObject : MonoBehaviour {
     private const float doubleClickDelay = 0.3f;
 
     [SerializeField] private LabDetector labDetector;
-    [SerializeField]  private CinemachineVirtualCamera objectCamera;
+    private CinemachineVirtualCamera objectCamera;
 
     public LabDetector LabDetector {
         get => labDetector;
     }
-    
+
     private void Awake() {
         this.objectCamera = gameObject.GetComponentInChildren<CinemachineVirtualCamera>(true);
     }
@@ -50,10 +51,15 @@ public class LabObject : MonoBehaviour {
     }
 
     private void OnDoubleClick() {
-        this.labDetector.IsFocus = true;
         this.labDetector.VirtualCamera.gameObject.SetActive(false);
         this.objectCamera.gameObject.SetActive(true);
         this.objectCamera.Priority = 10;
         this.labDetector.VirtualCamera.Priority = 0;
+        StartCoroutine(this.EnableActive());
+    }
+
+    private IEnumerator EnableActive() {
+        yield return new WaitForSeconds(0.1f);
+        this.labDetector.IsFocus = true;
     }
 }

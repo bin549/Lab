@@ -17,7 +17,7 @@ public class LabDetector : InteractableItem {
     private string title = "斜面上静摩擦和动摩擦";
     private string introduction = "这是一个模拟箱子被绳子拉着沿着水平面移动的过程。学生可以通过模拟来探索静摩擦和动摩擦的影响，以及它们与表面法向力的关系。";
     private string step = "第一步，第二步，第三步";
-    private bool isFinishied = false;
+    private bool isFinish = false;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private bool isFocus = false;
     [SerializeField] private LabStep[] labSteps;
@@ -25,6 +25,7 @@ public class LabDetector : InteractableItem {
     [SerializeField] private GameObject tipUI;
     [SerializeField] private TextMeshProUGUI tipText;
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] private GameObject interationUI;
     [SerializeField] private GameObject finishUI;
 
     public bool IsFocus {
@@ -33,13 +34,13 @@ public class LabDetector : InteractableItem {
     }
 
     public void IncreateTip() {
-        if (this.currentStep == this.labSteps.Length) {
+        if (this.currentStep == this.labSteps.Length - 1) {
             this.FinishLabItem();
-            return;
+        } else {
+            this.currentStep++;
         }
-        this.currentStep++;
     }
-    
+
     public CinemachineVirtualCamera VirtualCamera {
         get => virtualCamera;
         set => virtualCamera = value;
@@ -83,6 +84,7 @@ public class LabDetector : InteractableItem {
         this.IsActive = true;
         this.gameManager.IsBusy = true;
         this.labActiveUI.SetActive(true);
+        this.interationUI.gameObject.SetActive(false);
         GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
             .SetActive(false);
         this.virtualCamera.gameObject.SetActive(true);
@@ -90,13 +92,15 @@ public class LabDetector : InteractableItem {
         Cursor.visible = true;
     }
 
-    public void ExitLab(bool isPassed) {
+    public void ExitLab(bool isFinish) {
         this.labActiveUI.SetActive(false);
+        this.interationUI.gameObject.SetActive(true);
         StartCoroutine(this.DisableBusy());
         GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
             .SetActive(true);
         this.virtualCamera.gameObject.SetActive(false);
         this.IsActive = false;
+        this.isFinish = isFinish;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -123,12 +127,13 @@ public class LabDetector : InteractableItem {
     private void EnableTip(bool isEnable) {
         this.tipUI.SetActive(isEnable);
     }
-    
+
     public void FinishLabItem() {
         this.finishUI.gameObject.SetActive(true);
     }
 
     public void OnContinueBtnDown() {
         this.finishUI.gameObject.SetActive(false);
+        this.ExitLab(true);
     }
 }
