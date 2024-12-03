@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3933900176568642322}
   - component: {fileID: 7549744066104530901}
-  - component: {fileID: -4301526967104635805}
-  - component: {fileID: -4600302063128533912}
+  - component: {fileID: 8391209207756843784}
+  - component: {fileID: 8426451160549442026}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-4301526967104635805
+--- !u!114 &8391209207756843784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &-4600302063128533912
+--- !u!114 &8426451160549442026
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,8 +137,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7526038093598889046}
   - component: {fileID: 4992124498465828081}
-  - component: {fileID: -7727083702006351181}
-  - component: {fileID: 789154003488128888}
+  - component: {fileID: -3878742815835872585}
+  - component: {fileID: 1206678966684140229}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7727083702006351181
+--- !u!114 &-3878742815835872585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &789154003488128888
+--- !u!114 &1206678966684140229
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,8 +264,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3065448670691343335}
   - component: {fileID: 5482293631198731116}
-  - component: {fileID: 4314052493704599894}
-  - component: {fileID: -6388511124597885314}
+  - component: {fileID: 4941148783168330353}
+  - component: {fileID: 7030031641456077956}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4314052493704599894
+--- !u!114 &4941148783168330353
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -354,7 +354,7 @@ MonoBehaviour:
   m_LegacyHeightOffset: 3.4028235e+38
   m_LegacyHeadingBias: 3.4028235e+38
   m_HeadingIsSlave: 1
---- !u!114 &-6388511124597885314
+--- !u!114 &7030031641456077956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7458999379272277260}
-  - component: {fileID: -7267938657921600579}
+  - component: {fileID: 6952141032951476888}
   m_Layer: 0
   m_Name: MiddleRig
   m_TagString: Untagged
@@ -414,7 +414,7 @@ Transform:
   - {fileID: 7526038093598889046}
   m_Father: {fileID: 2308426741107114443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7267938657921600579
+--- !u!114 &6952141032951476888
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -452,6 +452,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -469,7 +476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8185406699551295635}
-  - component: {fileID: 2497109936050877131}
+  - component: {fileID: 2984189120337801650}
   m_Layer: 0
   m_Name: BottomRig
   m_TagString: Untagged
@@ -493,7 +500,7 @@ Transform:
   - {fileID: 3065448670691343335}
   m_Father: {fileID: 2308426741107114443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2497109936050877131
+--- !u!114 &2984189120337801650
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,6 +538,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -606,6 +620,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -676,9 +697,9 @@ MonoBehaviour:
     m_Radius: 1
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
-  - {fileID: -5739377092539406149}
-  - {fileID: -7267938657921600579}
-  - {fileID: 2497109936050877131}
+  - {fileID: -2883852661682277859}
+  - {fileID: 6952141032951476888}
+  - {fileID: 2984189120337801650}
 --- !u!1 &8620982870258079896
 GameObject:
   m_ObjectHideFlags: 3
@@ -688,7 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7810743768736578792}
-  - component: {fileID: -5739377092539406149}
+  - component: {fileID: -2883852661682277859}
   m_Layer: 0
   m_Name: TopRig
   m_TagString: Untagged
@@ -712,7 +733,7 @@ Transform:
   - {fileID: 3933900176568642322}
   m_Father: {fileID: 2308426741107114443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-5739377092539406149
+--- !u!114 &-2883852661682277859
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -750,6 +771,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

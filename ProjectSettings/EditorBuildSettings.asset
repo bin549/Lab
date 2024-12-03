@@ -7,14 +7,14 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/01.Scenes/start.unity
-    guid: d8eaacbb2fd574a4a9f5fad53c40ddff
+    guid: 82232e6d635928649bca1220ca7e9c4a
   - enabled: 1
     path: Assets/01.Scenes/lab-01.unity
-    guid: 2289127379d17ed4991285883be7e960
+    guid: 24e2413cca38e084d80b8e3cbe779d85
   - enabled: 1
     path: Assets/01.Scenes/lab-02.unity
-    guid: 4786e354e3e074094aeabf5c4e51dac7
+    guid: bd12ec0ccda007649bd1c0d33e4ea138
   - enabled: 1
     path: Assets/01.Scenes/lab-03.unity
-    guid: 678437b2233db494fadb2926d7240f75
+    guid: f2312d9e739f67c4da27c4f3adb00606
   m_configObjects: {}

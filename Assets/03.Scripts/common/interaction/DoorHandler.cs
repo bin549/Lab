@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class DoorHandler : MonoBehaviour {
-    [SerializeField] private Transform teleportDoor;
+    private Transform teleportDoor;
     [SerializeField] private TeleportCamera teleportCamera;
     [SerializeField] private bool isTeleport = false;
     [SerializeField] private AudioManager audioManager;

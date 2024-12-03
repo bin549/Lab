@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class BulletinBoard : InteractableItem {
     [SerializeField] private GameObject bulletinPrefab;
-
     public GameObject BulletinPrefab => bulletinPrefab;
-
     [SerializeField] private bool isVoiceCheck = false;
-
+    [SerializeField] private bool is3DObject = false;
+    [SerializeField] private bool isPickupable = false;
+    private Camera mainCamera;
+    [SerializeField] private GameObject vfxObject;
+    [SerializeField] private GameObject uiObject;
+ 
     protected override void Awake() {
         base.Awake();
+        this.mainCamera = Camera.main;
     }
 
     protected override void Update() {
@@ -43,16 +47,28 @@ public class BulletinBoard : InteractableItem {
     }
 
     private void DisplayBoard() {
+        if (this.is3DObject) {
+            this.mainCamera.gameObject.SetActive(false);
+        }
+        if (isPickupable) {
+            gameObject.GetComponent<LineRenderer>().enabled = false;
+            this.vfxObject.SetActive(false);
+            this.uiObject.SetActive(false);
+        }
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         GameObject.FindObjectOfType<GameManager>().IsBusy = true;
         GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
             .SetActive(false);
         this.DisplayBulletin(true);
+        
     }
 
     protected override void DeactiveAction() {
         if (this.bulletinPrefab.activeSelf) {
+            if (this.is3DObject) {
+                this.mainCamera.gameObject.SetActive(true);
+            }
             if (!this.isVoiceCheck) {
                 base.DeactiveAction();
             }

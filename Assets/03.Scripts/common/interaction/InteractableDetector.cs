@@ -2,7 +2,7 @@ using UnityEngine;
  
 public class InteractableDetector : MonoBehaviour {
     public float distanceOpen = 2.5f;
-    private InteractableObject interactableObject = null;
+    [SerializeField] private InteractableObject interactableObject = null;
 
     private void Update() {
         if (this.interactableObject) {

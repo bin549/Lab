@@ -159,6 +159,13 @@ MonoBehaviour:
     GateFit: 2
     FocusDistance: 10
     m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -189,6 +196,7 @@ GameObject:
   - component: {fileID: 8311028504360758273}
   - component: {fileID: 4379429125206824559}
   - component: {fileID: 1448853766025598037}
+  - component: {fileID: 3828577443030015476}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -310,12 +318,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db10078b8d5b4417a8d09012883e852, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportDoor: {fileID: 0}
   teleportCamera: {fileID: 0}
   isTeleport: 0
   audioManager: {fileID: 0}
   skyBoxObj: {fileID: 0}
-  personCameraController: {fileID: 0}
 --- !u!114 &1698262588700577574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -329,9 +335,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
-  gameManager: {fileID: 0}
   isOpen: 1
   doorNum: 400
+  blackScreen: {fileID: 0}
+  blackText: {fileID: 0}
 --- !u!114 &5726375582707527755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,6 +442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceOpen: 2.5
+  interactableObject: {fileID: 0}
 --- !u!114 &1448853766025598037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,7 +455,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47ad1ea942bdd4f33927c3f3bcb34f8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+--- !u!114 &3828577443030015476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5071395121294800536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0806352461307439cad2c1420276ae8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parrentPivot: {fileID: 0}
+  roomTransforms: []
 --- !u!1 &5242390358119480060
 GameObject:
   m_ObjectHideFlags: 0

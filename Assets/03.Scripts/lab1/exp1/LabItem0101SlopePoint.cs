@@ -6,6 +6,13 @@ public class LabItem0101SlopePoint : LabItem {
     
     private void Update() {
         this.CheckMouseButton();
+        this.Z();
+    }
+
+    private void Z() {
+        if (Input.GetKeyDown(KeyCode.Z)) {
+            GetComponent<LabObject>().OnDoubleClick();
+        }
     }
 
     protected virtual void CheckMouseButton() {

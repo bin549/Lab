@@ -7,7 +7,7 @@ public class LabObject : MonoBehaviour {
     private const float doubleClickDelay = 0.3f;
 
     [SerializeField] private LabDetector labDetector;
-    private CinemachineVirtualCamera objectCamera;
+    [SerializeField] private CinemachineVirtualCamera objectCamera;
 
     public LabDetector LabDetector {
         get => labDetector;
@@ -33,7 +33,7 @@ public class LabObject : MonoBehaviour {
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.transform == transform) {
                     if (Time.time - lastClickTime < doubleClickDelay) {
-                        OnDoubleClick();
+                        this.OnDoubleClick();
                     }
                     lastClickTime = Time.time;
                 }
@@ -43,14 +43,18 @@ public class LabObject : MonoBehaviour {
 
     private void CheckExitButton() {
         if (Input.GetMouseButtonDown(1) && this.labDetector.IsFocus) {
-            this.labDetector.IsFocus = false;
-            this.labDetector.VirtualCamera.gameObject.SetActive(true);
-            this.objectCamera.gameObject.SetActive(false);
-            this.objectCamera.Priority = 0;
+            this.HiddenObject();
         }
     }
 
-    private void OnDoubleClick() {
+    public void HiddenObject() {
+        this.labDetector.IsFocus = false;
+        this.labDetector.VirtualCamera.gameObject.SetActive(true);
+        this.objectCamera.gameObject.SetActive(false);
+        this.objectCamera.Priority = 0;
+    }
+    
+    public void OnDoubleClick() {
         this.labDetector.VirtualCamera.gameObject.SetActive(false);
         this.objectCamera.gameObject.SetActive(true);
         this.objectCamera.Priority = 10;
@@ -59,7 +63,7 @@ public class LabObject : MonoBehaviour {
     }
 
     private IEnumerator EnableActive() {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         this.labDetector.IsFocus = true;
     }
 }

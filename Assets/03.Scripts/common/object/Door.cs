@@ -9,15 +9,15 @@ public class Door : InteractableItem {
     [HideInInspector] public AudioSource audioSource;
     public AudioClip openDoorClip, closeDoorClip;
     [SerializeField] private GameObject doorMirror;
-    [SerializeField] private Animator doorMirrorAnimator;
+    private Animator doorMirrorAnimator;
     [SerializeField] private string labScene = "";
     private DoorHandler doorHandler;
     [SerializeField] private int playerLocationIndex = 0;
 
     protected override void Awake() {
         base.Awake();
-        this.audioSource = GetComponent<AudioSource>();
-        this.doorMirrorAnimator = doorMirror.GetComponent<Animator>();
+        this.audioSource = gameObject.GetComponent<AudioSource>();
+        this.doorMirrorAnimator = this.doorMirror.GetComponent<Animator>();
         this.doorHandler = GameObject.FindObjectOfType<DoorHandler>();
     }
 

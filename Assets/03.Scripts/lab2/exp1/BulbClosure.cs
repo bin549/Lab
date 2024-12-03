@@ -46,7 +46,7 @@ public class BulbClosure : MonoBehaviour {
         }
     }
 
-    private void ToggleLight() {
+    public void ToggleLight() {
         if (!this.isTriggerEnabled) {
             obj.transform.RotateAround(Sun.transform.position, Vector3.forward, -60);
             this.isTriggerEnabled = true;
