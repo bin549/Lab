@@ -61,7 +61,6 @@ public class BulletinBoard : InteractableItem {
         GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
             .SetActive(false);
         this.DisplayBulletin(true);
-        
     }
 
     protected override void DeactiveAction() {

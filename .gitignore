@@ -88,5 +88,14 @@ crashlytics-build.properties
 /[Aa]ssets/TirGames/*
 /[Aa]ssets/Sci-fi Buttons and Panels/*
 /[Aa]ssets/Simple Vector Icons/*
+/[Aa]ssets/Argyle/*
+/[Aa]ssets/Chandan kumar singh/*
+/[Aa]ssets/Chemistry Lab Built-in/*
+/[Aa]ssets/Interior Laboratory/*
+/[Aa]ssets/Laboratory_Interior/*
+/[Aa]ssets/LiquidVolumeProBundle/*
+/[Aa]ssets/Plugins/*
+/[Aa]ssets/RetroEighties_Package/*
+/[Aa]ssets/TirgamesAssets/*
 
 # End of https://www.toptal.com/developers/gitignore/api/unity

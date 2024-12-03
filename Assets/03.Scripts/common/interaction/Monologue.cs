@@ -3,7 +3,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 [System.Serializable]
 public struct MonologueClip{
     public AudioClip audioClip;

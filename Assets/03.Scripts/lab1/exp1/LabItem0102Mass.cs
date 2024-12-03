@@ -1,20 +1,21 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(LabObject))]
-public class LabItem0101Cube : LabItem {
-    [SerializeField] private LabItem0101SlopePoint labItem0101SlopePoint;
+public class LabItem0102Mass : LabItem {
     [SerializeField] private GridItem displayIcon;
+    [SerializeField] private GameObject massMesh;
 
     private void Update() {
         this.CheckMouseButton();
-        this.X();
+        this.C();
     }
 
-    private void X() {
-        if (Input.GetKeyDown(KeyCode.X)) {
+    private void C() {
+        if (Input.GetKeyDown(KeyCode.C)) {
             GetComponent<LabObject>().OnDoubleClick();
+        }
+        if (Input.GetKeyDown(KeyCode.V)) {
+            GetComponent<LabObject>().HiddenObject();
         }
     }
 
@@ -40,10 +41,12 @@ public class LabItem0101Cube : LabItem {
     }
 
     protected override void TakeOnAction() {
-        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        this.enabled = false;
-        this.labItem0101SlopePoint.gameObject.SetActive(true);
+        this.massMesh.gameObject.SetActive(false);
+        // this.enabled = false;
         this.displayIcon.gameObject.SetActive(true);
+        if (!this.massMesh.gameObject.activeSelf) {
+            return;
+        }
         base.TakeOnAction();
     }
 }
