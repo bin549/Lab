@@ -7,7 +7,7 @@ public class DoorHandler : MonoBehaviour {
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject skyBoxObj;
     private PersonCameraController personCameraController;
-    
+
     private void Awake() {
         this.personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
     }

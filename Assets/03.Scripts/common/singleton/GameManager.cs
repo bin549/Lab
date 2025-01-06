@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour {
@@ -13,7 +12,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] [Range(0, 10)] private int totalDoor03 = 2;
     [SerializeField] private bool isFirstPersonView = true;
     [SerializeField] private bool isInLobby = true;
-    [SerializeField] [Range(0,3)] private int playerLobbyState = 0;
+    [SerializeField] [Range(0, 3)] private int playerLobbyState = 0;
 
     public int PlayerLobbyState {
         get => playerLobbyState;
@@ -29,7 +28,7 @@ public class GameManager : MonoBehaviour {
         get => isFirstPersonView;
         set => isFirstPersonView = value;
     }
-    
+
     private void Awake() {
         if (_instance != null) {
             Destroy(gameObject);
@@ -38,7 +37,7 @@ public class GameManager : MonoBehaviour {
         _instance = this;
         DontDestroyOnLoad(gameObject);
     }
-    
+
     public bool IsBusy {
         get { return this.isBusy; }
         set { isBusy = value; }
@@ -70,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
     public void IncreaseCount(int doorNum) {
         switch (doorNum) {
-            case 1: 
+            case 1:
                 currentDoor01++;
                 break;
             case 2:

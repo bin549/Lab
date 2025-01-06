@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundRecorder : InteractableItem {
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
-    
+
     protected override void Awake() {
         base.Awake();
         this.audioSource = GetComponent<AudioSource>();
@@ -15,7 +15,7 @@ public class SoundRecorder : InteractableItem {
         this.audioSource.clip = this.audioClip;
         base.interactableObject.DetectedText.text = "播放";
     }
-    
+
     protected override void Update() {
         base.Update();
     }

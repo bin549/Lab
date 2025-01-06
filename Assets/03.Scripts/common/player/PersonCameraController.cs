@@ -16,10 +16,11 @@ public class PersonCameraController : MonoBehaviour {
         this.thirdInterationObjectDetector = this.GetComponent<BoxCollider>();
         this.cursor = GameObject.Find("Cursor");
     }
-    
+
     private void Start() {
-        if ((this.gameManager.IsFirstPersonView && !this.firstPersonController.enabled) || (!this.gameManager.IsFirstPersonView && !this.thirdPersonController.enabled)) {
-               this.ChangeViewCamera();
+        if ((this.gameManager.IsFirstPersonView && !this.firstPersonController.enabled) ||
+            (!this.gameManager.IsFirstPersonView && !this.thirdPersonController.enabled)) {
+            this.ChangeViewCamera();
         }
     }
 

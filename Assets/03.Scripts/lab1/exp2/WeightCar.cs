@@ -1,13 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
-using UnityEngine.UI;
 
 public class WeightCar : MonoBehaviour {
     public static WeightCar singleton;
@@ -16,8 +8,6 @@ public class WeightCar : MonoBehaviour {
     public bool weightCarSpeedbool = false;
     private float xiaochespeed;
     private bool suduxianshibool = false;
-    public float kg = 1;
-    public float kh = 1;
 
     public WeightCar() {
         singleton = this;

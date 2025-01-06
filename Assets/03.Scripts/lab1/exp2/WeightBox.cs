@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class WeightBox : MonoBehaviour {
     private Rigidbody rigidbody;
@@ -30,10 +28,6 @@ public class WeightBox : MonoBehaviour {
 
     private void FixedUpdate() {
         this.boxSpeed = this.rigidbody.velocity.magnitude;
-    }
-
-    public void rigidbodyadd() {
-        this.rigidbody.mass = this.rigidbody.mass + 1;
     }
     
     public void rigidbodyuse() {

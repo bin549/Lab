@@ -1,5 +1,5 @@
 using UnityEngine;
- 
+
 public class InteractableDetector : MonoBehaviour {
     public float distanceOpen = 2.5f;
     [SerializeField] private InteractableObject interactableObject = null;
@@ -11,6 +11,7 @@ public class InteractableDetector : MonoBehaviour {
     }
 
     private void LateUpdate() {
+        Debug.Log(123);
         this.DetectObject();
     }
 
@@ -26,7 +27,7 @@ public class InteractableDetector : MonoBehaviour {
             }
         }
     }
- 
+
     private void OnInteract(RaycastHit hit) {
         if (hit.transform.GetComponent<BulletinBoard>()) {
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;

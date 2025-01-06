@@ -10,7 +10,7 @@ public class BulletinBoard : InteractableItem {
     private Camera mainCamera;
     [SerializeField] private GameObject vfxObject;
     [SerializeField] private GameObject uiObject;
- 
+
     protected override void Awake() {
         base.Awake();
         this.mainCamera = Camera.main;

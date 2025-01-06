@@ -1,6 +1,4 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(LabObject))]
 public class LabItem0101Cube : LabItem {

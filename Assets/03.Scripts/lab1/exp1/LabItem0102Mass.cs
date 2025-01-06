@@ -7,7 +7,7 @@ public class LabItem0102Mass : LabItem {
 
     private void Update() {
         this.CheckMouseButton();
-        this.C();
+        this.C(); 
     }
 
     private void C() {
