@@ -6,7 +6,7 @@ public class SoundRecorder : InteractableItem {
     private AudioSource audioSource;
     [SerializeField] private AudioClip audioClip;
 
-    protected override void Awake() {
+    protected override void Awake() { 
         base.Awake();
         this.audioSource = GetComponent<AudioSource>();
     }
@@ -20,6 +20,11 @@ public class SoundRecorder : InteractableItem {
         base.Update();
     }
 
+    public void OnInteract() {
+        base.InteractAction();
+        this.InteractAction();
+    }
+    
     protected override void InteractAction() {
         if (base.interactableObject.DetectedText.text == "播放") {
             base.InteractAction();

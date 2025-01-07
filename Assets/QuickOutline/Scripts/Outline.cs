@@ -64,7 +64,7 @@ public class Outline : MonoBehaviour {
 
     private bool needsUpdate;
 
-    void Awake() {
+    private void Awake() {
         renderers = GetComponentsInChildren<Renderer>();
         outlineMaskMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineMask"));
         outlineFillMaterial = Instantiate(Resources.Load<Material>(@"Materials/OutlineFill"));
@@ -74,43 +74,38 @@ public class Outline : MonoBehaviour {
         needsUpdate = true;
     }
 
-    void OnEnable() {
+    private void OnEnable() {
         foreach (var renderer in renderers) {
             var materials = renderer.sharedMaterials.ToList();
             materials.Add(outlineMaskMaterial);
             materials.Add(outlineFillMaterial);
-
             renderer.materials = materials.ToArray();
         }
     }
 
-    void OnValidate() {
+    private void OnValidate() {
         needsUpdate = true;
         if (!precomputeOutline && bakeKeys.Count != 0 || bakeKeys.Count != bakeValues.Count) {
             bakeKeys.Clear();
             bakeValues.Clear();
         }
-
         if (precomputeOutline && bakeKeys.Count == 0) {
             Bake();
         }
     }
 
-    void Update() {
+    private void Update() {
         if (needsUpdate) {
             needsUpdate = false;
-
             UpdateMaterialProperties();
         }
     }
 
-    void OnDisable() {
+    private void OnDisable() {
         foreach (var renderer in renderers) {
             var materials = renderer.sharedMaterials.ToList();
-
             materials.Remove(outlineMaskMaterial);
             materials.Remove(outlineFillMaterial);
-
             renderer.materials = materials.ToArray();
         }
     }
@@ -120,22 +115,19 @@ public class Outline : MonoBehaviour {
         Destroy(outlineFillMaterial);
     }
 
-    void Bake() {
+    private void Bake() {
         var bakedMeshes = new HashSet<Mesh>();
-
         foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
             if (!bakedMeshes.Add(meshFilter.sharedMesh)) {
                 continue;
             }
-
             var smoothNormals = SmoothNormals(meshFilter.sharedMesh);
-
             bakeKeys.Add(meshFilter.sharedMesh);
             bakeValues.Add(new ListVector3() { data = smoothNormals });
         }
     }
 
-    void LoadSmoothNormals() {
+    private void LoadSmoothNormals() {
         foreach (var meshFilter in GetComponentsInChildren<MeshFilter>()) {
             if (!registeredMeshes.Add(meshFilter.sharedMesh)) {
                 continue;

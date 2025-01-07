@@ -22,6 +22,10 @@ public class InteractableItem : MonoBehaviour {
         }
     }
 
+    public virtual void OnInteract() {
+        this.InteractAction();
+    }
+    
     protected virtual void InteractAction() {
         this.isInteracting = true;
         if (this.currentMonologueIdx != this.monologues.Length) {

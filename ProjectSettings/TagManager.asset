@@ -27,6 +27,9 @@ TagManager:
   - LabDetector
   - Ground
   - Interactable
+  - "\u706F"
+  - fama
+  - mirror
   layers:
   - Default
   - TransparentFX

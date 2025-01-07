@@ -11,7 +11,6 @@ public class InteractableDetector : MonoBehaviour {
     }
 
     private void LateUpdate() {
-        Debug.Log(123);
         this.DetectObject();
     }
 
@@ -24,7 +23,7 @@ public class InteractableDetector : MonoBehaviour {
                 if (Input.GetKeyDown(KeyCode.E)) {
                     this.OnInteract(hit);
                 }
-            }
+            } 
         }
     }
 
@@ -40,6 +39,12 @@ public class InteractableDetector : MonoBehaviour {
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             LabDetector labDetector = hit.transform.GetComponent<LabDetector>();
             labDetector.Focus(GetComponent<PersonController>());
+        } else if (hit.transform.GetComponent<SoundRecorder>()) {
+            SoundRecorder soundRecorder  = hit.transform.GetComponent<SoundRecorder>();
+            soundRecorder.OnInteract();
+        } else if (hit.transform.gameObject.tag.Equals("mirror")) {
+            InteractableItem interactableItem = hit.transform.GetComponent<InteractableItem>();
+            interactableItem.OnInteract();
         }
     }
 }

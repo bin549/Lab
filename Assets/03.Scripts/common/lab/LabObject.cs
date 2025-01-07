@@ -5,7 +5,6 @@ using Cinemachine;
 public class LabObject : MonoBehaviour {
     private float lastClickTime = 0f;
     private const float doubleClickDelay = 0.3f;
-
     [SerializeField] private LabDetector labDetector;
     [SerializeField] private CinemachineVirtualCamera objectCamera;
 

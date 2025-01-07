@@ -3488,7 +3488,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 449815858}
     m_Modifications:
     - target: {fileID: 3499423816160140705, guid: 708c326f6aaa14f45b1b19a31b829c70, type: 3}
       propertyPath: m_Name
@@ -3533,6 +3533,10 @@ PrefabInstance:
     - target: {fileID: 5550854460703662617, guid: 708c326f6aaa14f45b1b19a31b829c70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420548798868175050, guid: 708c326f6aaa14f45b1b19a31b829c70, type: 3}
+      propertyPath: isFirstPersonView
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5512,6 +5516,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 412900, guid: ebb10deb2deee654aa2c4c833ac6c3c7, type: 3}
   m_PrefabInstance: {fileID: 305562909}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &307997437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5550854460703662617, guid: 708c326f6aaa14f45b1b19a31b829c70, type: 3}
+  m_PrefabInstance: {fileID: 185458731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &320534011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7414,6 +7423,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 486028, guid: dabc91d76a44d244b8b2ed44dfc92271, type: 3}
   m_PrefabInstance: {fileID: 449135650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &449815858 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2687098346560775809, guid: 569ea830b378545e8b7ac91a921fd0ee, type: 3}
+  m_PrefabInstance: {fileID: 1711722942}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &454209802
 PrefabInstance:
@@ -29819,7 +29833,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 2687098346560775809, guid: 569ea830b378545e8b7ac91a921fd0ee, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 307997437}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 569ea830b378545e8b7ac91a921fd0ee, type: 3}
 --- !u!1001 &1717903247
@@ -38520,7 +38537,7 @@ GameObject:
   - component: {fileID: 5582554077358808079}
   m_Layer: 0
   m_Name: Mirror (1)
-  m_TagString: Untagged
+  m_TagString: mirror
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -40992,7 +41009,6 @@ SceneRoots:
   - {fileID: 9186400099892554150}
   - {fileID: 1654094435}
   - {fileID: 751787899}
-  - {fileID: 185458731}
   - {fileID: 1540768206}
   - {fileID: 2346231405339316943}
   - {fileID: 229384168}

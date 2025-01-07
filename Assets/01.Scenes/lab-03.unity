@@ -17124,9 +17124,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1757528122516847920, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4046474981989839632, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7797951434406163048, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7950073932544430789, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
       propertyPath: m_Pivot.x
@@ -23079,6 +23087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labDetector: {fileID: 1837638332954252600}
+  objectCamera: {fileID: 0}
 --- !u!114 &1700726259109362052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23528,6 +23537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labDetector: {fileID: 1837638332954252600}
+  objectCamera: {fileID: 0}
 --- !u!1 &2456929521843990086
 GameObject:
   m_ObjectHideFlags: 0
@@ -25309,6 +25319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labDetector: {fileID: 1837638332954252600}
+  objectCamera: {fileID: 0}
 --- !u!4 &6403031984349098459
 Transform:
   m_ObjectHideFlags: 0

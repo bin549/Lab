@@ -9,7 +9,7 @@ public class ThirdPersonController : PersonController {
     public float runSpeed = 4f;
     public Camera mainCamera;
 
-    private void Awake() {
+    protected override void Awake() {
         base.Awake();
     }
 
