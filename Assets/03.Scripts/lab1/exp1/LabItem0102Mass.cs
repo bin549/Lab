@@ -7,16 +7,6 @@ public class LabItem0102Mass : LabItem {
 
     private void Update() {
         this.CheckMouseButton();
-        this.C(); 
-    }
-
-    private void C() {
-        if (Input.GetKeyDown(KeyCode.C)) {
-            GetComponent<LabObject>().OnDoubleClick();
-        }
-        if (Input.GetKeyDown(KeyCode.V)) {
-            GetComponent<LabObject>().HiddenObject();
-        }
     }
 
     protected virtual void CheckMouseButton() {

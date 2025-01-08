@@ -7,13 +7,6 @@ public class LabItem0101Cube : LabItem {
 
     private void Update() {
         this.CheckMouseButton();
-        this.X();
-    }
-
-    private void X() {
-        if (Input.GetKeyDown(KeyCode.X)) {
-            GetComponent<LabObject>().OnDoubleClick();
-        }
     }
 
     protected virtual void CheckMouseButton() {

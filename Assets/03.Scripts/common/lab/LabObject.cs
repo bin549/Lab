@@ -47,10 +47,11 @@ public class LabObject : MonoBehaviour {
     }
 
     public void HiddenObject() {
-        this.labDetector.IsFocus = false;
-        this.labDetector.VirtualCamera.gameObject.SetActive(true);
-        this.objectCamera.gameObject.SetActive(false);
         this.objectCamera.Priority = 0;
+        this.objectCamera.gameObject.SetActive(false);
+        this.labDetector.VirtualCamera.gameObject.SetActive(true);
+        this.labDetector.VirtualCamera.Priority = 10;
+        this.labDetector.IsFocus = false;
     }
     
     public void OnDoubleClick() {
