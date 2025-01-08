@@ -20,31 +20,28 @@ public class BlinkHandler : MonoBehaviour {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
-    private void Update() { 
+    private void Update() {
         if (this.gameManager.IsBusy) {
             return;
         }
-        if (this.gameManager.IsFirstPersonView) {
-            this.BlinkHandle();
-        } else {
-            this.BlackScreenHandle();
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            if (this.gameManager.IsFirstPersonView) {
+                this.BlinkHandle();
+            } else {
+                this.BlackScreenHandle();
+            }
         }
-        this.SceneHandle();
     }
 
     private void BlinkHandle() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            this.isOpen = !this.isOpen;
-            this.animator.SetBool("isOpen", this.isOpen);
-        }
+        this.isOpen = !this.isOpen;
+        this.animator.SetBool("isOpen", this.isOpen);
     }
 
     private void BlackScreenHandle() {
-        if (Input.GetKeyDown(KeyCode.Escape)) {
-            this.isOpen = !this.isOpen;
-            this.blackScreen.SetActive(this.isOpen);
-            this.blackText.SetActive(this.isOpen);
-        }
+        this.isOpen = !this.isOpen;
+        this.blackScreen.SetActive(this.isOpen);
+        this.blackText.SetActive(this.isOpen);
     }
 
     private void SceneHandle() {

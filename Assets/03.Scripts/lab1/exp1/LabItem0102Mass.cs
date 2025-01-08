@@ -24,7 +24,7 @@ public class LabItem0102Mass : LabItem {
             //     }
             // }
         }
-    }
+    } 
 
     protected override void OnSingleClick() {
         this.TakeOnAction();
