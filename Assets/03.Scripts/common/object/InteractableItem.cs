@@ -22,16 +22,15 @@ public class InteractableItem : MonoBehaviour {
         }
     }
 
-    public virtual void OnInteract() {
-        this.InteractAction();
-    }
-    
     protected virtual void InteractAction() {
         this.isInteracting = true;
-        if (this.currentMonologueIdx != this.monologues.Length) {
+        if (this.monologues.Length != 0) {
             MonologueClip monologueClip = this.monologues[currentMonologueIdx];
             this.monologue.Play(monologueClip);
             this.currentMonologueIdx++;
+            if (this.currentMonologueIdx == this.monologues.Length) {
+                this.currentMonologueIdx = 0;
+            }   
         }
         this.isInteracting = false;
     }

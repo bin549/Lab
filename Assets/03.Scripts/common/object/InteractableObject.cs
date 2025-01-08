@@ -3,19 +3,21 @@ using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
 public class InteractableObject : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI originText, detectedText;
+    [SerializeField] public TextMeshProUGUI originText, detectedText;
     private LineRenderer lineRenderer;
     [SerializeField] private Transform lineStartPoint;
     [SerializeField] private Transform lineEndPoint;
     public TextMeshProUGUI DetectedText => detectedText;
     [SerializeField] private Outline outline;
-    
+
     private void Awake() {
         this.lineRenderer = gameObject.GetComponent<LineRenderer>();
     }
 
     private void Start() {
-        if (this.outline) {
+        this.originText.gameObject.SetActive(true);
+        this.detectedText.gameObject.SetActive(false);
+        if (this.outline) { 
             this.outline.enabled = false;
         }
         this.InitDashedLine();

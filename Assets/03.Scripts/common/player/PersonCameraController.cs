@@ -22,6 +22,8 @@ public class PersonCameraController : MonoBehaviour {
             (!this.gameManager.IsFirstPersonView && !this.thirdPersonController.enabled)) {
             this.ChangeViewCamera();
         }
+        ChangeViewCamera();
+        ChangeViewCamera();
     }
 
     public PersonController GetPersonController() {

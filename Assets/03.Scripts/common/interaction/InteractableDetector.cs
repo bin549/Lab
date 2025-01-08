@@ -13,7 +13,7 @@ public class InteractableDetector : MonoBehaviour {
     private void LateUpdate() {
         this.DetectObject();
     }
-
+ 
     private void DetectObject() {
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, this.distanceOpen)) {
@@ -39,12 +39,6 @@ public class InteractableDetector : MonoBehaviour {
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;
             LabDetector labDetector = hit.transform.GetComponent<LabDetector>();
             labDetector.Focus(GetComponent<PersonController>());
-        } else if (hit.transform.GetComponent<SoundRecorder>()) {
-            SoundRecorder soundRecorder  = hit.transform.GetComponent<SoundRecorder>();
-            soundRecorder.OnInteract();
-        } else if (hit.transform.gameObject.tag.Equals("mirror")) {
-            InteractableItem interactableItem = hit.transform.GetComponent<InteractableItem>();
-            interactableItem.OnInteract();
         }
     }
 }
