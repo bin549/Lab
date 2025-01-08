@@ -28,14 +28,12 @@ public class LabItem0101SlopePoint : LabItem {
     
     protected override void OnSingleClick() {
         this.TakeOnAction();
-    } 
-    
+    }
+
     protected override void TakeOnAction() {
-        this.gridItem.IsActive = false;
-        this.gridItem.gameObject.SetActive(false);
+        this.gridItem.OnDisplayIcon(false);
         this.labObject.LabDetector.IsFocus = false;
-        this.labItem0101Cube.GetComponent<MeshRenderer>().enabled = true;
-        this.labItem0101Cube.enabled = true;
+        this.labItem0101Cube.RecoverCube(true);
         this.gameObject.SetActive(false);
         base.TakeOnAction();
     }

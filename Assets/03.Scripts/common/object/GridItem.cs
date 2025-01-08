@@ -7,6 +7,7 @@ public class GridItem : MonoBehaviour {
     private float originalAlpha;
     [Range(0f, 1f)] public float targetAlpha = 1.0f;
     [SerializeField] private bool isActive = false;
+    [SerializeField] private Button button;
 
     public bool IsActive {
         get => isActive;
@@ -19,10 +20,20 @@ public class GridItem : MonoBehaviour {
 
     private void Start() {
         originalAlpha = displayIcon.color.a;
-        Button button = displayIcon.AddComponent<Button>();
-        button.onClick.AddListener(OnIconClick);
+        this.button = displayIcon.AddComponent<Button>();
+        this.button.onClick.AddListener(OnIconClick);
     }
 
+    public void OnDisplayIcon(bool isDisplay) {
+        if (isDisplay) {
+            this.IsActive = false;
+            this.gameObject.SetActive(true);
+        } else {
+            this.IsActive = false;
+            this.gameObject.SetActive(false);
+        }
+    }
+    
     public void OnIconClick() {
         Color currentColor = displayIcon.color;
         if (!this.isActive) {

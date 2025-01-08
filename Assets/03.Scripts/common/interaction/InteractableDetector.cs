@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 
 public class InteractableDetector : MonoBehaviour {
     public float distanceOpen = 2.5f;
     [SerializeField] private InteractableObject interactableObject = null;
+    [SerializeField] private BlinkHandler blinkHandler;
+
+    private void Awake() {
+        this.blinkHandler = FindObjectOfType<BlinkHandler>(true);
+    }
 
     private void Update() {
         if (this.interactableObject) {
@@ -15,6 +21,9 @@ public class InteractableDetector : MonoBehaviour {
     }
  
     private void DetectObject() {
+        if (!this.blinkHandler.IsOpen) {
+            return;
+        }
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, this.distanceOpen)) {
             if (hit.transform.GetComponent<InteractableObject>()) {

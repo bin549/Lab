@@ -18,15 +18,17 @@ public class LabDetector : InteractableItem {
     private string step = "第一步，第二步，第三步";
     private bool isFinish = false;
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private bool isFocus = false;
     [SerializeField] private LabStep[] labSteps;
-    [SerializeField] private int currentStep = 0;
     [SerializeField] private GameObject tipUI;
     [SerializeField] private TextMeshProUGUI tipText;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject interationUI;
     [SerializeField] private GameObject finishUI;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private bool isFocus = false;
+    [SerializeField] private int currentStep = 0;
+    [SerializeField] private GameObject[] allLabItems;
+    [SerializeField] private GameObject[] initLabItems;
 
     public bool IsFocus {
         get => isFocus;
@@ -68,6 +70,18 @@ public class LabDetector : InteractableItem {
         }
     }
 
+    private void OnHideLabItems() {
+        foreach (var labItem in allLabItems) {
+            labItem.SetActive(false);
+        }
+    }
+
+    private void OnInitLabItems() {
+        foreach (var labItem in initLabItems) {
+            labItem.SetActive(true);
+        }
+    }
+
     protected override void InteractAction() {
         PersonController controller = FindObjectOfType<PersonController>();
         this.Focus(controller);
@@ -89,7 +103,9 @@ public class LabDetector : InteractableItem {
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
         personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
         personCameraController.Cursor.SetActive(false);
+        this.OnInitLabItems();
         this.virtualCamera.enabled = true;
+        base.interactableObject.LineRenderer.enabled = false;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -102,9 +118,12 @@ public class LabDetector : InteractableItem {
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
         personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(true);
         personCameraController.Cursor.SetActive(true);
+        this.OnHideLabItems();
         this.virtualCamera.enabled = false;
         this.IsActive = false;
         this.isFinish = isFinish;
+        this.currentStep = 0;
+        base.interactableObject.LineRenderer.enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }

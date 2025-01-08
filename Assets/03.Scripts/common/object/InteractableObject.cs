@@ -10,6 +10,11 @@ public class InteractableObject : MonoBehaviour {
     public TextMeshProUGUI DetectedText => detectedText;
     [SerializeField] private Outline outline;
 
+    public LineRenderer LineRenderer {
+        get => lineRenderer;
+        set => lineRenderer = value;
+    }
+
     private void Awake() {
         this.lineRenderer = gameObject.GetComponent<LineRenderer>();
     }

@@ -10,12 +10,17 @@ public class BlinkHandler : MonoBehaviour {
     [SerializeField] private GameObject blackScreen;
     [SerializeField] private GameObject blackText;
 
+    public bool IsOpen {
+        get => isOpen;
+        set => isOpen = value;
+    }
+
     private void Awake() {
         animator.gameObject.SetActive(true);
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
-    private void Update() {
+    private void Update() { 
         if (this.gameManager.IsBusy) {
             return;
         }

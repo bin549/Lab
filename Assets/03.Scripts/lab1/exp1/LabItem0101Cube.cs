@@ -31,10 +31,19 @@ public class LabItem0101Cube : LabItem {
     }
 
     protected override void TakeOnAction() {
-        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
-        this.enabled = false;
         this.labItem0101SlopePoint.gameObject.SetActive(true);
-        this.gridItem.gameObject.SetActive(true);
+        this.gridItem.OnDisplayIcon(true);
+        this.RecoverCube(false);
         base.TakeOnAction();
+    }
+
+    public void RecoverCube(bool isRecovered) {
+        if (!isRecovered) {
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            this.enabled = false;
+        } else {
+            this.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            this.enabled = true;
+        }
     }
 }
