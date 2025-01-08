@@ -24,6 +24,10 @@ public class BulletinBoard : InteractableItem {
     }
 
     public void DisplayBulletin(bool isDisplay) {
+        base.isInteracting = isDisplay;
+        if (GameObject.FindObjectOfType<GameManager>().IsFirstPersonView) {
+            GameObject.FindObjectOfType<PersonCameraController>().Cursor.SetActive(!isDisplay);
+        }
         this.bulletinPrefab.SetActive(isDisplay);
     }
 
@@ -58,8 +62,8 @@ public class BulletinBoard : InteractableItem {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         GameObject.FindObjectOfType<GameManager>().IsBusy = true;
-        GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
-            .SetActive(false);
+        PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
+        personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
         this.DisplayBulletin(true);
     }
 
@@ -76,7 +80,6 @@ public class BulletinBoard : InteractableItem {
             this.DisplayBulletin(false);
             PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
             personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(true);
-            personCameraController.Cursor.SetActive(true);
             StartCoroutine(this.DisableBusyStatus());
         }
     }
