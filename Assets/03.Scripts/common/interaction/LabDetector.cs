@@ -12,7 +12,6 @@ class LabStep {
 [RequireComponent(typeof(AudioSource))]
 public class LabDetector : InteractableItem {
     [SerializeField] private GameObject labActiveUI;
-    [SerializeField] private CinemachineVirtualCamera virtualCamera;
     [SerializeField] private bool isActive = false;
     private string title = "斜面上静摩擦和动摩擦";
     private string introduction = "这是一个模拟箱子被绳子拉着沿着水平面移动的过程。学生可以通过模拟来探索静摩擦和动摩擦的影响，以及它们与表面法向力的关系。";
@@ -27,6 +26,7 @@ public class LabDetector : InteractableItem {
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private GameObject interationUI;
     [SerializeField] private GameObject finishUI;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     public bool IsFocus {
         get => isFocus;
@@ -88,7 +88,7 @@ public class LabDetector : InteractableItem {
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
         personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
         personCameraController.Cursor.SetActive(false);
-        this.virtualCamera.gameObject.SetActive(true);
+        virtualCamera.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

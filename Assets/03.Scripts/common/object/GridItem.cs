@@ -5,10 +5,13 @@ using UnityEngine.UI;
 public class GridItem : MonoBehaviour {
     public Image displayIcon;
     private float originalAlpha;
-    [Range(0f, 1f)] public float targetAlpha = 0.5f;
+    [Range(0f, 1f)] public float targetAlpha = 1.0f;
     [SerializeField] private bool isActive = false;
 
-    public bool IsActive => isActive;
+    public bool IsActive {
+        get => isActive;
+        set => isActive = value;
+    }
 
     private void Awake() {
         this.displayIcon = this.GetComponent<Image>();

@@ -3629,8 +3629,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866854673}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.14971763, y: -0.691075, z: 0.14971763, w: -0.691075}
-  m_LocalPosition: {x: 1.773, y: 1.577, z: 0.06400001}
+  m_LocalRotation: {x: 0.12211167, y: 0.7348612, z: -0.13745783, w: 0.65281934}
+  m_LocalPosition: {x: 1.8581609, y: 1.5091879, z: 0.115796745}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31563,7 +31563,6 @@ MonoBehaviour:
   monologues: []
   currentMonologueIdx: 0
   labActiveUI: {fileID: 1599631393839646913}
-  virtualCamera: {fileID: 5018918444433024066}
   isActive: 0
   gameManager: {fileID: 0}
   isFocus: 0
@@ -31578,6 +31577,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   interationUI: {fileID: 6453591591516552339}
   finishUI: {fileID: 7493443825746794839}
+  virtualCamera: {fileID: 5018918444433024066}
 --- !u!4 &2895858973707803660
 Transform:
   m_ObjectHideFlags: 0
@@ -31836,11 +31836,11 @@ Transform:
   m_Children:
   - {fileID: 608798973022081807}
   - {fileID: 8046799623504471350}
-  - {fileID: 8006015267296993013}
   - {fileID: 959086427903786689}
   - {fileID: 1260453921374792932}
   - {fileID: 4253854069365547936}
   - {fileID: 4810791961159714030}
+  - {fileID: 8006015267296993013}
   - {fileID: 5535583084275083548}
   - {fileID: 4086671346860802814}
   m_Father: {fileID: 4804852704873853999}
@@ -36128,7 +36128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2924908571985698161}
   m_Layer: 0
-  m_Name: ExpObj
+  m_Name: ExpItems
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37044,7 +37044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   displayIcon: {fileID: 0}
-  targetAlpha: 0.3
+  targetAlpha: 1
   isActive: 0
 --- !u!136 &3648513017845500557
 CapsuleCollider:
@@ -41341,6 +41341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridItem: {fileID: 3647497079763351260}
+  labItem0101Cube: {fileID: 6233694340342218821}
 --- !u!4 &4249108580160204263
 Transform:
   m_ObjectHideFlags: 0
@@ -41459,7 +41460,6 @@ MonoBehaviour:
   monologues: []
   currentMonologueIdx: 0
   labActiveUI: {fileID: 8297828811809929250}
-  virtualCamera: {fileID: 894176498763489106}
   isActive: 0
   gameManager: {fileID: 0}
   isFocus: 0
@@ -41476,6 +41476,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   interationUI: {fileID: 9068678700030084336}
   finishUI: {fileID: 4824527017430250252}
+  virtualCamera: {fileID: 894176498763489106}
 --- !u!23 &4279428495175443323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -48189,7 +48190,7 @@ GameObject:
   - component: {fileID: 8653591463384188681}
   - component: {fileID: 6233694340342218821}
   m_Layer: 0
-  m_Name: Cube (1)
+  m_Name: LabCube
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56223,7 +56224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   labItem0101SlopePoint: {fileID: 4244890466298298962}
-  displayIcon: {fileID: 3647497079763351260}
+  gridItem: {fileID: 3647497079763351260}
 --- !u!114 &6235928142519299765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62049,8 +62050,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3871439946445763489}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14971763, y: -0.691075, z: 0.14971763, w: 0.691075}
-  m_LocalPosition: {x: -0.236, y: 1.577, z: -0.512}
+  m_LocalRotation: {x: -0.13745783, y: 0.65281934, z: -0.12211167, w: -0.7348612}
+  m_LocalPosition: {x: -0.3211609, y: 1.5091879, z: -0.56379676}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62059,7 +62060,7 @@ Transform:
   - {fileID: 5803716026981995345}
   - {fileID: 4084483469167031192}
   m_Father: {fileID: 4804852704873853999}
-  m_LocalEulerAnglesHint: {x: 24.448, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -129.465, z: 0}
 --- !u!23 &7014328602936091951
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -72382,7 +72383,7 @@ GameObject:
   - component: {fileID: 4244890466298298962}
   - component: {fileID: 3151577044104401222}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: LabSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -40558,7 +40558,6 @@ MonoBehaviour:
   monologues: []
   currentMonologueIdx: 0
   labActiveUI: {fileID: 509999879}
-  virtualCamera: {fileID: 8876333016616281443}
   isActive: 0
   gameManager: {fileID: 0}
   isFocus: 0
@@ -40571,6 +40570,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   interationUI: {fileID: 8485860400140343111}
   finishUI: {fileID: 792479176}
+  virtualCamera: {fileID: 8876333016616281443}
 --- !u!114 &96833695448831482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41086,27 +41086,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &823909507638653178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669627110311531358}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.66, y: 0.38, z: 0.75}
-  m_Center: {x: -1.398797e-15, y: 0.108504266, z: -0.11782825}
 --- !u!4 &847027286797284078
 Transform:
   m_ObjectHideFlags: 0
@@ -41857,7 +41836,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.43686298, y: 0.2017534, z: 0.27996272}
+  m_Size: {x: 1.7, y: 1.3, z: 1}
   m_Center: {x: -0.010543317, y: 0.100988455, z: 0.009759665}
 --- !u!1 &1981347925685088834
 GameObject:
@@ -43600,7 +43579,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.0064020664, y: 0.10197698, z: 0.09817135}
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
   m_Center: {x: 0.052837163, y: 0.045169003, z: 0.050471306}
 --- !u!23 &4608780700291702442
 MeshRenderer:
@@ -43672,9 +43651,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5696963645395409785}
-  - component: {fileID: 823909507638653178}
   - component: {fileID: 57988162982458016}
-  - component: {fileID: 8581253380767676858}
   m_Layer: 0
   m_Name: "\u5B66\u751F\u7535\u6E90"
   m_TagString: Untagged
@@ -46133,20 +46110,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8581253380767676858
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4669627110311531358}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe255b1c8ae24ea89945d58c2d585fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  labDetector: {fileID: 89249892556536022}
-  objectCamera: {fileID: 0}
 --- !u!33 &8616696701467060761
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(LabObject))]
 public class LabItem0101SlopePoint : LabItem {
     [SerializeField] private GridItem gridItem;
+    [SerializeField] private LabItem0101Cube labItem0101Cube;
     
     private void Update() {
         this.CheckMouseButton();
@@ -30,8 +31,12 @@ public class LabItem0101SlopePoint : LabItem {
     } 
     
     protected override void TakeOnAction() {
-        this.gameObject.SetActive(false);
+        this.gridItem.IsActive = false;
         this.gridItem.gameObject.SetActive(false);
+        this.labObject.LabDetector.IsFocus = false;
+        this.labItem0101Cube.GetComponent<MeshRenderer>().enabled = true;
+        this.labItem0101Cube.enabled = true;
+        this.gameObject.SetActive(false);
         base.TakeOnAction();
     }
 }
