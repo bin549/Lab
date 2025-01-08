@@ -27,9 +27,10 @@ public class InteractableDetector : MonoBehaviour {
         }
     }
 
-    private void OnInteract(RaycastHit hit) {
+    private void OnInteract(RaycastHit hit) { 
         if (hit.transform.GetComponent<BulletinBoard>()) {
             GameObject.FindObjectOfType<GameManager>().IsBusy = true;
+            GameObject.FindObjectOfType<PersonCameraController>().Cursor.SetActive(false);
             BulletinBoard bulletinBoard = hit.transform.GetComponent<BulletinBoard>();
             bulletinBoard.DisplayBulletin(bulletinBoard.BulletinPrefab.activeSelf);
         } else if (hit.transform.GetComponent<Door>()) {

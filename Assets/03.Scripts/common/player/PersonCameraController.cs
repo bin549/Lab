@@ -8,6 +8,11 @@ public class PersonCameraController : MonoBehaviour {
     private GameManager gameManager;
     private GameObject cursor;
 
+    public GameObject Cursor {
+        get => cursor;
+        set => cursor = value;
+    }
+
     private void Awake() {
         this.gameManager = GameObject.FindObjectOfType<GameManager>();
         this.firstPersonController = this.GetComponent<FirstPersonController>();
@@ -35,6 +40,7 @@ public class PersonCameraController : MonoBehaviour {
     }
 
     public void HideCamera() {
+        this.cursor.SetActive(false);
         this.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
     }
 

@@ -74,8 +74,9 @@ public class BulletinBoard : InteractableItem {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             this.DisplayBulletin(false);
-            GameObject.FindObjectOfType<PersonCameraController>().GetPersonController().mPlayerCamera.gameObject
-                .SetActive(true);
+            PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
+            personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(true);
+            personCameraController.Cursor.SetActive(true);
             StartCoroutine(this.DisableBusyStatus());
         }
     }

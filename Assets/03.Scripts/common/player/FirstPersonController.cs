@@ -9,6 +9,7 @@ public class FirstPersonController : PersonController {
     [SerializeField] private float mMouseResetDeadzone = 0.1f;
     private CharacterController mCharacterController = null;
     private float mRotationX = 0;
+    private float initialYPosition;
 
     protected override void Awake() {
         base.Awake();
@@ -17,6 +18,10 @@ public class FirstPersonController : PersonController {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         base.SetInputEnabled(true);
+    }
+
+    private void Start() {
+        this.initialYPosition = transform.position.y;
     }
 
     private void Update() {
@@ -31,7 +36,10 @@ public class FirstPersonController : PersonController {
         Vector2 inputDir = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * mMoveSpeed;
         base.playerAnimate.UpdateSpeed(inputDir.magnitude);
         Vector3 moveDir = (transform.forward * inputDir.x) + (transform.right * inputDir.y);
-        this.mCharacterController.Move(moveDir * Time.deltaTime);
+        this.mCharacterController.Move(new Vector3(moveDir.x, 0, moveDir.z) * Time.deltaTime);
+        Vector3 newPosition = transform.position;
+        newPosition.y = initialYPosition;
+        transform.position = newPosition;
         Vector2 mouseInput = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
         if (mouseInput.magnitude < mMouseResetDeadzone) {
             this.mReset = true;

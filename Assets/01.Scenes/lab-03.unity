@@ -4800,6 +4800,10 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1229116041}
+    - target: {fileID: 688837406034272829, guid: 3226672328b204e698c8b34004a1ef38, type: 3}
+      propertyPath: m_YAxis.m_AccelTime
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2308426741107114443, guid: 3226672328b204e698c8b34004a1ef38, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.13466361
@@ -13942,6 +13946,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5522902485621559452, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
+      propertyPath: m_Radius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5726375582707527755, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
       propertyPath: mainCamera
       value: 
@@ -16433,7 +16441,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1112372617356069660, guid: f2c62df7b279046338a97faa3009eb5b, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8936934794340167817, guid: f2c62df7b279046338a97faa3009eb5b, type: 3}
     - {fileID: 2860660577425249749, guid: f2c62df7b279046338a97faa3009eb5b, type: 3}
@@ -17131,6 +17140,18 @@ PrefabInstance:
     - target: {fileID: 4046474981989839632, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
       propertyPath: m_Name
       value: UICanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161386138621359144, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161386138621359144, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4161386138621359144, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7797951434406163048, guid: ed7a0a7f2d8784af188c5fb1f4ac0495, type: 3}
       propertyPath: m_IsActive
@@ -23799,7 +23820,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.16
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3031645174841098062
 GameObject:

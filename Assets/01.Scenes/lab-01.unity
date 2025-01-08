@@ -2057,6 +2057,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1112372617356069660, guid: f2c62df7b279046338a97faa3009eb5b, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8897657115872524617, guid: f2c62df7b279046338a97faa3009eb5b, type: 3}
       propertyPath: m_Name
       value: SceneTransition
@@ -2381,6 +2385,14 @@ PrefabInstance:
     - target: {fileID: 5071395121294800536, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5407750397822707722, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
+      propertyPath: m_Radius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5522902485621559452, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
+      propertyPath: m_Radius
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5726375582707527755, guid: 018e1c95e02ba4902b90cc56cdeada64, type: 3}
       propertyPath: mainCamera
@@ -8465,15 +8477,27 @@ PrefabInstance:
     m_TransformParent: {fileID: 1967629342}
     m_Modifications:
     - target: {fileID: 630551336347691038, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 630551336347691038, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_fontAsset
       value: 
       objectReference: {fileID: 11400000, guid: b7823ffb6c7634f229c90131b788d9d9, type: 2}
+    - target: {fileID: 630551336347691038, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 630551336347691038, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7615830114131199194, guid: b7823ffb6c7634f229c90131b788d9d9, type: 2}
     - target: {fileID: 630551336347691038, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2120683125547908480, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
@@ -8502,7 +8526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -2132.402
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8550,11 +8574,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -939.9477
+      value: -0.000061035156
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 235.43729
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2338157387515378358, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -8571,6 +8595,10 @@ PrefabInstance:
     - target: {fileID: 4710135116520978651, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
       propertyPath: m_Name
       value: Monologue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710135116520978651, guid: 7c87ee0969cf545828149752c186b63c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8762,7 +8790,11 @@ PrefabInstance:
       objectReference: {fileID: 637405075}
     - target: {fileID: 688837406034272829, guid: 3226672328b204e698c8b34004a1ef38, type: 3}
       propertyPath: m_Rigs.Array.size
-      value: 0
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 688837406034272829, guid: 3226672328b204e698c8b34004a1ef38, type: 3}
+      propertyPath: m_YAxis.m_AccelTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2308426741107114443, guid: 3226672328b204e698c8b34004a1ef38, type: 3}
       propertyPath: m_LocalPosition.x
