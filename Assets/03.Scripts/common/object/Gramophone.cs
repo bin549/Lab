@@ -39,4 +39,9 @@ public class Gramophone : InteractableItem {
         yield return new WaitForSeconds(1.0f);
         this.audioSource.Play();
     }
+
+
+    public void MutePlayer(bool mute) {
+        this.audioSource.volume = !mute ? 1 : 0;
+    }
 }

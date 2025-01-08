@@ -58,7 +58,7 @@ public class LabDetector : InteractableItem {
     }
 
     private void Start() {
-        this.virtualCamera.gameObject.SetActive(false);
+        this.virtualCamera.enabled = false;
     }
 
     protected override void Update() {
@@ -85,10 +85,11 @@ public class LabDetector : InteractableItem {
         this.gameManager.IsBusy = true;
         this.labActiveUI.SetActive(true);
         this.interationUI.gameObject.SetActive(false);
+        this.gameManager.MuteFootsteps(true);
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
         personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
         personCameraController.Cursor.SetActive(false);
-        virtualCamera.gameObject.SetActive(true);
+        this.virtualCamera.enabled = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -97,10 +98,11 @@ public class LabDetector : InteractableItem {
         this.labActiveUI.SetActive(false);
         this.interationUI.gameObject.SetActive(true);
         StartCoroutine(this.DisableBusy());
+        this.gameManager.MuteFootsteps(false);
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
         personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(true);
         personCameraController.Cursor.SetActive(true);
-        this.virtualCamera.gameObject.SetActive(false);
+        this.virtualCamera.enabled = false;
         this.IsActive = false;
         this.isFinish = isFinish;
         Cursor.visible = false;

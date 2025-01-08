@@ -46,19 +46,31 @@ public class LabObject : MonoBehaviour {
         }
     }
 
+    private void SetFocusCamera(bool isFocus) {
+        if (this.objectCamera == null || this.labDetector.VirtualCamera == null) {
+            Debug.LogError("Camera or VirtualCamera is null.");
+            return;
+        }
+        if (isFocus) {
+            this.objectCamera.enabled = true;
+            this.objectCamera.Priority = 10;
+            this.labDetector.VirtualCamera.Priority = 0;
+            this.labDetector.VirtualCamera.enabled = false;
+        } else {
+            this.objectCamera.Priority = 0;
+            this.objectCamera.enabled = false;
+            this.labDetector.VirtualCamera.enabled = true;
+            this.labDetector.VirtualCamera.Priority = 10;
+        }
+    }
+
     public void HiddenObject() {
-        this.objectCamera.Priority = 0;
-        this.objectCamera.gameObject.SetActive(false);
-        this.labDetector.VirtualCamera.gameObject.SetActive(true);
-        this.labDetector.VirtualCamera.Priority = 10;
+        this.SetFocusCamera(false);
         this.labDetector.IsFocus = false;
     }
     
     public void OnDoubleClick() {
-        this.labDetector.VirtualCamera.gameObject.SetActive(false);
-        this.objectCamera.gameObject.SetActive(true);
-        this.objectCamera.Priority = 10;
-        this.labDetector.VirtualCamera.Priority = 0;
+        this.SetFocusCamera(true);
         StartCoroutine(this.EnableActive());
     }
 

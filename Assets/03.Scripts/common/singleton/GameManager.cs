@@ -80,4 +80,8 @@ public class GameManager : MonoBehaviour {
                 break;
         }
     }
+
+    public void MuteFootsteps(bool isMute) {
+        GameObject.FindObjectOfType<PlayerFootsteps>(true).enabled = !isMute;
+    }
 }

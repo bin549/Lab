@@ -11,6 +11,10 @@ public class SoundRecorder : InteractableItem {
         this.audioSource = GetComponent<AudioSource>();
     }
 
+    public void MutePlayer(bool mute) {
+        this.audioSource.volume = !mute ? 1 : 0;
+    }
+
     private void Start() {
         this.audioSource.clip = this.audioClip;
         base.interactableObject.DetectedText.text = "播放";

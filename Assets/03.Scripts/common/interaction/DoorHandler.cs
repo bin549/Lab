@@ -19,6 +19,15 @@ public class DoorHandler : MonoBehaviour {
     public void ChangeScene(Door door) {
         this.isTeleport = true;
         this.personCameraController.HideCamera();
+        SoundRecorder soundRecorder = FindObjectOfType<SoundRecorder>(true);
+        if (soundRecorder) {
+            soundRecorder.MutePlayer(true);
+        }
+        Gramophone gramophone = FindObjectOfType<Gramophone>(true);
+        if (gramophone) {
+            gramophone.MutePlayer(true);
+        }
+
         if (this.skyBoxObj) {
             this.skyBoxObj.gameObject.SetActive(false);
         }

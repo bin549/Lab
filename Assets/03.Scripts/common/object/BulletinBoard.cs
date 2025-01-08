@@ -1,4 +1,5 @@
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 
 public class BulletinBoard : InteractableItem {
@@ -10,10 +11,12 @@ public class BulletinBoard : InteractableItem {
     private Camera mainCamera;
     [SerializeField] private GameObject vfxObject;
     [SerializeField] private GameObject uiObject;
+    [SerializeField] private GameManager gameManager;
 
     protected override void Awake() {
         base.Awake();
         this.mainCamera = Camera.main;
+        this.gameManager = GameObject.FindObjectOfType<GameManager>();
     }
 
     protected override void Update() {
@@ -25,7 +28,8 @@ public class BulletinBoard : InteractableItem {
 
     public void DisplayBulletin(bool isDisplay) {
         base.isInteracting = isDisplay;
-        if (GameObject.FindObjectOfType<GameManager>().IsFirstPersonView) {
+        if (this.gameManager.IsFirstPersonView) {
+            this.gameManager.MuteFootsteps(true);
             GameObject.FindObjectOfType<PersonCameraController>().Cursor.SetActive(!isDisplay);
         }
         this.bulletinPrefab.SetActive(isDisplay);
@@ -59,11 +63,17 @@ public class BulletinBoard : InteractableItem {
             this.vfxObject.SetActive(false);
             this.uiObject.SetActive(false);
         }
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        GameObject.FindObjectOfType<GameManager>().IsBusy = true;
+        this.gameManager.IsBusy = true;
         PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
-        personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(false);
+        if (this.gameManager.IsFirstPersonView) {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        } else {
+            CinemachineFreeLook freeLookCamera =
+                personCameraController.GetPersonController().mPlayerCamera as CinemachineFreeLook;
+            freeLookCamera.m_XAxis.m_MaxSpeed = 0f;
+            freeLookCamera.m_YAxis.m_MaxSpeed = 0f; 
+        }
         this.DisplayBulletin(true);
     }
 
@@ -75,11 +85,17 @@ public class BulletinBoard : InteractableItem {
             if (!this.isVoiceCheck) {
                 base.DeactiveAction();
             }
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
             this.DisplayBulletin(false);
-            PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
-            personCameraController.GetPersonController().mPlayerCamera.gameObject.SetActive(true);
+            this.gameManager.MuteFootsteps(false);
+            if (this.gameManager.IsFirstPersonView) {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            } else {
+                PersonCameraController personCameraController = GameObject.FindObjectOfType<PersonCameraController>();
+                CinemachineFreeLook freeLookCamera = personCameraController.GetPersonController().mPlayerCamera as CinemachineFreeLook;
+                freeLookCamera.m_XAxis.m_MaxSpeed = 900f;
+                freeLookCamera.m_YAxis.m_MaxSpeed = 20f; 
+            }
             StartCoroutine(this.DisableBusyStatus());
         }
     }
